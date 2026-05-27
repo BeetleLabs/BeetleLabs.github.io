@@ -891,10 +891,13 @@
             transform: translate(-50%, -50%);
             transition: transform 0.12s, width 0.3s var(--easing), height 0.3s var(--easing), border-color 0.3s;
         }
+        .nav-logo-beetle img {height: 2rem}
+
 
         [data-theme="light"] .cursor { mix-blend-mode: multiply; }
 
         @media (max-width: 900px) {
+            .nav-logo-beetle img {height: 1rem}
             nav { padding: 1.25rem 1.5rem; }
             .nav-links { display: none; }
             .nav-right .btn-primary { display: none; }
@@ -927,7 +930,7 @@
 <!-- NAV -->
 <nav id="main-nav">
     <a href="#" class="nav-logo">
-        <span class="nav-logo-beetle"><img class="beetle" src="assets/img/textlogo.png" alt="" style="height: 2rem"></span>
+        <span class="nav-logo-beetle"><img class="beetle" src="assets/img/textlogo.png" alt=""></span>
         <!--<span class="nav-logo-text">Beetle Labs Inc.</span>-->
     </a>
     <ul class="nav-links">
