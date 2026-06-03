@@ -920,7 +920,7 @@
             nav { padding: 1.25rem 1.5rem; }
             .nav-links { display: none; }
             .nav-right .btn-primary { display: none; }
-            /*.menu-toggle { display: flex; }*/
+            .menu-toggle { display: flex; }
             .hero { padding: 6rem 1.5rem 4rem; }
             .container, .statement, .services-header, .service-grid, .process-inner,
             .industries-inner, .metrics-inner, .partners-label, footer {
