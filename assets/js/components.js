@@ -20,20 +20,53 @@
       .catch(err => console.warn('Component load failed:', url, err));
   }
 
-  // Mark active nav link based on current page
+  // Mark active nav link based on current page.
+  // Page-level links (point to this page, no in-page hash) are marked here;
+  // same-page section links (e.g. /#services) are handled by initScrollSpy().
   function setActiveNav() {
     const path = window.location.pathname.replace(/\/$/, '') || '/';
     document.querySelectorAll('#main-nav .nav-links a').forEach(a => {
-      const href = new URL(a.href).pathname.replace(/\/$/, '') || '/';
-      // Exact match, or hash-only links on the homepage
-      if (href === path || (path === '/' && href === '')) {
-        a.classList.add('active');
-      }
-      // solutions.html gets its own active state
-      if (path.includes('solutions') && a.href.includes('solutions')) {
+      const url  = new URL(a.href);
+      const href = url.pathname.replace(/\/$/, '') || '/';
+      if (href === path && !url.hash && path !== '/') {
         a.classList.add('active');
       }
     });
+  }
+
+  // Scroll-spy: highlight the nav link for the section currently in view.
+  // Only applies to nav links whose hash target exists on the current page.
+  function initScrollSpy() {
+    const nav = document.getElementById('main-nav');
+    if (!nav) return;
+    const path = window.location.pathname.replace(/\/$/, '') || '/';
+
+    const items = [];
+    nav.querySelectorAll('.nav-links a').forEach(link => {
+      const url      = new URL(link.href);
+      const linkPath = url.pathname.replace(/\/$/, '') || '/';
+      if (url.hash && linkPath === path) {
+        const section = document.querySelector(url.hash);
+        if (section) items.push({ link, section });
+      }
+    });
+    if (!items.length) return;
+
+    function update() {
+      const pos = window.scrollY + 120; // offset for the fixed nav
+      let active = null;
+      items.forEach(item => {
+        if (item.section.offsetTop <= pos) active = item;
+      });
+      // Snap to the last section once scrolled to the very bottom
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
+        active = items[items.length - 1];
+      }
+      items.forEach(item => item.link.classList.toggle('active', item === active));
+    }
+
+    update();
+    window.addEventListener('scroll', update, { passive: true });
   }
 
   // ── 2. THEME TOGGLE ────────────────────────────────────────
@@ -251,6 +284,7 @@
       loaded++;
       if (loaded === total) {
         setActiveNav();
+        initScrollSpy();   // section highlighting on scroll
         initTheme();       // theme after header is in DOM
         initNavScroll();
         initMobileMenu();

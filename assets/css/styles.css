@@ -122,6 +122,9 @@
 
         .nav-links a:hover { color: var(--text); }
 
+        /* Active section — highlights the nav item for the page you're on */
+        .nav-links a.active { color: var(--accent); }
+
         .nav-right {
             display: flex;
             align-items: center;
@@ -601,7 +604,8 @@
             font-size: 10px;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: var(--text-dim);
+            /* color: var(--text-dim);  */
+            color: var(--accent);
             text-decoration: none;
             transition: color 0.25s, gap 0.25s;
             border-bottom: 1px solid transparent;
@@ -1037,7 +1041,9 @@
             display: flex;
             flex-direction: column;
             gap: 4px;
-            cursor: default;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
             transition: background 0.2s;
         }
 
@@ -1072,6 +1078,7 @@
             border-top: 1px solid var(--border);
             position: relative;
             z-index: 1;
+            scroll-margin-top: 90px;
         }
 
         .chapter-header {
