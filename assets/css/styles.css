@@ -829,8 +829,13 @@
             width: 22px;
             height: 1px;
             background: var(--text-muted);
-            transition: all 0.3s;
+            transition: transform 0.3s var(--easing), opacity 0.2s var(--easing);
         }
+
+        /* Animate hamburger into an X while the menu is open */
+        .menu-toggle.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+        .menu-toggle.open span:nth-child(2) { opacity: 0; }
+        .menu-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
         /* ── ANIMATIONS ── */
         @keyframes fadeUp {
@@ -918,9 +923,53 @@
         @media (max-width: 900px) {
             .nav-logo-beetle img {height: 1.5rem}
             nav { padding: 1.25rem 1.5rem; }
-            .nav-links { display: none; }
             .nav-right .btn-primary { display: none; }
             .menu-toggle { display: flex; }
+
+            /* Mobile dropdown — transparent, blurred, gracefully animated */
+            .nav-links {
+                position: fixed;
+                top: 64px;
+                left: 1.5rem;
+                right: 1.5rem;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 0.5rem 0;
+                background: rgba(10,10,10,0.55);
+                backdrop-filter: blur(24px) saturate(140%);
+                -webkit-backdrop-filter: blur(24px) saturate(140%);
+                border: 1px solid var(--border);
+                border-radius: 14px;
+                box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+                z-index: 99;
+                /* hidden state */
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px) scale(0.98);
+                transform-origin: top right;
+                transition: opacity 0.28s var(--easing),
+                            transform 0.28s var(--easing),
+                            visibility 0.28s var(--easing);
+            }
+
+            [data-theme="light"] .nav-links {
+                background: rgba(247,245,240,0.7);
+            }
+
+            .nav-links.open {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0) scale(1);
+            }
+
+            .nav-links li { width: 100%; }
+
+            .nav-links a {
+                display: block;
+                padding: 0.9rem 1.5rem;
+                font-size: 14px;
+            }
             .hero { padding: 6rem 1.5rem 4rem; }
             .container, .statement, .services-header, .service-grid, .process-inner,
             .industries-inner, .metrics-inner, .partners-label, footer {

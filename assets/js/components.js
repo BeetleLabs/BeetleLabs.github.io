@@ -82,19 +82,33 @@
     const btn   = document.getElementById('menu-toggle');
     const links = document.querySelector('.nav-links');
     if (!btn || !links) return;
-    btn.addEventListener('click', () => {
-      const open = links.style.display === 'flex';
-      links.style.display = open ? '' : 'flex';
-      links.style.flexDirection = 'column';
-      links.style.position = 'absolute';
-      links.style.top = '72px';
-      links.style.left = '0';
-      links.style.right = '0';
-      links.style.background = 'var(--bg2)';
-      links.style.padding = '1.5rem 2rem';
-      links.style.borderBottom = '1px solid var(--border)';
-      links.style.zIndex = '99';
-      if (open) links.removeAttribute('style');
+
+    function close() {
+      links.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+    function toggle() {
+      const willOpen = !links.classList.contains('open');
+      links.classList.toggle('open', willOpen);
+      btn.classList.toggle('open', willOpen);
+      btn.setAttribute('aria-expanded', String(willOpen));
+    }
+
+    btn.addEventListener('click', e => { e.stopPropagation(); toggle(); });
+
+    // Auto-close after picking an option
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+
+    // Tap/click anywhere outside the menu closes it
+    document.addEventListener('click', e => {
+      if (!links.classList.contains('open')) return;
+      if (!links.contains(e.target) && !btn.contains(e.target)) close();
+    });
+
+    // Escape closes it too
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') close();
     });
   }
 
