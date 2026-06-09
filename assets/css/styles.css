@@ -817,6 +817,34 @@
 
         .footer-links a:hover { color: var(--text-muted); }
 
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: color 0.25s var(--easing),
+                        border-color 0.25s var(--easing),
+                        background 0.25s var(--easing),
+                        transform 0.25s var(--easing);
+        }
+
+        .social-btn:hover {
+            color: var(--accent);
+            border-color: var(--border-hover);
+            background: var(--surface);
+            transform: translateY(-2px);
+        }
+
         /* ── MOBILE NAV ── */
         .menu-toggle {
             display: none;
