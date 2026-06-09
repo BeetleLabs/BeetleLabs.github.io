@@ -947,13 +947,19 @@
             transform: translate(-50%, -50%);
             transition: transform 0.12s, width 0.3s var(--easing), height 0.3s var(--easing), border-color 0.3s;
         }
-        .nav-logo-beetle img {height: 2rem}
+        .nav-logo-beetle img {height: 3.45rem}
+
+        /* Theme-aware logo swap: light artwork on dark theme, dark artwork on light theme */
+        .logo-dark { display: none; }
+        .logo-light { display: inline-block; }
+        [data-theme="light"] .logo-light { display: none; }
+        [data-theme="light"] .logo-dark { display: inline-block; }
 
 
         [data-theme="light"] .cursor { mix-blend-mode: multiply; }
 
         @media (max-width: 900px) {
-            .nav-logo-beetle img {height: 1.5rem}
+            .nav-logo-beetle img {height: 2.65rem}
             nav { padding: 1.25rem 1.5rem; }
             .nav-right .btn-primary { display: none; }
             .menu-toggle { display: flex; }
