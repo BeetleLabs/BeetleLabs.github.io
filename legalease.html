@@ -3,220 +3,131 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LegalEase · Build Playbook · Beetle Labs</title>
+<title>LegalEase · Build Playbook v2 · Beetle Labs</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F9F9F6;
-    --paper-2:#FFFFFF;
-    --ink:#1b1c1a;
-    --ink-soft:#4c4f49;
-    --ink-faint:#7a7d76;
-    --line:#e2e3dd;
-    --line-strong:#d2d4cc;
-    --accent:#1f5c46;
-    --accent-2:#2f7d60;
-    --accent-tint:#eaf1ec;
-    --warn:#8f5410;
-    --warn-tint:#f7efe2;
-    --sidebar:#17201b;
-    --sidebar-soft:#c8ccc4;
-    --sidebar-faint:#7f877e;
-    --sidebar-active:#8fc9ac;
+    --paper:#F9F9F6; --paper-2:#FFFFFF;
+    --ink:#1b1c1a; --ink-soft:#4c4f49; --ink-faint:#7a7d76;
+    --line:#e2e3dd; --line-strong:#d2d4cc;
+    --accent:#1f5c46; --accent-2:#2f7d60; --accent-tint:#eaf1ec;
+    --warn:#8f5410; --warn-tint:#f7efe2;
+    --later:#3f5a72; --later-tint:#eef1f4; --later-line:#d3dae1;
+    --sidebar:#17201b; --sidebar-soft:#c8ccc4; --sidebar-faint:#7f877e; --sidebar-active:#8fc9ac;
     --maxw:730px;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
+  body{margin:0;background:var(--paper);color:var(--ink);
     font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    font-size:17px;
-    line-height:1.68;
-    -webkit-font-smoothing:antialiased;
-  }
-
-  /* ---------- Layout ---------- */
+    font-size:17px;line-height:1.68;-webkit-font-smoothing:antialiased;}
   .layout{display:flex;align-items:flex-start;}
-  .sidebar{
-    position:sticky;top:0;
-    width:290px;min-width:290px;height:100vh;
-    background:var(--sidebar);
-    color:var(--sidebar-soft);
-    overflow-y:auto;
-    padding:34px 26px 60px;
-    border-right:1px solid #0d1410;
-  }
-  .content{
-    flex:1;
-    min-width:0;
-    padding:0 46px;
-  }
+  .sidebar{position:sticky;top:0;width:298px;min-width:298px;height:100vh;
+    background:var(--sidebar);color:var(--sidebar-soft);overflow-y:auto;
+    padding:34px 24px 60px;border-right:1px solid #0d1410;}
+  .content{flex:1;min-width:0;padding:0 46px;}
   .content-inner{max-width:var(--maxw);margin:0 auto;padding:70px 0 140px;}
-
-  /* ---------- Sidebar ---------- */
   .brand{display:flex;align-items:center;gap:11px;margin-bottom:6px;}
-  .brand-mark{
-    width:26px;height:26px;border-radius:6px;
-    background:var(--accent);flex:none;
-    display:flex;align-items:center;justify-content:center;
-    color:#fff;font-family:"Fraunces",serif;font-weight:600;font-size:16px;
-  }
-  .brand-name{font-family:"Inter";font-weight:600;font-size:15px;color:#fff;letter-spacing:.2px;}
-  .brand-sub{
-    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--sidebar-faint);margin:16px 0 26px;
-  }
-  .nav-group{margin-bottom:22px;}
-  .nav-group-label{
-    font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.16em;
-    text-transform:uppercase;color:var(--sidebar-faint);margin-bottom:9px;padding-left:2px;
-  }
-  .nav a{
-    display:flex;gap:10px;align-items:baseline;
-    text-decoration:none;color:var(--sidebar-soft);
-    font-size:13.5px;line-height:1.4;padding:6px 8px;border-radius:6px;
-    transition:background .15s,color .15s;
-  }
-  .nav a .n{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--sidebar-faint);flex:none;min-width:20px;}
+  .brand-mark{width:26px;height:26px;border-radius:6px;background:var(--accent);flex:none;
+    display:flex;align-items:center;justify-content:center;color:#fff;
+    font-family:"Fraunces",serif;font-weight:600;font-size:16px;}
+  .brand-name{font-weight:600;font-size:15px;color:#fff;letter-spacing:.2px;}
+  .brand-sub{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--sidebar-faint);margin:16px 0 24px;}
+  .nav-group{margin-bottom:20px;}
+  .nav-group-label{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--sidebar-faint);margin-bottom:9px;padding-left:2px;}
+  .nav a{display:flex;gap:10px;align-items:baseline;text-decoration:none;color:var(--sidebar-soft);
+    font-size:13.3px;line-height:1.4;padding:6px 8px;border-radius:6px;transition:background .15s,color .15s;}
+  .nav a .n{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--sidebar-faint);flex:none;min-width:22px;}
   .nav a:hover{background:rgba(255,255,255,.05);color:#fff;}
   .nav a.active{background:rgba(143,201,172,.13);color:#fff;}
   .nav a.active .n{color:var(--sidebar-active);}
-
-  /* ---------- Mobile top bar ---------- */
   .topbar{display:none;}
-
-  /* ---------- Cover ---------- */
   .cover{border-bottom:1px solid var(--line);padding-bottom:44px;margin-bottom:8px;}
-  .eyebrow{
-    font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.18em;
-    text-transform:uppercase;color:var(--accent);margin-bottom:22px;
-  }
-  h1.cover-title{
-    font-family:"Fraunces",serif;font-weight:500;
-    font-size:58px;line-height:1.02;letter-spacing:-.015em;
-    margin:0 0 20px;color:var(--ink);
-  }
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent);margin-bottom:22px;}
+  h1.cover-title{font-family:"Fraunces",serif;font-weight:500;font-size:58px;line-height:1.02;
+    letter-spacing:-.015em;margin:0 0 20px;color:var(--ink);}
   .cover-lede{font-size:20px;line-height:1.55;color:var(--ink-soft);max-width:640px;margin:0 0 30px;}
-  .cover-meta{
-    display:flex;flex-wrap:wrap;gap:8px 26px;
-    font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-faint);
-    letter-spacing:.03em;padding-top:6px;
-  }
+  .cover-meta{display:flex;flex-wrap:wrap;gap:8px 26px;font-family:"IBM Plex Mono",monospace;
+    font-size:12px;color:var(--ink-faint);letter-spacing:.03em;padding-top:6px;}
   .cover-meta b{color:var(--ink);font-weight:500;}
-
-  /* ---------- Chapters ---------- */
   .chapter{padding-top:64px;scroll-margin-top:20px;}
-  .ch-num{
-    font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.16em;
-    color:var(--accent);text-transform:uppercase;margin-bottom:12px;
-    display:flex;align-items:center;gap:12px;
-  }
+  .part-head{padding-top:74px;margin-bottom:-24px;}
+  .part-head .part-k{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--accent);}
+  .part-head .part-t{font-family:"Fraunces",serif;font-style:italic;font-weight:400;font-size:26px;color:var(--ink-soft);margin-top:4px;}
+  .part-head .part-rule{height:2px;background:var(--accent);width:44px;margin-top:14px;}
+  .ch-num{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.16em;color:var(--accent);
+    text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:12px;}
   .ch-num::after{content:"";height:1px;flex:1;background:var(--line-strong);}
-  h2{
-    font-family:"Fraunces",serif;font-weight:500;font-size:34px;line-height:1.12;
-    letter-spacing:-.01em;margin:0 0 22px;color:var(--ink);
-  }
-  h3{
-    font-family:"Inter";font-weight:600;font-size:18.5px;line-height:1.35;
-    margin:38px 0 12px;color:var(--ink);
-  }
-  h4{
-    font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:12.5px;
-    letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);
-    margin:30px 0 10px;
-  }
+  h2{font-family:"Fraunces",serif;font-weight:500;font-size:34px;line-height:1.12;letter-spacing:-.01em;margin:0 0 22px;}
+  h3{font-weight:600;font-size:18.5px;line-height:1.35;margin:38px 0 12px;}
+  h4{font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:12.5px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--ink-faint);margin:30px 0 10px;}
   p{margin:0 0 16px;}
   a.inline{color:var(--accent);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;}
   strong{font-weight:600;color:var(--ink);}
-  em{font-style:italic;}
   ul,ol{margin:0 0 18px;padding-left:22px;}
   li{margin-bottom:9px;}
   li::marker{color:var(--accent);}
   .lede{font-size:19px;line-height:1.6;color:var(--ink-soft);margin-bottom:20px;}
-
-  /* ---------- Callouts ---------- */
   .box{border-radius:10px;padding:20px 22px;margin:24px 0;font-size:15.5px;line-height:1.6;}
   .box p:last-child{margin-bottom:0;}
-  .box .box-label{
-    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.13em;
-    text-transform:uppercase;font-weight:500;margin-bottom:8px;display:flex;align-items:center;gap:8px;
-  }
+  .box .box-label{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.13em;
+    text-transform:uppercase;font-weight:500;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
   .box-edge{background:var(--accent-tint);border:1px solid #cfe0d5;}
   .box-edge .box-label{color:var(--accent);}
   .box-must{background:var(--warn-tint);border:1px solid #ecdcbf;}
   .box-must .box-label{color:var(--warn);}
+  .box-later{background:var(--later-tint);border:1px solid var(--later-line);}
+  .box-later .box-label{color:var(--later);}
   .box-note{background:var(--paper-2);border:1px solid var(--line-strong);}
   .box-note .box-label{color:var(--ink-faint);}
   .sq{width:8px;height:8px;background:currentColor;display:inline-block;border-radius:1px;}
-
-  /* ---------- Copy-ready script ---------- */
-  .script{
-    background:#16211c;color:#e9ede7;border-radius:10px;
-    padding:20px 22px;margin:22px 0;font-family:"Inter";font-size:16px;line-height:1.55;
-  }
-  .script .script-label{
-    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.13em;
-    text-transform:uppercase;color:var(--sidebar-active);margin-bottom:10px;
-  }
+  .script{background:#16211c;color:#e9ede7;border-radius:10px;padding:20px 22px;margin:22px 0;font-size:16px;line-height:1.55;}
+  .script .script-label{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.13em;
+    text-transform:uppercase;color:var(--sidebar-active);margin-bottom:10px;}
   .script p{margin:0 0 12px;color:#dfe4dd;}
   .script p:last-child{margin-bottom:0;}
-  .script q, .script .q{color:#fff;font-style:italic;}
-
-  /* ---------- Tables ---------- */
+  .script .q{color:#fff;font-style:italic;}
   .table-wrap{overflow-x:auto;margin:24px 0;border:1px solid var(--line-strong);border-radius:10px;}
-  table{border-collapse:collapse;width:100%;font-size:14px;background:var(--paper-2);}
-  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.45;}
-  th{
-    font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;
-    text-transform:uppercase;color:var(--ink-faint);font-weight:500;background:#f3f3ef;
-  }
-  td b{font-weight:600;}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;background:var(--paper-2);}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.45;}
+  th{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--ink-faint);font-weight:500;background:#f3f3ef;}
   tr:last-child td{border-bottom:none;}
-  .tag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.05em;padding:2px 7px;border-radius:20px;white-space:nowrap;}
+  .tag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.05em;
+    padding:2px 7px;border-radius:20px;white-space:nowrap;}
   .tag-avoid{background:#f6e4e0;color:#8a3222;}
   .tag-watch{background:#f7efe2;color:var(--warn);}
   .tag-ally{background:var(--accent-tint);color:var(--accent);}
-
-  /* ---------- Flow / phases ---------- */
+  .tag-std{background:#e9e6f4;color:#5a4a86;}
   .phase{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);}
   .phase:last-child{border-bottom:none;}
-  .phase-n{
-    font-family:"Fraunces",serif;font-size:22px;color:var(--accent);font-weight:500;
-    flex:none;min-width:70px;line-height:1.2;
-  }
-  .phase-n small{display:block;font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.1em;color:var(--ink-faint);text-transform:uppercase;margin-top:2px;}
+  .phase-n{font-family:"Fraunces",serif;font-size:22px;color:var(--accent);font-weight:500;flex:none;min-width:74px;line-height:1.2;}
+  .phase-n small{display:block;font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.1em;
+    color:var(--ink-faint);text-transform:uppercase;margin-top:2px;}
   .phase-body{flex:1;}
   .phase-body b{display:block;margin-bottom:3px;}
   .phase-body span{font-size:14.5px;color:var(--ink-soft);}
-
-  /* ---------- Misc ---------- */
-  .pull{
-    font-family:"Fraunces",serif;font-weight:400;font-style:italic;
-    font-size:24px;line-height:1.4;color:var(--ink);
-    border-left:2px solid var(--accent);padding:4px 0 4px 22px;margin:28px 0;
-  }
-  .divider{height:1px;background:var(--line);margin:8px 0;}
+  .pull{font-family:"Fraunces",serif;font-weight:400;font-style:italic;font-size:24px;line-height:1.4;
+    color:var(--ink);border-left:2px solid var(--accent);padding:4px 0 4px 22px;margin:28px 0;}
   .footer{border-top:1px solid var(--line);margin-top:80px;padding-top:26px;font-size:13px;color:var(--ink-faint);line-height:1.6;}
   .footer b{color:var(--ink-soft);}
   .backtop{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);text-decoration:none;}
-
   @media (max-width:920px){
     .sidebar{display:none;}
-    .topbar{
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
-      position:sticky;top:0;z-index:40;background:var(--sidebar);color:#fff;
-      padding:13px 18px;border-bottom:1px solid #0d1410;
-    }
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:0;
+      z-index:40;background:var(--sidebar);color:#fff;padding:13px 18px;border-bottom:1px solid #0d1410;}
     .topbar .brand-name{font-size:14px;}
-    .menu-btn{background:rgba(255,255,255,.1);border:none;color:#fff;border-radius:6px;padding:7px 12px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;}
-    .drawer{
-      display:none;position:sticky;top:49px;z-index:39;background:var(--sidebar);
-      padding:16px 18px 24px;max-height:70vh;overflow-y:auto;border-bottom:1px solid #0d1410;
-    }
+    .menu-btn{background:rgba(255,255,255,.1);border:none;color:#fff;border-radius:6px;padding:7px 12px;
+      font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;}
+    .drawer{display:none;position:sticky;top:49px;z-index:39;background:var(--sidebar);padding:16px 18px 24px;
+      max-height:70vh;overflow-y:auto;border-bottom:1px solid #0d1410;}
     .drawer.open{display:block;}
     .content{padding:0 22px;}
     .content-inner{padding:40px 0 90px;}
@@ -230,64 +141,62 @@
 </head>
 <body>
 
-<!-- Mobile top bar -->
 <div class="topbar">
-  <div class="brand" style="margin:0;">
-    <div class="brand-mark">L</div>
-    <span class="brand-name">LegalEase Playbook</span>
-  </div>
+  <div class="brand" style="margin:0;"><div class="brand-mark">L</div><span class="brand-name">LegalEase Playbook</span></div>
   <button class="menu-btn" onclick="document.getElementById('drawer').classList.toggle('open')">Menu</button>
 </div>
 <nav class="drawer" id="drawer"></nav>
 
 <div class="layout">
-
-  <!-- Sidebar -->
   <aside class="sidebar">
-    <div class="brand">
-      <div class="brand-mark">L</div>
-      <span class="brand-name">LegalEase</span>
-    </div>
-    <div class="brand-sub">Build Playbook · Beetle Labs</div>
+    <div class="brand"><div class="brand-mark">L</div><span class="brand-name">LegalEase</span></div>
+    <div class="brand-sub">Build Playbook · v2 · Beetle Labs</div>
     <div class="nav" id="nav">
       <div class="nav-group">
-        <div class="nav-group-label">Context</div>
+        <div class="nav-group-label">I · Context &amp; strategy</div>
         <a href="#overview"><span class="n">00</span>What we are building</a>
         <a href="#strategy"><span class="n">01</span>Strategy &amp; positioning</a>
-        <a href="#market"><span class="n">02</span>Market study &amp; verdict</a>
-        <a href="#edge"><span class="n">03</span>Our edge</a>
+        <a href="#market"><span class="n">02</span>The market</a>
+        <a href="#gtm"><span class="n">03</span>Winning the corridor</a>
+        <a href="#edge"><span class="n">04</span>Our edge</a>
       </div>
       <div class="nav-group">
-        <div class="nav-group-label">The build</div>
-        <a href="#roadmap"><span class="n">04</span>Roadmap &amp; build vs buy</a>
-        <a href="#engine"><span class="n">05</span>The intake engine</a>
-        <a href="#registration"><span class="n">06</span>Registration &amp; mapping</a>
-        <a href="#review"><span class="n">07</span>Review &amp; transformation</a>
-        <a href="#vault"><span class="n">08</span>Data vault &amp; integrations</a>
+        <div class="nav-group-label">II · The build</div>
+        <a href="#roadmap"><span class="n">05</span>Roadmap &amp; sequencing</a>
+        <a href="#pdfarch"><span class="n">06</span>PDF fill &amp; hard forms</a>
+        <a href="#locks"><span class="n">07</span>The three document locks</a>
+        <a href="#engine"><span class="n">08</span>The intake engine</a>
+        <a href="#registration"><span class="n">09</span>Registration &amp; mapping</a>
+        <a href="#review"><span class="n">10</span>Review &amp; transformation</a>
+        <a href="#vault"><span class="n">11</span>Data vault &amp; integrations</a>
+        <a href="#buildnow"><span class="n">12</span>Build-now requirements</a>
       </div>
       <div class="nav-group">
-        <div class="nav-group-label">Commercial &amp; legal</div>
-        <a href="#pricing"><span class="n">09</span>Pricing</a>
-        <a href="#compliance"><span class="n">10</span>Data &amp; LSO compliance</a>
+        <div class="nav-group-label">III · Commercial &amp; legal</div>
+        <a href="#pricing"><span class="n">13</span>Pricing</a>
+        <a href="#compliance"><span class="n">14</span>Data &amp; LSO compliance</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-label">IV · Before we sell / scale</div>
+        <a href="#beforescale"><span class="n">15</span>Before we sell / scale</a>
       </div>
       <div class="nav-group">
         <div class="nav-group-label">Reference</div>
         <a href="#nonneg"><span class="n">A</span>Non-negotiables</a>
         <a href="#compendium"><span class="n">B</span>Competitor compendium</a>
-        <a href="#sources"><span class="n">C</span>Sources &amp; currency</a>
+        <a href="#lockref"><span class="n">C</span>Document-lock reference</a>
+        <a href="#sources"><span class="n">D</span>Sources &amp; currency</a>
       </div>
     </div>
   </aside>
 
-  <!-- Content -->
   <main class="content">
   <div class="content-inner">
 
-    <!-- COVER -->
     <header class="cover" id="overview">
-      <div class="eyebrow">Internal · Product &amp; Engineering</div>
+      <div class="eyebrow">Internal · Product &amp; Engineering · v2 near-final</div>
       <h1 class="cover-title">LegalEase</h1>
-      <p class="cover-lede">One AI-native intake engine that turns any legal form into a simple client conversation, and turns messy client answers into review-ready documents. Built for Canadian boutique firms. This playbook walks the team through the whole thing: the product, the market we are entering, the edge we hold, and the rules we build around.</p>
+      <p class="cover-lede">One AI-native intake engine that turns any legal form into a simple client conversation, and turns messy client answers into review-ready documents. Built for Canadian boutique firms. This playbook is the full picture: the product, the market, the go-to-market, the edge, the technical hard parts, and the rules we build around. The goal is for the team to own this product the way the CEO does.</p>
       <div class="cover-meta">
         <span><b>Product</b> LegalEase (working name)</span>
         <span><b>Vertical</b> Legal (suite product 1 of 5)</span>
@@ -297,29 +206,29 @@
     </header>
 
     <div class="box box-note">
-      <div class="box-label"><span class="sq"></span>How to read this</div>
-      <p>The playbook moves from context to build to commercial to legal. If you only read one thing before writing code, read <a class="inline" href="#nonneg">Appendix A, the non-negotiables</a>. Those are the rules that keep the product trustworthy, compliant, and defensible. Everything marked as an edge, a must-have, or a day-one requirement is collected there too.</p>
+      <div class="box-label"><span class="sq"></span>How to read this, and the three markers to watch for</div>
+      <p>The playbook runs context, build, commercial, then a dedicated "before we sell / before we scale" section. Three markers recur and carry weight:</p>
+      <p style="margin-top:10px;"><strong style="color:var(--warn)">Build now.</strong> Amber boxes. Non-negotiable or day-one. If a build decision conflicts with one, the decision is wrong. All of them are collected in <a class="inline" href="#nonneg">Appendix A</a>.</p>
+      <p><strong style="color:var(--accent)">The edge.</strong> Green boxes. What we lead with and protect.</p>
+      <p><strong style="color:var(--later)">Before we sell / scale.</strong> Blue boxes. Real, but not blockers for writing code. Parked deliberately in <a class="inline" href="#beforescale">Chapter 15</a> so they are on the record without stalling the build.</p>
     </div>
 
-    <!-- 00 OVERVIEW -->
+    <!-- ============ PART I ============ -->
+    <div class="part-head"><div class="part-k">Part I</div><div class="part-t">Context &amp; strategy</div><div class="part-rule"></div></div>
+
     <section class="chapter">
       <div class="ch-num">Chapter 00</div>
       <h2>What we are building</h2>
       <p class="lede">A lawyer uploads a form. Their client answers a few plain questions, by typing or by voice. The lawyer gets back a filled, review-ready document. No repetitive manual data entry, no re-typing, no client ever staring at a legal form they do not understand.</p>
-
       <p>The system has three parts, and they hand off to each other in order:</p>
       <ul>
         <li><strong>Document intake and question generation.</strong> A form goes in. The system reads it and produces client-facing questions, presented as flashcards.</li>
         <li><strong>Client interaction and data collection.</strong> The client answers the cards in a simple interface, by text or voice, at their own pace.</li>
         <li><strong>Answer transformation, review, and filling.</strong> The system turns raw answers into lawyer-ready text, the lawyer reviews and approves, and the approved data fills the original form.</li>
       </ul>
-
-      <p>That is the shape of it. The rest of this playbook is about doing each part well, and about the parts the first meeting notes did not cover: where the data lives, how we stay onside with the Law Society, and why the plumbing is the part we buy rather than build.</p>
-
       <div class="pull">The core value is not that we fill a PDF. Plenty of tools fill PDFs. The value is that we collect complete, usable client information without the lawyer chasing it, and hand it over clean.</div>
     </section>
 
-    <!-- 01 STRATEGY -->
     <section class="chapter" id="strategy">
       <div class="ch-num">Chapter 01</div>
       <h2>Strategy &amp; positioning</h2>
@@ -327,8 +236,9 @@
       <h3>The company model</h3>
       <p>Beetle Labs builds as a product studio with founding design partners. We recruit one or two industry insiders to co-shape the product during development, in exchange for early access at a permanent founding discount. We are honest that the product is not built yet. That honesty is the pitch, not a weakness to hide: we are inviting a partner to shape something real. LegalEase ships as Beetle Labs, co-branded with the partner. We do not white-label.</p>
 
-      <h3>Who we sell to</h3>
-      <p>Not every firm. Our buyer is the <strong>mixed-practice boutique</strong>, roughly five to fifteen lawyers, the kind of suburban firm that does some real estate, some wills, some small corporate. This matters because of what we found in the market: every legal vertical already has a specialist tool, but those tools each serve a single practice area. The firm that does five things cannot justify buying five vertical tools, and no single vertical tool fits them. That firm is orphaned. That firm is ours.</p>
+      <h3>Who we sell to, and a terminology correction</h3>
+      <p>First, language, because it affects how we sound to the buyer. In legal, "boutique" means a <em>specialized</em> small firm (an IP boutique, a litigation boutique). The firm we actually want is the small <strong>general-practice firm</strong>: the main-street shop that does some real estate, some wills, some family, some small-business work. Calling that a "mixed-practice boutique" reads as a contradiction to a lawyer, so the playbook and the pitch say "general-practice firm."</p>
+      <p>Our buyer is that general-practice firm, roughly five to fifteen lawyers. The reason is structural: every legal vertical already has a specialist tool, but each of those tools serves a single practice area. A firm that does five things cannot justify five vertical tools, and no single vertical tool fits it. That firm is orphaned. That firm is ours. A <em>specialized</em> small firm is well served by a vertical tool and is not our target; we would lose that fight.</p>
 
       <div class="box box-edge">
         <div class="box-label"><span class="sq"></span>Positioning in one line</div>
@@ -336,80 +246,106 @@
       </div>
 
       <h3>Where we hunt</h3>
-      <p>The Halton and Hamilton corridor, not Bay Street. Boutique firm density and accessibility make the region a stronger early market than downtown Toronto, and our warm relationships are there.</p>
+      <p>The Halton and Hamilton corridor, not Bay Street. Boutique firm density and accessibility make the region a stronger early market than downtown Toronto, and our warm relationships are there. The true general-practice firm survives specifically in suburban and regional markets like this one, which is a second reason the corridor is the right beachhead. The full go-to-market is Chapter 03.</p>
 
       <h3>The two meanings of "practice-agnostic," and which one we mean</h3>
-      <p>This distinction runs through the whole build, so it is worth stating plainly.</p>
       <ul>
         <li><strong>Agnostic engine: correct.</strong> One engine that works on any form and any practice area, because the AI question generation, voice, transformation, and form fill do not care what the document is. This is also the platform under our whole five-product suite.</li>
-        <li><strong>Agnostic go-to-market: dangerous.</strong> "Document automation for any law firm" is exactly the pitch of an entrenched incumbent (see Chapter 02). Walking onto that field with nothing built and no sharper hook gives no one a reason to switch.</li>
+        <li><strong>Agnostic go-to-market: dangerous.</strong> "Document automation for any law firm" is the pitch of an entrenched incumbent (Chapter 02). Walking onto that field with nothing built and no sharper hook gives no one a reason to switch.</li>
       </ul>
-      <p>So the shape we commit to is <strong>horizontal engine, sharp beachhead</strong>. Build the general engine. Land and prove with one partner's real, painful, repetitive forms. Lead the messaging with the things the incumbents cannot match: zero setup, voice, answer transformation, and built for Canada.</p>
+      <p>So we commit to <strong>horizontal engine, sharp beachhead</strong>. Build the general engine. Land and prove with one partner's real, painful, repetitive forms. Lead the messaging with the things the incumbents cannot match: zero setup, voice, answer transformation, and built for Canada.</p>
 
       <div class="box box-must">
-        <div class="box-label"><span class="sq"></span>Decision locked</div>
-        <p>Keep the first form set open. We commit to the agnostic engine now and let the first proof follow whichever founding partner lands best and first. The likely beachhead is real estate intake through our warm lead, but we do not hard-code the codebase to any vertical.</p>
+        <div class="box-label"><span class="sq"></span>Build now · decision locked</div>
+        <p>Keep the first form set open. We commit to the agnostic engine now and let the first proof follow whichever founding partner lands best and first. The engine is never hard-coded to a vertical.</p>
       </div>
     </section>
 
-    <!-- 02 MARKET -->
     <section class="chapter" id="market">
       <div class="ch-num">Chapter 02</div>
-      <h2>Market study &amp; the verdict</h2>
-      <p class="lede">We studied the landscape by practice type to answer one question: is there an empty vertical to walk into? The honest verdict is no. Every obvious vertical already has a Canadian incumbent, and most have an AI-native challenger on top. That finding is what makes the agnostic engine the right call rather than a compromise.</p>
+      <h2>The market</h2>
+      <p class="lede">Two questions matter: is there an empty vertical to walk into (no), and are there enough general-practice firms to sell to (yes, and they cluster where we are hunting). This chapter sizes the market, names real target firms, maps the competition, and shows what tools these firms actually use today.</p>
 
-      <p>Competitors sort into three tiers: horizontal no-code document automation, immigration-specific tools, and the newer AI-native drafting layer. Below is what exists per practice type, what it does, what it costs, how it competes with us, and how it can work in our favor.</p>
+      <h3>Market size</h3>
+      <p>Ontario has roughly 17,239 law firm businesses and over 57,000 lawyers. The size skew is heavily small: firms of two to ten lawyers were about 31.7% of licensees as of 2017, and most lawyers work at firms of ten or fewer, with sole practitioners the largest single group. So the overwhelming majority of those 17,000-odd firms are small shops.</p>
+      <p>The general-practice subset is narrower, and honesty demands a caveat: neither the Law Society nor the industry data publishes a clean generalist-versus-specialist split, so any province-wide count is an estimate. Reasoning from the size distribution, small general-practice firms in Ontario plausibly number in the low thousands, concentrated outside the downtown cores. We do not put a hard number in external materials. What matters more is that they cluster exactly where we hunt, and there the density is easy to see.</p>
 
-      <h3>Real estate: a registry-locked near-monopoly</h3>
-      <p>Ontario conveyancing is dominated by <strong>Dye &amp; Durham's Unity</strong> (formerly The Conveyancer / DoProcess), estimated at around 90 percent market share in Ontario. After acquiring DoProcess, D&amp;D raised the per-file fee from about $25 to $129, then again toward $249, with little notice. Lawyers must pass those fees to clients, which triggered a genuine revolt: the Ontario Real Estate Lawyers Association formed in protest, and Teranet is now backing a competitor (GoVeyance / ReadyWhen).</p>
-      <p><strong>How it competes with us:</strong> the conveyancing documents flow through Teraview and title-insurer integrations. This is not a "fill a PDF" problem, it is a land-registry-integration problem. We do not build conveyancing. We would be fighting a monopoly on its home field.</p>
-      <p><strong>How it works in our favor:</strong> the incumbent is widely resented for exactly the lock-in and price behavior our brand opposes. The wedge in real estate is the <strong>front-door intake</strong> that sits before the registry work: client identification and verification, deal and mortgage details, retainer and declarations, collected by voice or text and handed to the lawyer as a clean package. That layer is underserved, and it is where our engine is strong. Note that our warm partner's firm has a partner publicly frustrated with D&amp;D pricing, which is a warm door into a firm that already resents the incumbent.</p>
+      <h3>The target firm is real, and there are many</h3>
+      <p>In Burlington alone the archetype appears repeatedly. The cleanest specimen is <strong>Brechin &amp; Huffman LLP</strong>, a 7-lawyer Burlington firm doing real estate, business, wills and estates, family, labour, and litigation. That is the ideal customer in one line: five to fifteen lawyers, full-service, one shop for everything local clients need. Beside it: <strong>Cass &amp; Bishop</strong> (real estate, corporate-commercial, estates, serving Burlington, Hamilton, Milton, Oakville, since 1958), <strong>GGS Law</strong> (real estate, wills, corporate, family, litigation), <strong>Cleaver &amp; Company</strong> (real estate, wills and estates, probate, corporate, since 1890), plus Fieldstone Law, Martin &amp; Hillyer, and Sabio Law. Seven or eight, in one town, without trying. Across Hamilton and Halton the reachable set is comfortably in the low hundreds, far more than a founding-partner motion needs.</p>
 
-      <h3>Family law: already crowded on our exact wedge</h3>
-      <p>Two incumbents plus a dedicated intake tool already occupy this space:</p>
+      <h3>What tools own these firms today, and the gap</h3>
+      <p>No one owns the job we do. Adoption splits by slice, not by whole firm:</p>
       <ul>
-        <li><strong>DivorceMate</strong>, the entrenched Ontario tool, 6,500+ family law professionals, now rolled into LEAP. Around $250/month in Ontario. Strong on calculations, forms, and agreements, but stores financial data per document, so data gets re-entered per form.</li>
-        <li><strong>Divorcepath</strong>, a modern cloud challenger at about $80/user/month. Already does client intake, AI data extraction from pay stubs, a unified client profile, 600+ court forms, Clio integration, and Canadian data residency. This is the aggressive, modern version of our own playbook, in one vertical.</li>
-        <li><strong>Settify</strong>, a dedicated AI client-intake platform for family firms, available in Ontario, that sits on a firm's website and guides clients through questions.</li>
+        <li><strong>Practice management:</strong> Clio is the dominant system of record for small Canadian firms. But that is case and billing, not cross-practice AI intake.</li>
+        <li><strong>Real estate slice:</strong> if they close deals, they are almost certainly on Dye &amp; Durham's Unity, the ~90% Ontario conveyancing tool.</li>
+        <li><strong>Family slice:</strong> DivorceMate if they do family.</li>
+        <li><strong>Estates slice:</strong> eState Planner for some.</li>
+        <li><strong>Cross-practice client intake and document automation, the thing we sell:</strong> effectively unpenetrated. These firms mostly run Word templates, fillable PDFs, email, and manual re-keying. Horizontal document automation like Gavel has thin adoption here, and its setup friction hits small generalists hardest.</li>
       </ul>
-      <p><strong>Verdict:</strong> skip family law as a beachhead. It is the most contested corner for the exact features we differentiate on.</p>
+      <p>So the vertical incumbents each hold their slice, Clio holds the system of record, and the space in front of all of them, unified intake across everything the firm does, is open. We do not fight D&amp;D or DivorceMate. We sit in front and feed them.</p>
 
-      <h3>Wills &amp; estates: served, but a possible later vertical</h3>
-      <p><strong>eState Planner</strong> is the Canadian incumbent, used by 400+ firms, built around putting lawyer and client face-to-face during information gathering and flagging probate-fee and tax-planning opportunities. <strong>Clio Grow</strong> also offers estate intake forms. Elderly clients benefit enormously from voice intake, so this is a credible second or third vertical, but it is not empty.</p>
-
-      <h3>Immigration: the most saturated corner (and only ever an example)</h3>
-      <p>The original meeting notes leaned on immigration forms, but that was familiarity, not a target. This is the most crowded niche in the whole market: <strong>Docketwise</strong> (auto-fills 80+ USCIS forms from a single multilingual questionnaire, claims 60 to 70 percent less case-prep time), plus <strong>LollyLaw</strong>, <strong>eImmigration</strong>, <strong>Imagility</strong>, <strong>Visalaw.ai</strong>, and <strong>Visas.ai</strong>. Purpose-built incumbents with hundreds of pre-built forms and years of head start. We do not enter here.</p>
-
-      <h3>Horizontal document automation: our closest mirror</h3>
-      <p><strong>Gavel</strong> (formerly Documate, since acquired by Relativity) is the tool that most resembles the meeting-notes concept: upload a document, map fields in a visual editor, build an intake questionnaire, client fills it, system generates the filled document. It handles a client portal, saved progress, pause and resume, and redaction, starting around $83/month. Its known pain is <strong>setup</strong>: turning a document into a working template with logic runs two to five hours per document type. Also here: <strong>HotDocs</strong> (acquired by Mitratech in 2024), <strong>Clio Draft</strong> (formerly Lawyaw, lives inside Clio), plus Bryter, Briefpoint, Smokeball, and MyCase.</p>
-      <p><strong>How Gavel works in our favor:</strong> it validates the idea (a venture-backed company built this and got acquired) and it shows us exactly the weakness to attack. Their setup tax is our zero-setup wedge. Their per-firm templates are our shared library (Chapter 03). They are US-architected, which is our Canadian-first opening.</p>
+      <h3>The competitive map (three tiers)</h3>
+      <p>The verdict from studying the landscape by practice type: there is no empty vertical. Every obvious one has a Canadian incumbent, and most have an AI-native challenger on top. That finding is what makes the agnostic engine the right call rather than a compromise. Full detail is in <a class="inline" href="#compendium">Appendix B</a>; the short version:</p>
+      <ul>
+        <li><strong>Horizontal document automation:</strong> Gavel (formerly Documate, acquired by Relativity) is our closest mirror. Upload a doc, map fields, build a questionnaire, client fills it, system generates the filled doc. Client portal, save progress, redaction, from about $83/month. Its weakness is setup: two to five hours per template. Also HotDocs (acquired by Mitratech), Clio Draft (inside Clio), Bryter, Briefpoint, Smokeball, MyCase.</li>
+        <li><strong>Immigration-specific:</strong> the most saturated corner. Docketwise auto-fills 80+ USCIS forms from one multilingual questionnaire and claims 60 to 70% less prep time. Plus LollyLaw, eImmigration, Imagility, Visalaw.ai, Visas.ai. We do not enter here. It was only ever an example in the meeting notes.</li>
+        <li><strong>AI-native drafting:</strong> Visalaw.ai, Visas.ai, Docketwise's writing tools. Closest to our differentiator and moving fastest.</li>
+      </ul>
 
       <div class="box box-edge">
         <div class="box-label"><span class="sq"></span>The verdict</div>
-        <p>There is no empty vertical. Stop hunting for one. Build the agnostic engine, land whichever warm partner comes first, and win as the tool for the mixed-practice boutique that no vertical incumbent fits. Differentiate on zero setup, voice, transformation, and Canadian-first, because those advantages are horizontal and do not lock us into a vertical.</p>
+        <p>There is no empty vertical. Stop hunting for one. Build the agnostic engine, land whichever warm partner comes first, and win as the tool for the general-practice firm that no vertical incumbent fits. Differentiate on zero setup, voice, transformation, and Canadian-first, because those advantages are horizontal and do not lock us into a vertical.</p>
       </div>
     </section>
 
-    <!-- 03 EDGE -->
-    <section class="chapter" id="edge">
+    <section class="chapter" id="gtm">
       <div class="ch-num">Chapter 03</div>
+      <h2>Winning the corridor</h2>
+      <p class="lede">This buyer is a trust-and-reputation buyer in a tight regional bar, not a cold-SaaS-ad buyer. The motion is warm, local, and referral-led. Here is the sequence, using assets we already have.</p>
+
+      <h3>1. Land one reference design partner at the right firm type</h3>
+      <p>Everything flows from a reference. One nuance to hold honestly: our warm real estate lead is an associate at a 30-lawyer regional firm, not the owner of a small general shop. She is a superb co-design brain and a warm door, and the right person to sharpen the real estate intake build. But the reference customer we want is a <strong>principal at a general-practice firm</strong> of the Brechin &amp; Huffman type, because peers buy what peers like them already use. Use the associate to sharpen the build; recruit an owner as the reference.</p>
+
+      <h3>2. Use our connectors as the introduction layer</h3>
+      <p>The Burlington Chamber connection is the highest-leverage asset: a forwardable pitch document going from a trusted Chamber name to law-firm-owner members carries local credibility a cold email never will. The GoInnovation relationship amplifies it as an ally, with mutual logo placement.</p>
+
+      <h3>3. Work the regional bar directly</h3>
+      <p>The Halton County Law Association and the Hamilton Law Association are where these owners gather. A lunch-and-learn or a sponsored demo is a direct line to the exact buyer. Confirm their event calendars and get on one.</p>
+
+      <h3>4. Lead with the two messages that land here</h3>
+      <p>First, "one tool for everything your firm does," which speaks to the generalist. Second, the anti-lock-in, your-data-is-yours, built-for-Canada line, which lands hard in a region where firms are openly angry at Dye &amp; Durham's conveyancing pricing. A partner at our lead's own firm is on record frustrated with it. Use that sentiment; do not name individuals in materials.</p>
+
+      <h3>5. Make entry frictionless</h3>
+      <p>The white-glove founding-partner offer: free during the build, a permanent founding rate after, and we register their forms for them. They hand over real documents, we do the work, they feel only the magic.</p>
+
+      <h3>6. Then let density do the work</h3>
+      <p>One respected corridor firm as a public reference, a clean hours-saved case study, and peer referral carries you to the next ten. Win the corridor before widening. Thin national reach loses to deep local reputation here.</p>
+
+      <div class="box box-note">
+        <div class="box-label"><span class="sq"></span>Caution · referral fees</div>
+        <p>Mind the Law Society rules on referral fees when structuring ally compensation. A contact who has exited the regulated context is likely fine; a practising-lawyer referrer can be restricted. Structure those relationships carefully. Standard partner comp runs 10 to 12% referral and 15 to 20% co-sell; founding allies 15% referral and 20% co-sell; all paid on cash collected, not on signature. The white-label and reseller tier was deliberately removed to protect brand integrity.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="edge">
+      <div class="ch-num">Chapter 04</div>
       <h2>Our edge</h2>
-      <p class="lede">Strip out everything that is commodity and five advantages remain. Three are product, one is the business model expressed as architecture, and one is a moat that compounds. These are what we lead with and what we protect.</p>
+      <p class="lede">Strip out everything commodity and five advantages remain. Three are product, one is the business model expressed as architecture, and one is a moat that compounds. These are what we lead with and protect.</p>
 
       <h3>1. Zero-setup question generation</h3>
-      <p>The system reads a form and generates the client-facing questions automatically. This attacks Gavel's two-to-five-hour setup tax directly. Note the bar: field auto-detection alone is partly solved (Anvil's Document AI tags fields on upload), so our version has to go further and generate the natural-language <em>question</em> a client can actually answer, not just tag the field. If this is magic, it is our headline. If it is mediocre, we have nothing, because unlike Gavel we ship no pre-built template library to fall back on.</p>
+      <p>The system reads a form and generates the client-facing questions automatically. This attacks Gavel's two-to-five-hour setup tax directly. The bar: field auto-detection alone is partly solved (Anvil's Document AI tags fields on upload), so our version must go further and generate the natural-language <em>question</em> a client can answer, not just tag the field. If this is magic, it is our headline. If it is mediocre, we have nothing, because unlike Gavel we ship no pre-built template library to fall back on.</p>
 
       <h3>2. Voice intake</h3>
-      <p>Clients answer by voice note, transcribed for lawyer review. This is genuinely rare in the space and a real edge for clients who are older, less comfortable typing, or working in a second language.</p>
+      <p>Clients answer by voice note, transcribed for lawyer review. Genuinely rare in the space, and a real edge for clients who are older, less comfortable typing, or working in a second language. The corridor is also highly multicultural, so basic multilingual voice intake is a near-term edge here, not just an immigration feature.</p>
 
       <h3>3. Answer transformation</h3>
-      <p>Raw, messy client input becomes clean, lawyer-ready text that fits the form field. This is the crown jewel. Nobody at the intake layer does it cleanly. It is also our highest-risk feature, which is why Chapter 07 wraps it in hard guardrails.</p>
+      <p>Raw, messy client input becomes clean, lawyer-ready text that fits the field. The crown jewel. Nobody at the intake layer does it cleanly. Also our highest-risk feature, which is why Chapter 10 wraps it in hard guardrails.</p>
 
       <h3>4. Canadian-first</h3>
-      <p>Almost every competitor is built for US forms and US rules. Data stored in Canada, forms built for how firms actually file here, and an architecture shaped around the Law Society's AI obligations (Chapter 10). This is a moat the US tools will not bother to match, and a sentence in the pitch.</p>
+      <p>Almost every competitor is built for US forms and US rules. Data stored in Canada, forms built for how firms file here, and an architecture shaped around the Law Society's AI obligations (Chapter 14). A moat the US tools will not bother to match, and a sentence in the pitch.</p>
 
       <h3>5. The shared curated library</h3>
-      <p>When a firm registers a public form (a government, court, or board form), that registration becomes reusable by the next firm. Public forms are public. As the library fills, our registration time trends toward zero while Gavel's stays per-firm forever. This is the strongest compounding advantage in the whole system. Details and the public-versus-private split are in Chapter 06.</p>
+      <p>When a firm registers a public form, that registration becomes reusable by the next firm. Public forms are public. As the library fills, our registration time trends toward zero while Gavel's stays per-firm forever. The strongest compounding advantage in the system. Detail in Chapter 09.</p>
 
       <div class="script">
         <div class="script-label">Copy-ready · the hook</div>
@@ -421,35 +357,29 @@
       </div>
     </section>
 
-    <!-- 04 ROADMAP -->
+    <!-- ============ PART II ============ -->
+    <div class="part-head"><div class="part-k">Part II</div><div class="part-t">The build</div><div class="part-rule"></div></div>
+
     <section class="chapter" id="roadmap">
-      <div class="ch-num">Chapter 04</div>
-      <h2>Roadmap &amp; build vs buy</h2>
+      <div class="ch-num">Chapter 05</div>
+      <h2>Roadmap &amp; sequencing</h2>
       <p class="lede">The meeting notes proposed building the answers-to-PDF pipeline first. We flip that. The PDF fill is the one piece we buy. We spend our scarce build budget on the AI layer nobody can hand us. Front-load the differentiator, buy the commodity.</p>
 
-      <h3>Build vs buy: do not build PDF filling</h3>
-      <p>PDF filling is a known tar pit. The team at Anvil, who do this for a living, have said plainly that they assumed there would be an easy library and instead found PDFs unbelievably complicated, and that building the fill service was one of the hardest technical parts of their company. We do not repeat that mistake.</p>
-      <ul>
-        <li><strong>Integrate Anvil</strong> for PDF fill. Upload a PDF, Document AI converts it into an API-fillable template with clean field names, POST JSON, get the filled PDF back, at about $0.10 per fill. This is our spike, done in days.</li>
-        <li><strong>Open-source fallback</strong> (pdftk, the GSA pdf-filler service) handles both fillable and coordinate-based scanned forms if we want to avoid per-fill cost at scale later.</li>
-      </ul>
-
-      <h3>The sequence</h3>
       <div class="phase">
         <div class="phase-n">Spike<small>Week 1</small></div>
-        <div class="phase-body"><b>Anvil integration.</b><span>Prove upload-PDF to filled-PDF on one genuinely messy real form. De-risk the plumbing immediately.</span></div>
+        <div class="phase-body"><b>PDF fill integration.</b><span>Prove upload-PDF to filled-PDF on one genuinely messy real form, and classify the first partner's forms by lock type (Chapter 07). De-risk the plumbing immediately. Architecture detail in Chapter 06.</span></div>
       </div>
       <div class="phase">
         <div class="phase-n">1<small>Phase</small></div>
-        <div class="phase-body"><b>AI question generation + visual mapping editor.</b><span>Form fields in, natural-language client questions out, high-confidence only, lawyer can edit, merge, delete. This is the registration flow and our core magic.</span></div>
+        <div class="phase-body"><b>AI question generation + visual mapping editor.</b><span>Form fields in, natural-language client questions out, high-confidence only, lawyer can edit, merge, delete. The registration flow and our core magic.</span></div>
       </div>
       <div class="phase">
         <div class="phase-n">2<small>Phase</small></div>
-        <div class="phase-body"><b>Client intake.</b><span>Flashcard UI, text and voice, transcription, pause and resume, completion tracking, multi-form session with duplicate merging.</span></div>
+        <div class="phase-body"><b>Client intake.</b><span>Flashcard UI, text and voice, transcription, pause and resume, completion tracking, multi-form session with duplicate merging. Mobile-first (Chapter 12).</span></div>
       </div>
       <div class="phase">
         <div class="phase-n">3<small>Phase</small></div>
-        <div class="phase-body"><b>Answer transformation + review console.</b><span>Raw and lawyer-ready versions side by side, approve, edit, or reject, confidence flags, then fill via Anvil. The crown jewel, always gated behind human approval.</span></div>
+        <div class="phase-body"><b>Answer transformation + review console.</b><span>Raw and lawyer-ready versions side by side, approve, edit, or reject, confidence flags, then fill. The crown jewel, always gated behind human approval.</span></div>
       </div>
       <div class="phase">
         <div class="phase-n">4<small>Phase</small></div>
@@ -457,27 +387,109 @@
       </div>
 
       <div class="box box-must">
-        <div class="box-label"><span class="sq"></span>Not optional</div>
-        <p>Differentiator first, plumbing bought. A startup has to prove a wedge before it runs out of runway. Building commodity PDF fill first, and deferring the AI layer to last, is backwards.</p>
+        <div class="box-label"><span class="sq"></span>Build now · sequencing rule</div>
+        <p>Differentiator first, plumbing bought. A startup has to prove a wedge before it runs out of runway. Building commodity PDF fill first, and deferring the AI layer to last, is backwards. Note that the evaluation harness (Chapter 12) starts in Phase 1, not later, because you cannot tune what you cannot measure.</p>
       </div>
     </section>
 
-    <!-- 05 ENGINE -->
+    <section class="chapter" id="pdfarch">
+      <div class="ch-num">Chapter 06</div>
+      <h2>PDF fill &amp; the hard-forms problem</h2>
+      <p class="lede">PDF filling is the one piece we do not build, and it is also where the deepest technical trap in the whole product lives. This chapter is the architecture decision, the buy-not-build reasoning, the vendor-lock guard, and the honest limits of what any tool can process.</p>
+
+      <h3>Do not build PDF filling</h3>
+      <p>PDF filling is a known tar pit. The team at Anvil, who do this for a living, have said plainly that they assumed there would be an easy library and instead found PDFs unbelievably complicated, and that building the fill service was one of the hardest technical parts of their company. We do not repeat that mistake.</p>
+      <ul>
+        <li><strong>Integrate a fill provider (Anvil is the default).</strong> Upload a PDF, Document AI converts it into an API-fillable template with clean field names, POST JSON, get the filled PDF back, at about $0.10 per fill. This is the spike, done in days.</li>
+        <li><strong>Open-source fallback</strong> (pdftk, the GSA pdf-filler service) handles both fillable and coordinate-based scanned forms if we want to avoid per-fill cost at scale later.</li>
+      </ul>
+
+      <div class="box box-must">
+        <div class="box-label"><span class="sq"></span>Build now · the adapter seam</div>
+        <p>Wrap PDF fill behind a swappable adapter interface so nothing in the core couples to a vendor's API. Two things follow: we can migrate the fill engine in-house later (pdf-lib, pdftk) when volume makes $0.10 a fill worth replacing, without touching the rest of the system; and we can separate the two things the provider gives us, the <em>fill</em> (cheap to replace) and the <em>Document AI field detection</em> (saves real build time early). The provider is a starting engine, not a marriage. Build the seam now and the "build our own later" path stays open at near-zero cost. This directly answers the team's "costly at scale" concern.</p>
+      </div>
+
+      <h3>The hard-forms trap: AcroForms vs XFA</h3>
+      <p>Not all PDFs are the same under the hood, and the difference decides whether our fill path works at all.</p>
+      <ul>
+        <li><strong>AcroForms</strong> are the native PDF form standard: static fields defined in the PDF, supported by virtually every library, including our fill provider. This is the overwhelming majority of the forms our target firms use (OREA real estate forms, most Ontario court forms, wills).</li>
+        <li><strong>XFA (XML Forms Architecture)</strong> is Adobe's proprietary XML form format, deprecated and removed from PDF 2.0. Dynamic XFA has no PDF base content: every field position and layout is calculated at open time by an engine that effectively only Adobe Acrobat runs.</li>
+      </ul>
+      <p>IRCC immigration forms are dynamic XFA. When the team tried to upload the IRCC "Application for a Study Permit Made Outside of Canada," the fill provider could not process it, because it works on AcroForms and IRCC is heavily XFA. That diagnosis is correct. So with the default provider under the hood, <strong>immigration is out, most other verticals are fine.</strong> This is not a blocker for our plan, because we already chose not to target immigration. But it must be understood, and the first partner's real forms must be tested against the provider in Week 1, because some Canadian government forms are also XFA. Verify, do not assume.</p>
+
+      <h3>The barcode: why immigration is more than an XFA problem</h3>
+      <p>Even solving XFA does not make an immigration form submittable. IRCC's 2026 system is barcode-mandatory: every form has a Validate button that generates 2D barcodes encoding the applicant's data, the forms only process correctly in a current Adobe Acrobat Reader, and forms without valid barcodes are rejected. For portal submissions the applicant saves the validated file with its embedded barcode, which disappears if printed and scanned. Worse for any third-party tool: editing forms with non-Adobe software can lock or corrupt the barcode, and IRCC's systems may flag modified metadata as tampering and return the application. The barcode is generated by the form's embedded script at Validate time, which is exactly the vendor-locked part.</p>
+
+      <h3>Approaches to XFA, and their limits</h3>
+      <p>Three real paths exist. None escape the barcode on its own.</p>
+      <ul>
+        <li><strong>Convert XFA to AcroForm, then fill.</strong> Dynamic-XFA-to-AcroForm conversion is solved by Adobe-library-based tools that do not require Acrobat: Datalogics Forms Extension, Aspose.PDF (Java and .NET), pdfRest (REST API), and Adobe PDF Services. Pipeline becomes: detect form type, if XFA convert, then fill. This gives a fillable, readable form. It does not reproduce the barcode.</li>
+        <li><strong>Direct datasets injection (the team's idea).</strong> A dynamic XFA PDF keeps its field values as XML in the datasets packet inside the /XFA array. Writing directly to that datasets XML, with pikepdf or iText, operates at exactly the right layer: no lossy conversion, no flattening, no re-rendering a layout only Acrobat can compute. This is how Adobe's own tooling pre-fills XFA. It is the best <em>filling</em> approach on the table. But it has two hard limits: the file still only renders in Acrobat (dynamic XFA has no base content, so our backend and any preview show the "needs Acrobat" placeholder), and it does not run the Validate script, so no barcode is generated.</li>
+        <li><strong>Run Adobe's engine.</strong> Adobe PDF Services or a headless Acrobat runs the form's own validation script and can produce the barcode. This is the reliable route to a submittable immigration form, at the cost of Adobe dependency and per-document cost. Reverse-engineering the barcode format from scratch is the fragile, risky path we avoid.</li>
+      </ul>
+
+      <div class="box box-note">
+        <div class="box-label"><span class="sq"></span>The immigration spike, if we ever pursue it</div>
+        <p>Realistic end-to-end without Adobe in the loop is: inject data automatically, then the lawyer opens the file in Acrobat and clicks Validate to mint the barcode. That still kills the real pain (the typing) and leaves a ten-second click. A half-day test settles feasibility: extract the datasets packet, inject two or three known values, open in Acrobat and confirm the values land in the right fields, click Validate and confirm a barcode generates encoding the injected data, and check for any tamper or signature warning. <strong>The decision gate is the Validate step, not the fill.</strong> "It fills" is the easy half and not the win. "It validates clean and IRCC accepts it" is the win. Two risks to test, not assume: values must bind to the exact node names the template expects or the engine silently ignores them, and modified metadata must not trip a tamper flag. In immigration a bounced application is months lost, so this is a hard gate.</p>
+      </div>
+
+      <div class="box box-later">
+        <div class="box-label"><span class="sq"></span>Before we scale · keep this walled off</div>
+        <p>If pursued, the XFA and barcode work is a decoupled R&amp;D spike, never coupled to the corridor MVP timeline. If it proves out reliably it is a portable capability (the same format-lock pattern appears in tax and government forms, see Chapter 07), and a lever into a market everyone else finds too painful to enter. But it is a second bet. The moment "we can crack hard documents" turns into "so let's take on the immigration incumbents," we have left our lane.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="locks">
+      <div class="ch-num">Chapter 07</div>
+      <h2>The three document locks</h2>
+      <p class="lede">Before committing to any vertical or any partner's form set, classify the documents. "Challenging" is not one thing; it is three distinct locks, and the fix for each is different. This taxonomy is a reusable diligence step, and it would have caught the IRCC problem before anyone hit upload.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Lock</th><th>What it means</th><th>Fix</th><th>Where it appears</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tag tag-ally">Tractable</span></td><td>AcroForm PDF, plain PDF, or Word. Standard fields or OCR-able.</td><td>Engine drops in clean. Build here first.</td><td>General-practice legal, construction admin paperwork</td></tr>
+            <tr><td><span class="tag tag-avoid">Format lock</span></td><td>The file itself is proprietary; only the vendor's engine processes it (dynamic XFA plus validated barcode).</td><td>Injection or Adobe-engine spike. Scope carefully or defer.</td><td>Immigration (IRCC / USCIS), some tax and government forms</td></tr>
+            <tr><td><span class="tag tag-watch">System lock</span></td><td>No file to fill; the artifact lives inside a proprietary system you must integrate with.</td><td>Do not rebuild the system. Own the intake that feeds it; integrate for handoff.</td><td>Real estate (Teraview / D&amp;D), court e-filing, healthcare EMRs, construction permit portals</td></tr>
+            <tr><td><span class="tag tag-std">Standard lock</span></td><td>The document is replaced by a structured data-exchange standard.</td><td>Speak the standard as the integration target.</td><td>Healthcare (HL7 / FHIR, EDI claims), insurance (ACORD / EDI)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>How the locks recur across the suite</h3>
+      <p>The same pattern repeats in every vertical Beetle plans to enter, which is reassuring: the same engine and the same wedge apply three times.</p>
+      <ul>
+        <li><strong>Legal (now).</strong> Immigration is format-locked (the worst case). Real estate conveyancing is system-locked (Teraview and Dye &amp; Durham), which is why we attack the front-door intake, not conveyancing. Family, estates, and general practice are mostly tractable AcroForm PDFs. We chose the tractable middle deliberately.</li>
+        <li><strong>Healthcare (next).</strong> More cursed than legal, in the system-lock and standard-lock ways. The Canadian government is on record calling it unacceptable that fax machines are still used and that only 29% of providers share information seamlessly. Prior authorization alone eats about 13 hours a week per practice and costs $20 to $50 an hour of staff time. That intake pain is worse than anything in legal, which makes our engine <em>more</em> valuable there. But the handoff target is EMR and FHIR integration, not a PDF, and regulation is actively pushing the industry toward FHIR APIs (US CMS mandates in 2026 and 2027; Canada's Bill S-5). Privacy is stricter (PHIPA, HIPAA). And the prior-authorization software market is already crowded and funded. So healthcare's "immigration barcode," the hard moat-y piece that can block us, is EMR and FHIR integration.</li>
+        <li><strong>Construction (after).</strong> The least cursed for our engine, ironically. Its cursed artifacts are BIM and CAD files, a different product category we would never touch. Its admin paperwork (RFIs, submittals, change orders, lien waivers, intake) is high-volume, repetitive, and PDF or Word based, squarely our sweet spot. The friction is permit-portal fragmentation (a mild system lock), not format lock.</li>
+      </ul>
+
+      <div class="box box-edge">
+        <div class="box-label"><span class="sq"></span>The strategic principle</div>
+        <p>Cursed documents are lucrative because they are underserved, but they are underserved because they are hard, and the hard core is exactly where the big funded incumbents plant themselves. Dye &amp; Durham owns conveyancing. CoverMyMeds owns prior auth. Docketwise owns immigration. In every vertical there is a cursed core owned by an incumbent, and a messy human-intake layer in front of it where small and general practitioners are drowning. That intake layer is our lane. Our engine collects, structures, and hands off. Keep it that way in legal, healthcare, and construction, and the agnostic-engine thesis holds across the whole suite.</p>
+      </div>
+
+      <div class="box box-must">
+        <div class="box-label"><span class="sq"></span>Build now · classification step</div>
+        <p>Before committing to any vertical or any design partner's form set, tag each document as tractable, format-locked, system-locked, or standard-locked. That one triage tells you instantly whether the engine drops in clean, needs the injection spike, or needs an integration instead of a fill.</p>
+      </div>
+    </section>
+
     <section class="chapter" id="engine">
-      <div class="ch-num">Chapter 05</div>
+      <div class="ch-num">Chapter 08</div>
       <h2>The intake engine</h2>
-      <p class="lede">The front of the engine is form-agnostic: any document in, a clean question deck out. The client side is modeled on a study-flashcard app, one card at a time, plain language, momentum, satisfying to move through. That UX is a real reason clients finish instead of abandoning at 60 percent.</p>
+      <p class="lede">The front of the engine is form-agnostic: any document in, a clean question deck out. The client side is modeled on a study-flashcard app: one card at a time, plain language, momentum, satisfying to move through. That UX is a real reason clients finish instead of abandoning at 60 percent.</p>
 
       <h3>Documents in, one merged deck out</h3>
       <p>Upload one form or five. The system extracts the underlying questions, merges duplicates across all of them, and produces a single deck of unique cards. The client answers each unique thing once. On approval, each answer maps back to every form that needed it. The lawyer thinks in forms. The client thinks in cards. The engine holds the mapping between them.</p>
 
       <h3>The three extraction tiers</h3>
-      <p>"Any document" is an honest promise, but it is three different jobs wearing one coat. Scope it as three tiers, rising in difficulty, and ship them in order.</p>
+      <p>"Any document" is an honest promise, but it is three different jobs wearing one coat. Ship them in order.</p>
       <div class="table-wrap">
         <table>
           <thead><tr><th>Tier</th><th>Input</th><th>What it takes</th><th>Order</th></tr></thead>
           <tbody>
-            <tr><td><b>1</b></td><td>Fillable PDFs with real fields</td><td>Read the fields, one question per field. Anvil and standard libraries handle extraction.</td><td>Build first</td></tr>
+            <tr><td><b>1</b></td><td>Fillable PDFs with real fields</td><td>Read the fields, one question per field. Provider and standard libraries handle extraction.</td><td>Build first</td></tr>
             <tr><td><b>2</b></td><td>Flat or scanned PDFs, no fields</td><td>OCR plus layout analysis to find what should be collected, then question generation.</td><td>Build second</td></tr>
             <tr><td><b>3</b></td><td>Prose documents that are not forms</td><td>Infer variables from sentences, not labelled fields (a retainer, a letter, a contract).</td><td>Build last</td></tr>
           </tbody>
@@ -486,14 +498,13 @@
       <p>Ship tier one, demo it, then climb. Do not let the team try to crack all three at once.</p>
 
       <h3>The flashcard experience</h3>
-      <p>Upgrades from the study-app world that lift completion, worth baking in from the start:</p>
       <ul>
         <li><strong>Atomic cards.</strong> One fact per card. Never two questions in one.</li>
         <li><strong>Easy first.</strong> Order the deck so the opening cards are trivial (name, date of birth). Momentum is real; study apps front-load wins on purpose.</li>
         <li><strong>"Why we ask."</strong> A one-line plain-language note on sensitive cards (SIN, finances) cuts drop-off and builds trust.</li>
         <li><strong>Voice per card,</strong> not just per session. Let the client tap and talk on any single card.</li>
         <li><strong>Inline validation</strong> on typed fields (dates, postal codes, SIN format). Catch errors before the lawyer sees them, which is the entire point.</li>
-        <li><strong>Defer, do not block.</strong> Keep a "not sure, let my lawyer decide" option on every card so one hard question never stalls the deck. This is also our compliant answer when a client asks something the software must not answer (Chapter 10).</li>
+        <li><strong>Defer, do not block.</strong> Keep a "not sure, let my lawyer decide" option on every card so one hard question never stalls the deck. This is also our compliant answer when a client asks something the software must not answer (Chapter 14).</li>
       </ul>
 
       <div class="box box-edge">
@@ -502,16 +513,15 @@
       </div>
     </section>
 
-    <!-- 06 REGISTRATION -->
     <section class="chapter" id="registration">
-      <div class="ch-num">Chapter 06</div>
+      <div class="ch-num">Chapter 09</div>
       <h2>Registration &amp; field mapping</h2>
       <p class="lede">Registration is where our lawyer-side wedge lives or dies. If it is near-instant on the common case, that is our sentence in the pitch. If it is fiddly, we have built Gavel with a nicer font.</p>
 
       <h3>The flow, end to end</h3>
       <ol>
         <li>Lawyer uploads a document.</li>
-        <li>System asks: do we already know this form? If it is a public form already in the library, skip to a quick confirm. If it is new, extract fields (tier 1, 2, or 3) and generate the question deck.</li>
+        <li>System asks: do we already know this form? If it is a public form already in the library, skip to a quick confirm. If it is new, classify its lock type (Chapter 07), extract fields, and generate the question deck.</li>
         <li>Lawyer approves in <strong>two separate passes</strong>: first the questions ("what the client sees"), then the mapping ("where each answer prints on the form"). Keep them separate so the lawyer is not proofreading wording and checking box placement in the same glance.</li>
         <li>Save. It is now a reusable template forever.</li>
       </ol>
@@ -520,12 +530,11 @@
       <p>Public forms (government, court, land registry, board) go into a shared, Beetle-curated library that every firm benefits from. A firm's own bespoke documents (their retainer, their custom declarations) stay private to that firm. Curated, not raw crowd-sourcing, so one firm's bad mapping does not propagate. We own quality on the shared layer, and registration time trends toward zero as the library fills.</p>
 
       <div class="box box-must">
-        <div class="box-label"><span class="sq"></span>Not optional: form versioning</div>
+        <div class="box-label"><span class="sq"></span>Build now · form versioning</div>
         <p>Court and government forms change. The moment a form is revised, every template bound to the old PDF silently misplaces fields, and we put a wrong answer on a filed document. The system must detect when an uploaded form differs from the registered version and re-map only the changed fields, not force a full redo. Build this early. It is the difference between a tool lawyers trust and one they get burned by once and abandon.</p>
       </div>
 
       <h3>The hard form structures</h3>
-      <p>Legal forms break a naive field-to-question mapper. Handle these explicitly:</p>
       <ul>
         <li><strong>Repeating sections</strong> (list all children, all assets, all prior addresses): a "repeat this group N times" pattern, not one fixed question. <em>Core build.</em></li>
         <li><strong>Checkboxes</strong> where one client answer should tick one of several boxes. <em>Core build.</em></li>
@@ -537,26 +546,25 @@
       <p>For each field, the system guesses what the answer should look like (a formal full sentence, a number, a SIN, a date) and the lawyer approves or edits. Do not make the lawyer configure from a blank slate. Make them react to a smart default. Reacting is seconds; authoring is the chore that becomes Gavel's setup tax. Field type is the easiest thing in the system to infer, from the field label, format hints, PDF metadata, and surrounding text, so most guesses are correct and the lawyer just nods through them.</p>
       <p>Two refinements make this airtight:</p>
       <ul>
-        <li><strong>Risk-aware surfacing.</strong> High-confidence guesses show quietly preselected. Coin-flip guesses (short text or full sentence? dollar amount or count?) get flagged so they float up for a real look. Same risk-sorting as the review console, one stage earlier.</li>
+        <li><strong>Risk-aware surfacing.</strong> High-confidence guesses show quietly preselected. Coin-flip guesses (short text or full sentence? dollar amount or count?) get flagged so they float up for a real look.</li>
         <li><strong>Separate the two things the guess decides.</strong> The <em>validation type</em> (date, number, SIN) is cheap to get wrong and self-correcting, so auto-apply it freely. The <em>transformation instruction</em> (tidy lightly vs rewrite vs condense) is the part that can put bad text on a legal document, so propose it conservatively and, when unsure, guess tidy. Under-transforming leaves a little more to edit. Over-transforming invents content. Bias toward the safe failure.</li>
       </ul>
       <p>This rule set is authored once at the template and enforced at every intake. The lawyer configures the form once and the system applies it a hundred times. That ratio is the product.</p>
 
       <h3>Who registers, and the honest time estimate</h3>
-      <p>Do not make founding partners feel the setup. For the first partners, Beetle registers their forms for them, white-glove, so they only ever experience the magic, and we seed the shared library at the same time. Once the library holds the common Ontario forms, we hand firms the self-serve tool. Reset the meeting-notes "30 minutes" figure: a library form is near zero, a new fillable PDF is five to ten minutes of reviewing questions, a flat scanned form with visual mapping is twenty to forty, a prose document is more. The whole design exists to drive the common case toward zero.</p>
+      <p>Do not make founding partners feel the setup. For the first partners, Beetle registers their forms for them, white-glove, so they only ever experience the magic, and we seed the shared library at the same time. Once the library holds the common Ontario forms, we hand firms the self-serve tool. Reset the meeting-notes "30 minutes" figure: a library form is near zero, a new fillable PDF is five to ten minutes of reviewing questions, a flat scanned form with visual mapping is twenty to forty, a prose document is more. The whole design exists to drive the common case toward zero. (The point at which white-glove must stop is a scale question, Chapter 15.)</p>
     </section>
 
-    <!-- 07 REVIEW -->
     <section class="chapter" id="review">
-      <div class="ch-num">Chapter 07</div>
+      <div class="ch-num">Chapter 10</div>
       <h2>Review &amp; answer transformation</h2>
-      <p class="lede">This is the most important piece to get right, because it is our crown jewel and our biggest liability in the same place. Transformation turns messy input ("around 2019 I think," a voice transcript, another language) into clean text that fits the field. It is also exactly where the system can quietly invent precision the client never gave, and a confidently wrong fact on a legal document is worse than a visible blank.</p>
+      <p class="lede">The most important piece to get right, because it is our crown jewel and our biggest liability in the same place. Transformation turns messy input ("around 2019 I think," a voice transcript, another language) into clean text that fits the field. It is also exactly where the system can quietly invent precision the client never gave, and a confidently wrong fact on a legal document is worse than a visible blank.</p>
 
       <div class="pull">The lawyer is always the author of record, and the system never crosses from cleaning facts into deciding law.</div>
 
-      <h3>The guardrails (write these into the product and the prompt, do not leave to chance)</h3>
+      <h3>The guardrails (write these into the product and the prompt)</h3>
       <ul>
-        <li><strong>Never fabricate. Preserve uncertainty.</strong> "Around 2019" stays "around 2019." It does not become "January 1, 2019." If the client was vague, the output is vague and flagged. This is rule one.</li>
+        <li><strong>Never fabricate. Preserve uncertainty.</strong> "Around 2019" stays "around 2019." It does not become "January 1, 2019." If the client was vague, the output is vague and flagged. Rule one.</li>
         <li><strong>Separate tidying from interpreting.</strong> Fixing grammar, formatting a date, turning "yeah" into "Yes" is tidying: low risk, near-automatic. Condensing a narrative or summarizing is interpreting: high risk, always flagged. Show the lawyer which kind happened on each card.</li>
         <li><strong>No legal characterization.</strong> The system organizes facts. It does not apply legal labels. It must not turn "he hit me sometimes" into "a pattern of domestic violence." That is the lawyer's call, and it is the line between a drafting aid and unauthorized practice. Hard boundary.</li>
         <li><strong>Raw always visible.</strong> Side by side, every time, with audio playback when the answer was a voice note. Voice transcription mangles names and legal terms, so the lawyer needs to hear it to verify.</li>
@@ -567,45 +575,44 @@
       <p>Three columns per item: raw input, the system's transformed version, the final editable field. The queue is <strong>sorted by risk, not by form order</strong>, so flagged and low-confidence answers float to the top and trivial ones can be bulk-approved. The generate button for a form stays <strong>locked until every field feeding it is approved</strong>. Each answer shows which forms it feeds, so the lawyer sees the mapping, not a flat list.</p>
 
       <div class="box box-must">
-        <div class="box-label"><span class="sq"></span>Build from day one: the audit trail</div>
-        <p>Who approved what, when, raw versus final, retained per matter. This is our malpractice defense and our Law Society answer to "did a lawyer actually review this." It is also a selling point, and it is the evidence that a human verified the output, which Chapter 10 shows the Law Society explicitly requires.</p>
+        <div class="box-label"><span class="sq"></span>Build now · the audit trail</div>
+        <p>Who approved what, when, raw versus final, retained per matter. This is our malpractice defense and our Law Society answer to "did a lawyer actually review this." It is also a selling point, and the evidence that a human verified the output, which Chapter 14 shows the Law Society explicitly requires.</p>
       </div>
 
-      <p>This is also the spine of the whole product, worth stating plainly in every module: <strong>the engine proposes, the lawyer disposes.</strong> Questions, mapping, field rules, and transformed answers all follow that one pattern.</p>
+      <p>This is also the spine of the whole product: <strong>the engine proposes, the lawyer disposes.</strong> Questions, mapping, field rules, and transformed answers all follow that one pattern.</p>
     </section>
 
-    <!-- 08 VAULT -->
     <section class="chapter" id="vault">
-      <div class="ch-num">Chapter 08</div>
+      <div class="ch-num">Chapter 11</div>
       <h2>Data vault &amp; integrations</h2>
       <p class="lede">The vault is the never-ask-twice client profile, and it is quietly the most important asset in the plan, because it is the connective tissue under all five suite products. In legal it also sits on the sharpest ethics landmine in the system, so it needs more care than a normal app's user profile.</p>
 
       <h3>What it does</h3>
-      <p>A returning client opens a new deck and does not start from zero. Anything we already hold (name, date of birth, SIN, address) comes back as a confirm card, not a blank one. A checkmark, one tap to accept, tap to edit. A second matter might be 80 percent quick confirms. That is the retention hook, and it makes the experience faster every time, the opposite of the dread most people attach to legal paperwork.</p>
+      <p>A returning client opens a new deck and does not start from zero. Anything we already hold (name, date of birth, SIN, address) comes back as a confirm card, not a blank one. A checkmark, one tap to accept, tap to edit. A second matter might be 80 percent quick confirms. That is the retention hook, and it makes the experience faster every time.</p>
 
       <div class="box box-must">
-        <div class="box-label"><span class="sq"></span>Rule: confirm, never silent autofill</div>
+        <div class="box-label"><span class="sq"></span>Build now · confirm, never silent autofill</div>
         <p>Data goes stale. An address from 2023 must not land on a 2026 sworn form unverified. Reuse is always a confirm step, never a silent pre-fill.</p>
       </div>
 
       <h3>The landmine: conflicts and confidentiality</h3>
       <p>A naive "one pool of every person the firm has ever touched" is not just messy, it is an ethics breach waiting to happen. The same human can be a client in one matter and the adverse party in another. Family law is the clean example: if the firm acts for one spouse, the other spouse's data cannot bleed into a shared profile the first side can see.</p>
       <div class="box box-must">
-        <div class="box-label"><span class="sq"></span>Build from day one: matter-level access &amp; conflict screens</div>
+        <div class="box-label"><span class="sq"></span>Build now · matter-level access &amp; conflict screens</div>
         <p>The vault is keyed to the person, but access is governed at the matter level, with conflict screens respected. Reuse across matters is allowed only when it is the same client, same side, and the person re-confirms in the new context. Retrofitting confidentiality walls later is far harder than designing them in, and getting it wrong is the kind of incident that ends a legal software company's reputation in one shot.</p>
       </div>
 
       <h3>Ownership and portability, which doubles as a sales weapon</h3>
       <p>The firm owns its client data, not Beetle. It is exportable in full, anytime, stored in Canada, and Beetle runs as a processor on zero-retention terms so nothing is logged or trained on. That is a compliance requirement and a direct answer to what every Ontario real estate lawyer is angry about right now: they watched D&amp;D buy the tool they depended on and hike the price because they were locked in. "Your data is yours, leave whenever you want, here is the export button" lands hard with that audience. Say it in the pitch.</p>
 
-      <h3>Data model note for the team</h3>
+      <h3>Data model note</h3>
       <p>A client profile is not only a person. It is people, organizations, and the relationships between them: spouses, children, a company and its directors. Do not over-build v1 (person plus a basic organization record is enough to start), but design the schema to extend to relationships so family and corporate work do not force a rebuild later.</p>
 
       <h3>Integrations: integrate with Clio, do not compete with it</h3>
-      <p>Clio is the dominant practice system in Canada and has its own intake in Clio Grow. We are not the system of record. We are the front-door layer that feeds it: the question generation, voice, transformation, and form fill that Clio does not do. Position as complement and ride their installed base instead of fighting it.</p>
+      <p>Clio is the dominant practice system in Canada and has its own intake in Clio Grow. We are not the system of record. We are the front-door layer that feeds it. Position as complement and ride their installed base instead of fighting it.</p>
       <ul>
-        <li><strong>Tier 1, push (build first):</strong> approved data and generated documents land in the right Clio matter automatically. This answers the first question every firm asks, which is "where does the output go."</li>
-        <li><strong>Tier 2, sync (build second):</strong> pull existing client and matter data from Clio to pre-populate the vault, so we never re-ask what Clio already knows, then push results back.</li>
+        <li><strong>Tier 1, push (build first):</strong> approved data and generated documents land in the right Clio matter automatically. Answers the first question every firm asks, "where does the output go."</li>
+        <li><strong>Tier 2, sync (build second):</strong> pull existing client and matter data from Clio to pre-populate the vault, then push results back.</li>
       </ul>
       <div class="box box-note">
         <div class="box-label"><span class="sq"></span>Do not gate the MVP on a finished Clio app</div>
@@ -613,140 +620,214 @@
       </div>
 
       <h3>Defer, but keep modular</h3>
-      <p><strong>E-signature</strong> is eventually table stakes. <strong>Identity verification</strong> is the interesting one: a real estate file needs client identity checked for compliance anyway, and D&amp;D just built E-IDV into Unity, so the pattern is proven. Keep both modular and vertical-triggered, not core.</p>
+      <p><strong>E-signature</strong> is eventually table stakes. <strong>Identity verification</strong> is the interesting one: a real estate file needs client identity checked for compliance anyway, and D&amp;D just built E-IDV into Unity, so the pattern is proven. Keep both modular and vertical-triggered, not core. Execution steps beyond signature (commissioning, swearing) are covered in Chapter 15.</p>
     </section>
 
-    <!-- 09 PRICING -->
+    <section class="chapter" id="buildnow">
+      <div class="ch-num">Chapter 12</div>
+      <h2>Build-now requirements</h2>
+      <p class="lede">Cross-cutting requirements that are not a single feature but must be true from the start. Each is amber for a reason: retrofitting any of them costs far more than building it in. These sit alongside the non-negotiables already threaded through Part II.</p>
+
+      <div class="box box-must">
+        <div class="box-label"><span class="sq"></span>Build now · evaluation harness</div>
+        <p>This is the single most important thing not yet in the original plan. The entire wedge is that the AI layer is magic: question generation, extraction, transformation. Right now nothing measures whether it is good, or whether a prompt change made it better or worse. Build an evaluation harness in Phase 1: a bank of real forms with expected questions and expected mappings, scored automatically. Without it you tune blind, you cannot prove quality to a partner, and you cannot diagnose a mistake after it happens. Decide model choice, cost per operation, latency budget, and prompt versioning alongside it, so quality, speed, and unit economics are visible from day one.</p>
+      </div>
+
+      <div class="box box-must">
+        <div class="box-label"><span class="sq"></span>Build now · two design targets, mobile and desktop</div>
+        <p>Clients answer flashcards on their phones, in waiting rooms and at kitchen tables. That flow is mobile-first. The lawyer console is a desktop tool. Two different design targets, easy to botch if you build one and stretch it. Decide this before Phase 2.</p>
+      </div>
+
+      <div class="box box-must">
+        <div class="box-label"><span class="sq"></span>Build now · accessibility to WCAG AA</div>
+        <p>We are putting a form-replacement in front of elderly estate clients and ESL clients, the exact people who struggle with standard forms. Ontario's AODA expects accessible digital experiences, and beyond compliance it is the entire point of the product. Design the client flow to WCAG AA from the start. Retrofitting accessibility hurts as much as retrofitting the conflict screens would have.</p>
+      </div>
+
+      <div class="box box-must">
+        <div class="box-label"><span class="sq"></span>Build now · liability groundwork (start early, it gates selling)</div>
+        <p>If the system mis-maps a field and a wrong value reaches a filed document, the lawyer approved it (that is our guardrail), but the firm and its malpractice insurer will still ask about indemnification and whether we carry technology errors-and-omissions coverage. Get a limitation-of-liability position, real terms of service, and E&amp;O insurance in motion now, because the lead time is long and it gates the first signature.</p>
+      </div>
+
+      <div class="box box-must">
+        <div class="box-label"><span class="sq"></span>Build now · client-appropriate branding</div>
+        <p>Co-branded Beetle is right for the lawyer console. But on the client-facing flow, a small firm wants their own name and logo forward, because it is their client's trust on the line. This is not white-labeling; it is client-appropriate presentation: the firm's brand to the client, Beetle on the professional side. Resolve it explicitly in the design, or a partner will raise it for you. Pair with basic multilingual voice intake as a near-term corridor edge.</p>
+      </div>
+    </section>
+
+    <!-- ============ PART III ============ -->
+    <div class="part-head"><div class="part-k">Part III</div><div class="part-t">Commercial &amp; legal</div><div class="part-rule"></div></div>
+
     <section class="chapter" id="pricing">
-      <div class="ch-num">Chapter 09</div>
+      <div class="ch-num">Chapter 13</div>
       <h2>Pricing</h2>
-      <p class="lede">Pricing is not a number to set later. It is a positioning decision, and it is tangled up with the whole wedge. Our entry story is "we are not Dye &amp; Durham." If we rail against per-file gouging and then price per file ourselves, we are the same trap in a nicer coat, and the first raise proves it.</p>
+      <p class="lede">Pricing is not a number to set later. It is a positioning decision tangled up with the whole wedge. Our entry story is "we are not Dye &amp; Durham." If we rail against per-file gouging and then price per file ourselves, we are the same trap in a nicer coat, and the first raise proves it.</p>
 
       <div class="box box-edge">
         <div class="box-label"><span class="sq"></span>The model is the brand</div>
-        <p>Flat monthly per firm, tiered by size, with a generous matter volume baked into each tier. Flat and predictable is not just easier to sell. It is the anti-D&amp;D message: one price, no per-file surprises, no lock-in. Not per-seat (that punishes logins and teaches firms to minimize users). Not per-file (that is the incumbent's sin).</p>
+        <p>Flat monthly per firm, tiered by size, with a generous matter volume baked into each tier. Flat and predictable is not just easier to sell. It is the anti-D&amp;D message: one price, no per-file surprises, no lock-in. Not per-seat (that punishes logins). Not per-file (that is the incumbent's sin).</p>
       </div>
 
-      <h3>Starting tiers (numbers to tune once we see real usage)</h3>
       <div class="table-wrap">
         <table>
           <thead><tr><th>Tier</th><th>Firm</th><th>Monthly</th></tr></thead>
           <tbody>
             <tr><td><b>Entry</b></td><td>Solo to ~5 lawyers, light volume</td><td>~$600 to $900</td></tr>
             <tr><td><b>Core boutique</b></td><td>5 to 15 lawyers</td><td>~$1,200 to $1,800</td></tr>
-            <tr><td><b>Heavy / larger boutique</b></td><td>Higher volume</td><td>up to ~$2,500</td></tr>
+            <tr><td><b>Heavy / larger</b></td><td>Higher volume</td><td>up to ~$2,500</td></tr>
           </tbody>
         </table>
       </div>
-      <p>The ROI is defensible: a 10-lawyer boutique already pays north of $1,000/month just for Clio. If LegalEase saves even 30 minutes of admin or paralegal time across 40 matters a month, it pays for itself before the mid tier. One steer: for a pre-proof product landing its first partners, anchor a little lower than instinct and earn the right to raise as we prove hours saved. Starting low and raising as we deliver is, again, the opposite of the D&amp;D story. Use it.</p>
+      <p>The ROI is defensible: a 10-lawyer firm already pays north of $1,000/month just for Clio. If LegalEase saves even 30 minutes of admin or paralegal time across 40 matters a month, it pays for itself before the mid tier. One steer: for a pre-proof product landing its first partners, anchor a little lower than instinct and earn the right to raise as we prove hours saved. Starting low and raising as we deliver is the opposite of the D&amp;D story. Use it.</p>
 
       <h3>Founding design partners are a separate track</h3>
-      <p>Do not confuse this with channel compensation (referral and co-sell percentages for allies). The design partner is the lawyer co-building with us. During the build, when the product is rough and they are handing us their forms, their time, and their name, price it <strong>free or near-free</strong>. Then lock a <strong>permanent founding rate</strong> once it is stable, roughly 40 to 50 percent off a standard tier. That trade is fair, on-brand, and costs us little while buying a reference customer and a testimonial we use for years.</p>
+      <p>Do not confuse this with channel compensation. The design partner is the lawyer co-building with us. During the build, price it <strong>free or near-free</strong>. Then lock a <strong>permanent founding rate</strong> once stable, roughly 40 to 50 percent off a standard tier. Fair, on-brand, and it buys a reference customer and a testimonial we use for years.</p>
 
       <h3>One-time onboarding fee, commercial customers only</h3>
-      <p>Registering a firm's forms is real labor while we still do it white-glove, so a setup fee covers it honestly. Waive it entirely for founding partners as part of the deal.</p>
+      <p>Registering a firm's forms is real labor while we still do it white-glove, so a setup fee covers it honestly. Waive it entirely for founding partners.</p>
 
       <h3>Why we can afford flat pricing (the margin loop)</h3>
-      <p>Variable cost per matter is tiny: about ten cents for the Anvil fill plus a few dollars of model and transcription cost. A firm paying $1,200/month while doing 40 matters costs us maybe $100 in COGS. The cheap plumbing is exactly what lets us make the flat-pricing brand promise.</p>
+      <p>Variable cost per matter is tiny: about ten cents for the fill plus a few dollars of model and transcription cost. A firm paying $1,200/month while doing 40 matters costs us maybe $100 in COGS. The cheap plumbing is what lets us make the flat-pricing brand promise.</p>
 
       <div class="box box-note">
         <div class="box-label"><span class="sq"></span>Architecture note for the suite</div>
-        <p>Price per product line across the suite. A law firm buys LegalEase; a clinic buys the front-desk product. Same engine underneath, separate SKUs, so nothing about legal pricing locks us when healthcare comes. Within legal, sell one LegalEase that covers a boutique's intake and forms. Do not fragment it into five confusing add-ons for a small firm.</p>
+        <p>Price per product line across the suite. Same engine underneath, separate SKUs, so nothing about legal pricing locks us when healthcare comes. Within legal, sell one LegalEase that covers a firm's intake and forms. Do not fragment it into five confusing add-ons for a small firm.</p>
       </div>
     </section>
 
-    <!-- 10 COMPLIANCE -->
     <section class="chapter" id="compliance">
-      <div class="ch-num">Chapter 10</div>
-      <h2>Data handling &amp; Law Society compliance</h2>
-      <p class="lede">A lawyer needs two things answered before they say yes: where the data lives, and how the AI is allowed to touch it. The good news is that our design already lines up with most of what the Law Society of Ontario requires, and the compliance posture is itself a moat against US-built competitors.</p>
+      <div class="ch-num">Chapter 14</div>
+      <h2>Data handling &amp; LSO compliance</h2>
+      <p class="lede">A lawyer needs two things answered before they say yes: where the data lives, and how the AI is allowed to touch it. Our design already lines up with most of what the Law Society of Ontario requires, and the compliance posture is itself a moat against US-built competitors.</p>
 
       <h3>The Law Society frame</h3>
-      <p>The LSO's April 2024 white paper, "Licensee use of generative artificial intelligence," sets out how the professional conduct rules apply, built around obligations including competence, confidentiality, supervision, the licensee-client relationship, and fees. This is not abstract anymore: as of January 2026, Legal Aid Ontario requires roster lawyers to annually confirm they have read and comply with the LSO's generative AI obligations. A firm evaluating us is increasingly answering for this on paper.</p>
+      <p>The LSO's April 2024 white paper on licensee use of generative AI sets out how the professional conduct rules apply, built around obligations including competence, confidentiality, supervision, the licensee-client relationship, and fees. This is not abstract anymore: as of January 2026, Legal Aid Ontario requires roster lawyers to annually confirm they have read and comply with the LSO's generative AI obligations. A firm evaluating us is increasingly answering for this on paper.</p>
 
       <div class="box box-edge">
         <div class="box-label"><span class="sq"></span>Our review console is a compliance control</div>
-        <p>The LSO requires that licensees independently verify any information produced by generative AI, and that the verification be done by a human, not the AI system itself. That is our review console described in a regulation: lawyer as author of record, generate locked until every field is approved, raw always visible. We did not just build a nice UX. We built the control the LSO requires. Say that to firms in those terms.</p>
+        <p>The LSO requires that licensees independently verify any information produced by generative AI, and that the verification be done by a human, not the AI. That is our review console described in a regulation: lawyer as author of record, generate locked until every field is approved, raw always visible. We did not just build a nice UX. We built the control the LSO requires. Say that to firms in those terms.</p>
       </div>
 
       <h3>Why the client side must never advise</h3>
-      <p>The LSO warns that when generative AI interacts directly with the public, there is a risk it inadvertently provides legal advice, and that certain tasks require the licensee's own judgment and cannot be delegated. So the flashcard side is boxed in hard: it asks intake questions and collects facts. It never answers a client's legal question, never characterizes, never advises. The "let my lawyer decide" defer option is the compliant response when a client asks something the software must not answer.</p>
-      <p>There is a design edge here in our favor. A public website chatbot (the Settify pattern) raises both the unauthorized-advice risk and the risk of forming an unintended lawyer-client relationship with a stranger. Our model, where the lawyer sends an intake link to a client they have already chosen to engage, sidesteps both: the person is already a client, and the tool only ever collects. Keep it that way. Do not build an open public-facing bot.</p>
+      <p>The LSO warns that when generative AI interacts directly with the public, there is a risk it inadvertently provides legal advice, and that certain tasks cannot be delegated. So the flashcard side is boxed in hard: it asks intake questions and collects facts. It never answers a client's legal question, never characterizes, never advises. The "let my lawyer decide" defer option is the compliant response when a client asks something the software must not answer.</p>
+      <p>A design edge in our favor: a public website chatbot (the Settify pattern) raises both the unauthorized-advice risk and the risk of forming an unintended lawyer-client relationship with a stranger. Our model, where the lawyer sends an intake link to a client they have already chosen to engage, sidesteps both. Keep it that way. Do not build an open public-facing bot.</p>
 
       <h3>Confidentiality, privilege, and billing</h3>
       <ul>
-        <li><strong>Confidentiality and privilege.</strong> The guidance stresses safeguarding client information, and notes that because AI and privilege are largely untested by Canadian courts, making privileged information accessible to any AI model should be approached with caution. This points straight at our data terms below.</li>
-        <li><strong>Billing.</strong> Licensees are prohibited from charging hidden fees, and whether AI costs can be passed to a client as a disbursement requires an individualized assessment. Minor, but tell the sales side not to pitch "bill your clients for it" as a feature.</li>
-        <li><strong>Disclosure.</strong> There is no blanket requirement to disclose AI use every time, but the factors to weigh include whether the client's personal information is being input. So build a plain-language consent and notice step into the client intake. It satisfies the disclosure factors and builds trust.</li>
+        <li><strong>Confidentiality and privilege.</strong> The guidance stresses safeguarding client information, and notes that because AI and privilege are largely untested by Canadian courts, making privileged information accessible to any AI model should be approached with caution. This points straight at the data terms below.</li>
+        <li><strong>Billing.</strong> Licensees are prohibited from charging hidden fees, and whether AI costs can be passed to a client as a disbursement requires an individualized assessment. Tell the sales side not to pitch "bill your clients for it" as a feature.</li>
+        <li><strong>Disclosure.</strong> No blanket requirement to disclose AI use every time, but the factors include whether the client's personal information is being input. So build a plain-language consent and notice step into the client intake. It satisfies the disclosure factors and builds trust.</li>
       </ul>
 
       <h3>The data-handling spec</h3>
       <ul>
-        <li><strong>Store client data in Canada.</strong> The same flag competitors already wave, so it is table stakes, not a nicety.</li>
-        <li><strong>Zero-retention, no-training model calls,</strong> so client facts are never logged or used to train anyone's model. This is our direct answer to the privilege caution.</li>
+        <li><strong>Store client data in Canada.</strong> The same flag competitors already wave, so it is table stakes.</li>
+        <li><strong>Zero-retention, no-training model calls,</strong> so client facts are never logged or used to train anyone's model. Our answer to the privilege caution.</li>
         <li><strong>Encrypt in transit and at rest.</strong></li>
         <li><strong>Matter-level access and conflict screens</strong> from the vault design.</li>
-        <li><strong>Audit trail,</strong> because it is the evidence a human verified the output.</li>
+        <li><strong>Audit trail,</strong> the evidence a human verified the output.</li>
         <li><strong>A data processing agreement</strong> where Beetle is the processor and the firm is the controller. Firms will ask.</li>
-        <li><strong>Full export, firm-owned data,</strong> which is also our anti-lock-in weapon.</li>
+        <li><strong>Full export, firm-owned data,</strong> also our anti-lock-in weapon.</li>
       </ul>
 
       <div class="box box-edge">
         <div class="box-label"><span class="sq"></span>The reframe</div>
-        <p>Every US-built competitor, Gavel and Docketwise included, is architected around American rules. We are the intake tool built around the LSO's AI obligations and Canadian data residency from day one. That is not overhead. It is a moat and a sentence in the pitch: your data stays in Canada, a lawyer approves everything before it is used, and you are built to stay onside with the Law Society.</p>
+        <p>Every US-built competitor, Gavel and Docketwise included, is architected around American rules. We are the intake tool built around the LSO's AI obligations and Canadian data residency from day one. That is not overhead. It is a moat and a sentence in the pitch.</p>
       </div>
 
       <div class="box box-note">
         <div class="box-label"><span class="sq"></span>Two honest caveats</div>
-        <p>This maps the guidance to product decisions; it is not legal advice, and our founding-partner lawyers should confirm the framing since they are the licensees who answer for it. And the ground is moving: the LSO invites feedback, Legal Aid now requires annual attestation, and courts may add filing rules. The compliance section should name a date and be reviewed periodically rather than treated as settled.</p>
+        <p>This maps the guidance to product decisions; it is not legal advice, and our founding-partner lawyers should confirm the framing since they are the licensees who answer for it. And the ground is moving: the LSO invites feedback, Legal Aid now requires annual attestation, and courts may add filing rules. Name a date on this section and review it periodically rather than treating it as settled.</p>
       </div>
     </section>
 
-    <!-- APPENDIX A: NON-NEGOTIABLES -->
+    <!-- ============ PART IV ============ -->
+    <div class="part-head"><div class="part-k">Part IV</div><div class="part-t">Before we sell / before we scale</div><div class="part-rule"></div></div>
+
+    <section class="chapter" id="beforescale">
+      <div class="ch-num">Chapter 15</div>
+      <h2>Before we sell / before we scale</h2>
+      <p class="lede">Real considerations that are not blockers for writing code, parked here deliberately so they are on the record without stalling the build. Each is blue: it becomes urgent at the sell or scale line, not at the first commit. Do not let them bloat Part II, and do not let them get forgotten.</p>
+
+      <div class="box box-later">
+        <div class="box-label"><span class="sq"></span>Before we sell · security as a sales gate</div>
+        <p>"Data in Canada, zero retention" is the headline, but due diligence, sometimes the firm's insurer's, will ask whether we are SOC 2, whether we pen-test, what our breach process is, and who our sub-processors are. We do not need SOC 2 on day one. We need an honest security page and a credible roadmap to it. Divorcepath already waves SOC 2, so we will face the same question.</p>
+      </div>
+
+      <div class="box box-later">
+        <div class="box-label"><span class="sq"></span>Before we scale · define what "validated" means</div>
+        <p>We have said "once legal is validated" repeatedly and never set the bar. Set it now: number of paying firms, retention over some months, hours saved per firm. Without a graduation line, the pull to vertical-hop into healthcare early is strong, and it kills focus.</p>
+      </div>
+
+      <div class="box box-later">
+        <div class="box-label"><span class="sq"></span>Before we scale · white-glove has an expiry date</div>
+        <p>Hand-registering forms seeds the library and delivers the magic, which is right for the first few partners. If it never stops, we are a services shop wearing SaaS pricing with no margins. Decide the trigger that flips a firm from white-glove to self-serve, and build the self-serve registration to meet it.</p>
+      </div>
+
+      <div class="box box-later">
+        <div class="box-label"><span class="sq"></span>Before we sell · single-partner dependency</div>
+        <p>The plan leans hard on one design partner staying engaged through a multi-month build. Partners get busy, ghost, or leave. Manufacture an early wow moment, even a hacky one, in the first few weeks to keep them bought in, and try to line up a second partner in a different practice area so one departure does not reset us.</p>
+      </div>
+
+      <div class="box box-later">
+        <div class="box-label"><span class="sq"></span>Before we sell · the execution last mile</div>
+        <p>We produce a filled form, not a signed, sworn, or commissioned one. E-sign is flagged already. Many legal forms need commissioning, and Ontario permits remote commissioning now; confirm the current rules. Decide whether execution is in scope or explicitly handed back to the lawyer, so there is no gap at the finish line.</p>
+      </div>
+    </section>
+
+    <!-- ============ APPENDICES ============ -->
+    <div class="part-head"><div class="part-k">Reference</div><div class="part-t">Appendices</div><div class="part-rule"></div></div>
+
     <section class="chapter" id="nonneg">
       <div class="ch-num">Appendix A</div>
       <h2>The non-negotiables</h2>
-      <p class="lede">Every point we flagged as a must-have, an edge, a build-from-day-one, or a hard boundary, collected in one place. If a build decision conflicts with one of these, the decision is wrong.</p>
+      <p class="lede">Every point flagged as a must-have, an edge, a build-now, or a hard boundary, collected in one place. If a build decision conflicts with one of these, the decision is wrong.</p>
 
       <h4>Trust &amp; correctness</h4>
       <ul>
         <li><strong>Never fabricate; preserve uncertainty.</strong> Vague in, vague out, flagged. Rule one of transformation.</li>
-        <li><strong>No legal characterization.</strong> The system organizes facts, never applies legal labels. Hard boundary between drafting aid and unauthorized practice.</li>
+        <li><strong>No legal characterization.</strong> The system organizes facts, never applies legal labels.</li>
         <li><strong>Raw answer always visible</strong> in review, with audio playback for voice notes.</li>
-        <li><strong>Human verification, generate locked until approved.</strong> The lawyer is author of record. This is also the LSO's explicit requirement.</li>
+        <li><strong>Human verification, generate locked until approved.</strong> The lawyer is author of record. Also the LSO's explicit requirement.</li>
         <li><strong>Confidence: flag, do not drop.</strong> No silent blanks on a final form.</li>
         <li><strong>Confirm, never silent autofill</strong> from the vault.</li>
       </ul>
 
       <h4>Build from day one</h4>
       <ul>
-        <li><strong>Matter-level access controls and conflict screens.</strong> Retrofitting confidentiality walls is far harder and one breach ends the company's reputation.</li>
-        <li><strong>Form versioning.</strong> Detect changed forms, re-map only changed fields. A silent misplacement puts a wrong answer on a filed document.</li>
+        <li><strong>Matter-level access controls and conflict screens.</strong> One breach ends the company's reputation.</li>
+        <li><strong>Form versioning.</strong> Detect changed forms, re-map only changed fields.</li>
         <li><strong>Audit trail.</strong> Who approved what, when, raw versus final, per matter.</li>
         <li><strong>Zero-retention Canadian data handling.</strong> Compliance requirement and sales line at once.</li>
+        <li><strong>The adapter seam for PDF fill.</strong> Never couple the core to a vendor's API.</li>
+        <li><strong>Document lock classification</strong> before committing to any form set.</li>
+        <li><strong>Evaluation harness</strong> from Phase 1. You cannot tune what you cannot measure.</li>
+        <li><strong>Mobile-first client, desktop lawyer.</strong> Two design targets.</li>
+        <li><strong>Accessibility to WCAG AA</strong> in the client flow.</li>
+        <li><strong>Client-appropriate branding.</strong> Firm forward to the client, Beetle on the professional side.</li>
+        <li><strong>Liability groundwork.</strong> Limitation of liability, terms, E&amp;O insurance in motion early.</li>
       </ul>
 
       <h4>The edge (protect and lead with these)</h4>
       <ul>
         <li><strong>Zero-setup question generation</strong> that produces the client-facing question, not just a tagged field.</li>
-        <li><strong>Voice intake,</strong> per card.</li>
+        <li><strong>Voice intake,</strong> per card, multilingual where it helps.</li>
         <li><strong>Answer transformation,</strong> the crown jewel, always behind human approval.</li>
-        <li><strong>Canadian-first,</strong> forms, data residency, and LSO-shaped architecture.</li>
+        <li><strong>Canadian-first,</strong> forms, data residency, LSO-shaped architecture.</li>
         <li><strong>Shared curated library,</strong> the compounding moat over per-firm-template competitors.</li>
       </ul>
 
       <h4>Sequencing &amp; commercial</h4>
       <ul>
-        <li><strong>Differentiator first, plumbing bought.</strong> Integrate Anvil for PDF fill; do not build it.</li>
+        <li><strong>Differentiator first, plumbing bought.</strong> Integrate the fill provider; do not build it.</li>
         <li><strong>Client side never advises.</strong> Collect facts only; defer legal questions to the lawyer.</li>
         <li><strong>System proposes, lawyer disposes.</strong> The spine through every module.</li>
         <li><strong>Flat per-firm pricing.</strong> The anti-D&amp;D brand; never per-file.</li>
         <li><strong>Integrate with Clio, do not compete with it.</strong></li>
         <li><strong>Agnostic engine, first form set kept open.</strong> Prove deeply on one partner's real forms.</li>
+        <li><strong>Own the intake layer, not the cursed core.</strong> Across every vertical in the suite.</li>
       </ul>
     </section>
 
-    <!-- APPENDIX B: COMPETITOR COMPENDIUM -->
     <section class="chapter" id="compendium">
       <div class="ch-num">Appendix B</div>
       <h2>Competitor compendium</h2>
@@ -755,88 +836,57 @@
         <table>
           <thead><tr><th>Tool</th><th>Type</th><th>What it does</th><th>Cost</th><th>Read</th></tr></thead>
           <tbody>
-            <tr>
-              <td><b>Gavel</b> (was Documate)</td><td>Horizontal doc automation</td>
-              <td>Upload doc, map fields, intake questionnaire, generate filled doc. Client portal, save progress, redaction. Acquired by Relativity.</td>
-              <td>from ~$83/mo</td>
-              <td><span class="tag tag-avoid">Closest mirror</span> Setup is 2 to 5 hrs/template. Their weakness is our zero-setup wedge; US-built is our Canada opening.</td>
-            </tr>
-            <tr>
-              <td><b>D&amp;D Unity</b> (The Conveyancer)</td><td>Real estate conveyancing</td>
-              <td>Ontario conveyancing, registry and title-insurer integrated. ~90% Ontario share.</td>
-              <td>~$129 to $249 / file</td>
-              <td><span class="tag tag-avoid">Do not fight</span> Registry-locked monopoly. But widely resented; we take the front-door intake, not conveyancing.</td>
-            </tr>
-            <tr>
-              <td><b>DivorceMate</b> (LEAP)</td><td>Family law</td>
-              <td>Calculations, court forms, agreements. 6,500+ professionals. Data stored per document.</td>
-              <td>~$250/mo (ON)</td>
-              <td><span class="tag tag-watch">Crowded vertical</span> Entrenched. Skip family as a beachhead.</td>
-            </tr>
-            <tr>
-              <td><b>Divorcepath</b></td><td>Family law (modern)</td>
-              <td>Client intake, AI extraction from pay stubs, unified profile, 600+ forms, Clio integration, Canadian residency.</td>
-              <td>~$80/user/mo</td>
-              <td><span class="tag tag-watch">Our playbook, one vertical</span> Already executing intake + AI + Canadian. Confirms the model; avoid head-to-head here.</td>
-            </tr>
-            <tr>
-              <td><b>Settify</b></td><td>Family law intake</td>
-              <td>AI client intake that sits on a firm's public website and guides clients.</td>
-              <td>Not public</td>
-              <td><span class="tag tag-watch">Intake-specific</span> Public-facing bot pattern carries LSO risk we avoid via lawyer-initiated links.</td>
-            </tr>
-            <tr>
-              <td><b>eState Planner</b></td><td>Wills &amp; estates</td>
-              <td>Client info-gathering, probate-fee and tax-planning flags. 400+ firms.</td>
-              <td>Not public</td>
-              <td><span class="tag tag-watch">Served, not empty</span> Estates is a credible later vertical; voice helps elderly clients.</td>
-            </tr>
-            <tr>
-              <td><b>Docketwise</b> + immigration peers</td><td>Immigration</td>
-              <td>Auto-fills 80+ USCIS forms from one multilingual questionnaire; claims 60 to 70% less prep time. Peers: LollyLaw, eImmigration, Imagility, Visalaw.ai, Visas.ai.</td>
-              <td>Not public</td>
-              <td><span class="tag tag-avoid">Most saturated</span> Do not enter. Was only ever an example in the notes.</td>
-            </tr>
-            <tr>
-              <td><b>HotDocs</b> (Mitratech), <b>Clio Draft</b>, Bryter, Briefpoint, Smokeball, MyCase</td><td>Horizontal / adjacent</td>
-              <td>Document assembly and automation; Clio Draft lives inside Clio.</td>
-              <td>Not public</td>
-              <td><span class="tag tag-watch">Incumbent field</span> Clio dominance is why we integrate with Clio rather than compete.</td>
-            </tr>
-            <tr>
-              <td><b>Clio</b> (Manage / Grow)</td><td>Practice management</td>
-              <td>Dominant Canadian practice system with its own intake in Grow.</td>
-              <td>Not public</td>
-              <td><span class="tag tag-ally">Integrate, do not compete</span> The system of record we feed. Push first, sync second.</td>
-            </tr>
-            <tr>
-              <td><b>Anvil</b></td><td>Infrastructure</td>
-              <td>PDF fill API. Document AI turns a PDF into an API-fillable template with clean field names.</td>
-              <td>~$0.10 / fill</td>
-              <td><span class="tag tag-ally">Build on it</span> Our PDF plumbing. The spike. Do not build fill from scratch.</td>
-            </tr>
+            <tr><td><b>Gavel</b> (was Documate)</td><td>Horizontal doc automation</td><td>Upload doc, map fields, questionnaire, generate filled doc. Client portal, save progress, redaction. Acquired by Relativity.</td><td>from ~$83/mo</td><td><span class="tag tag-avoid">Closest mirror</span> Setup is 2 to 5 hrs/template. Their weakness is our zero-setup wedge; US-built is our Canada opening.</td></tr>
+            <tr><td><b>D&amp;D Unity</b> (The Conveyancer)</td><td>Real estate conveyancing</td><td>Ontario conveyancing, registry and title-insurer integrated. ~90% Ontario share.</td><td>~$129 to $249 / file</td><td><span class="tag tag-avoid">Do not fight</span> Registry-locked monopoly, widely resented. We take the front-door intake, not conveyancing.</td></tr>
+            <tr><td><b>DivorceMate</b> (LEAP)</td><td>Family law</td><td>Calculations, court forms, agreements. 6,500+ professionals. Data stored per document.</td><td>~$250/mo (ON)</td><td><span class="tag tag-watch">Crowded vertical</span> Entrenched. Skip family as a beachhead.</td></tr>
+            <tr><td><b>Divorcepath</b></td><td>Family law (modern)</td><td>Client intake, AI extraction from pay stubs, unified profile, 600+ forms, Clio integration, Canadian residency, SOC 2.</td><td>~$80/user/mo</td><td><span class="tag tag-watch">Our playbook, one vertical</span> Already doing intake + AI + Canadian. Avoid head-to-head here.</td></tr>
+            <tr><td><b>Settify</b></td><td>Family law intake</td><td>AI client intake that sits on a firm's public website and guides clients.</td><td>Not public</td><td><span class="tag tag-watch">Intake-specific</span> Public-facing bot pattern carries LSO risk we avoid via lawyer-initiated links.</td></tr>
+            <tr><td><b>eState Planner</b></td><td>Wills &amp; estates</td><td>Client info-gathering, probate-fee and tax-planning flags. 400+ firms.</td><td>Not public</td><td><span class="tag tag-watch">Served, not empty</span> Estates is a credible later vertical; voice helps elderly clients.</td></tr>
+            <tr><td><b>Docketwise</b> + immigration peers</td><td>Immigration</td><td>Auto-fills 80+ USCIS forms from one questionnaire; ~60 to 70% less prep. Peers: LollyLaw, eImmigration, Imagility, Visalaw.ai, Visas.ai.</td><td>Not public</td><td><span class="tag tag-avoid">Most saturated</span> Do not enter. XFA + barcode cursed (Chapter 06).</td></tr>
+            <tr><td><b>HotDocs</b>, <b>Clio Draft</b>, Bryter, Briefpoint, Smokeball, MyCase</td><td>Horizontal / adjacent</td><td>Document assembly; Clio Draft lives inside Clio.</td><td>Not public</td><td><span class="tag tag-watch">Incumbent field</span> Clio dominance is why we integrate with Clio.</td></tr>
+            <tr><td><b>Clio</b> (Manage / Grow)</td><td>Practice management</td><td>Dominant Canadian practice system with its own intake in Grow.</td><td>Not public</td><td><span class="tag tag-ally">Integrate, do not compete</span> The system of record we feed. Push first, sync second.</td></tr>
+            <tr><td><b>Anvil</b></td><td>Infrastructure</td><td>PDF fill API. Document AI turns a PDF into an API-fillable template. AcroForms only.</td><td>~$0.10 / fill</td><td><span class="tag tag-ally">Build on it</span> Our default fill engine, behind the adapter seam. Not XFA.</td></tr>
+            <tr><td><b>Datalogics / Aspose / pdfRest / Adobe PDF Services</b></td><td>Infrastructure (XFA)</td><td>XFA-to-AcroForm conversion and Adobe-engine processing without Acrobat.</td><td>Varies</td><td><span class="tag tag-ally">Hard-forms on-ramp</span> Only relevant if we pursue format-locked verticals. Deferred.</td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
-    <!-- APPENDIX C: SOURCES -->
-    <section class="chapter" id="sources">
+    <section class="chapter" id="lockref">
       <div class="ch-num">Appendix C</div>
+      <h2>Document-lock quick reference</h2>
+      <p class="lede">The triage from Chapter 07, condensed for the diligence checklist. Tag every target document before committing.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Tag</th><th>Test</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tag tag-ally">Tractable</span></td><td>Fillable AcroForm, plain PDF, or Word. Fill provider accepts it.</td><td>Build here first. Engine drops in.</td></tr>
+            <tr><td><span class="tag tag-avoid">Format lock</span></td><td>Provider rejects it; opens only in Acrobat; has a Validate / barcode step (dynamic XFA).</td><td>Injection or Adobe-engine spike. Decision gate is the barcode. Defer unless strategic.</td></tr>
+            <tr><td><span class="tag tag-watch">System lock</span></td><td>There is no file; submission happens inside a portal or registry.</td><td>Do not rebuild it. Own the intake in front; integrate for handoff.</td></tr>
+            <tr><td><span class="tag tag-std">Standard lock</span></td><td>Handoff is a data standard (FHIR, EDI, ACORD), not a document.</td><td>Speak the standard. Treat it as the integration target.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="chapter" id="sources">
+      <div class="ch-num">Appendix D</div>
       <h2>Sources &amp; currency</h2>
-      <p>Market and regulatory facts in this playbook were gathered from web research in mid-2026 and should be re-verified before external use, since pricing, ownership, and guidance shift. Key sources:</p>
+      <p>Market, technical, and regulatory facts here were gathered from web research in mid-2026 and should be re-verified before external use, since pricing, ownership, tooling, and guidance shift. Key sources:</p>
       <ul>
-        <li><strong>Dye &amp; Durham / Unity market share and pricing:</strong> The Globe and Mail and Law Times reporting on the DoProcess acquisition, price hikes, and the Ontario Real Estate Lawyers Association; Dye &amp; Durham corporate releases.</li>
-        <li><strong>Family and estates tooling:</strong> Law Times and Canadian Lawyer coverage; DivorceMate, Divorcepath, Settify, and eState Planner materials.</li>
-        <li><strong>Immigration tooling:</strong> Docketwise and peer product materials.</li>
-        <li><strong>Horizontal automation:</strong> Gavel, HotDocs, and Clio product materials; Anvil engineering and pricing pages.</li>
-        <li><strong>Compliance:</strong> Law Society of Ontario, "Licensee use of generative artificial intelligence" (white paper) and "Generative AI: Your professional obligations" (April 2024); Osler analysis; Legal Aid Ontario 2026 self-report update.</li>
+        <li><strong>Firm counts and size:</strong> IBISWorld Ontario law firms data; Law Society of Ontario snapshots; industry statistics compilations.</li>
+        <li><strong>Target firm examples:</strong> public firm websites in the Burlington and Halton area.</li>
+        <li><strong>Real estate incumbent:</strong> Globe and Mail and Law Times reporting on Dye &amp; Durham, DoProcess, price hikes, and the Ontario Real Estate Lawyers Association.</li>
+        <li><strong>Family and estates tooling:</strong> DivorceMate, Divorcepath, Settify, and eState Planner materials; legal-press coverage.</li>
+        <li><strong>Immigration and XFA:</strong> Docketwise materials; IRCC help-centre pages on 2D barcode forms; VisaVio and Liberty Immigration 2026 barcode guidance; Datalogics, Aspose, and pdfRest documentation on XFA-to-AcroForm conversion; Anvil engineering and pricing pages.</li>
+        <li><strong>Healthcare curse:</strong> CMS interoperability and prior-authorization rules (CMS-0057-F and 2026 proposals); Government of Canada Bill S-5 announcement; prior-authorization software market coverage.</li>
+        <li><strong>Compliance:</strong> Law Society of Ontario generative AI white paper and professional-obligations guidance (April 2024); Legal Aid Ontario 2026 attestation update.</li>
       </ul>
       <p style="margin-top:20px;"><a href="#overview" class="backtop">↑ Back to top</a></p>
 
       <div class="footer">
-        <p><b>LegalEase Build Playbook.</b> Beetle Labs. Internal, product and engineering. Compiled from the full design conversation covering strategy, market study, the intake engine, registration and mapping, review and transformation, the data vault and integrations, pricing, and Law Society compliance.</p>
-        <p><b>Working name.</b> "LegalEase" is provisional. <b>Status.</b> Design locked, pre-build. <b>Next.</b> Spike the Anvil integration, then Phase 1 question generation, tuned to the first founding partner's real forms.</p>
+        <p><b>LegalEase Build Playbook, v2 (near-final).</b> Beetle Labs. Internal, product and engineering. Compiled from the full design conversation: strategy, market and go-to-market, the intake engine, PDF and hard-forms architecture, the document-lock taxonomy, registration and mapping, review and transformation, the data vault and integrations, build-now requirements, pricing, Law Society compliance, and the before-we-sell/scale considerations.</p>
+        <p><b>Working name.</b> "LegalEase" is provisional. <b>Status.</b> Design locked, pre-build. <b>Next.</b> Spike the fill integration and classify the first partner's forms, then Phase 1 question generation with the evaluation harness, tuned to the first founding partner's real forms.</p>
       </div>
     </section>
 
@@ -845,39 +895,23 @@
 </div>
 
 <script>
-  // Clone sidebar nav into the mobile drawer
   (function(){
-    var nav = document.getElementById('nav');
-    var drawer = document.getElementById('drawer');
-    if(nav && drawer){
-      drawer.innerHTML = nav.innerHTML;
-      drawer.querySelectorAll('a').forEach(function(a){
-        a.addEventListener('click', function(){ drawer.classList.remove('open'); });
-      });
-    }
+    var nav=document.getElementById('nav'), drawer=document.getElementById('drawer');
+    if(nav&&drawer){drawer.innerHTML=nav.innerHTML;
+      drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){drawer.classList.remove('open');});});}
   })();
-
-  // Active-section highlighting
   (function(){
-    var links = Array.prototype.slice.call(document.querySelectorAll('#nav a'));
-    var map = {};
-    links.forEach(function(a){
-      var id = a.getAttribute('href').slice(1);
-      map[id] = a;
-    });
-    var sections = Object.keys(map).map(function(id){ return document.getElementById(id); }).filter(Boolean);
-    var obs = new IntersectionObserver(function(entries){
+    var links=Array.prototype.slice.call(document.querySelectorAll('#nav a')), map={};
+    links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
+    var sections=Object.keys(map).map(function(id){return document.getElementById(id);}).filter(Boolean);
+    var obs=new IntersectionObserver(function(entries){
       entries.forEach(function(e){
-        if(e.isIntersecting){
-          links.forEach(function(l){ l.classList.remove('active'); });
-          var active = map[e.target.id];
-          if(active) active.classList.add('active');
-        }
+        if(e.isIntersecting){links.forEach(function(l){l.classList.remove('active');});
+          var a=map[e.target.id]; if(a)a.classList.add('active');}
       });
-    }, { rootMargin: '-10% 0px -80% 0px', threshold: 0 });
-    sections.forEach(function(s){ obs.observe(s); });
+    },{rootMargin:'-10% 0px -80% 0px',threshold:0});
+    sections.forEach(function(s){obs.observe(s);});
   })();
 </script>
-
 </body>
 </html>
