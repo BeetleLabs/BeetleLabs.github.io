@@ -679,6 +679,12 @@
         .partners-scroll {
             overflow: hidden;
             position: relative;
+            cursor: grab;
+            touch-action: pan-y;
+        }
+
+        .partners-scroll.dragging {
+            cursor: grabbing;
         }
 
         .partners-scroll::before,
@@ -688,6 +694,7 @@
             top: 0; bottom: 0;
             width: 120px;
             z-index: 2;
+            pointer-events: none;
         }
 
         .partners-scroll::before {
@@ -702,8 +709,8 @@
 
         .partners-track {
             display: flex;
-            animation: marqueeScroll 25s linear infinite;
             width: max-content;
+            will-change: transform;
         }
 
         .partner-item {
@@ -713,6 +720,7 @@
             height: 80px;
             border-right: 1px solid var(--border);
             white-space: nowrap;
+            user-select: none;
         }
 
         .partner-logo-wrap {
@@ -734,6 +742,8 @@
             height: auto;
             object-fit: contain;
             display: block;
+            -webkit-user-drag: none;
+            pointer-events: none;
         }
 
         .partner-item:hover .partner-logo-wrap {
