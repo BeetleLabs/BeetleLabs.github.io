@@ -129,6 +129,7 @@
     --le-font-mono:'IBM Plex Mono',monospace;
   }
   .legalease-product{ font-family:var(--le-font-ui); }
+  .legalease-product, .legalease-product *, .legalease-product *::before, .legalease-product *::after{ box-sizing:border-box; }
 
   /* ---------- outer 80%-width window ---------- */
   .lem-window-wrap{ width:80%; max-width:840px; margin:18px auto 90px; }
@@ -220,6 +221,42 @@
   .lem-outcome-bullet{ color:var(--le-accent); flex-shrink:0; }
   .lem-tags{ display:flex; gap:7px; flex-wrap:wrap; margin-top:10px; }
   .lem-tag-pill{ padding:3px 11px; border:1px solid var(--le-line-strong); border-radius:100px; font-family:var(--le-font-mono); font-size:9.5px; color:var(--le-ink-soft); background:var(--le-surface); }
+
+  /* ============ octopus, mobile list version ============ */
+  .octo-mobile{ display:none; }
+  .octo-m-doc{ text-align:center; margin-bottom:16px; }
+  .octo-m-doc .odt{ font-weight:700; font-size:12px; letter-spacing:.02em; color:var(--le-ink); }
+  .octo-m-doc .ods{ font-family:var(--le-font-mono); font-size:9px; color:var(--le-ink-faint); margin-top:3px; }
+  .octo-m-row{ background:var(--le-surface); border:1px solid var(--le-line); border-radius:12px; padding:13px 15px; margin-bottom:10px; }
+  .octo-m-field{ font-family:var(--le-font-mono); font-size:10px; color:var(--le-accent); margin-bottom:5px; }
+  .octo-m-q{ font-size:13px; line-height:1.4; color:var(--le-ink); margin-bottom:9px; }
+  .octo-m-italic{ font-style:italic; color:var(--le-ink-soft); }
+  .octo-m-note{ font-size:10.5px; color:var(--le-amber); margin-bottom:9px; margin-top:-4px; }
+
+  /* ============ responsive ============ */
+  @media (max-width:680px){
+    .lem-window-wrap{ width:94%; margin:16px auto 56px; }
+    .lem-bar{ padding:14px 16px; flex-wrap:wrap; row-gap:4px; }
+    .lem-bar-word{ font-size:17px; }
+    .lem-bar-tag{ font-size:9.5px; }
+    .lem-stage{ padding:14px 16px 0; }
+
+    .le-phone{ width:220px; }
+    .le-phone-screen{ min-height:370px; padding:16px 14px 18px; }
+    .le-qcard{ min-height:104px; padding:13px 12px; }
+    .le-qcard-text{ font-size:12.5px; }
+
+    .octo-full{ display:none; }
+    .octo-mobile{ display:block; }
+
+    .le-review{ width:100%; max-width:100%; }
+    .le-rf{ padding:12px 14px; }
+    .le-rf-top{ grid-template-columns:1fr; gap:10px; }
+    .le-review-title{ font-size:15px; }
+
+    .lem-outcomes{ padding:14px 18px 20px; }
+    .lem-outcomes-list{ grid-template-columns:1fr; gap:8px; }
+  }
 </style>
 
 
@@ -342,6 +379,36 @@
           <!-- SLIDE 2: octopus, field mapping -->
           <div class="lem-slide" data-slide="1">
             <div class="lem-slide-label">Field mapping, every question pinned to the field it fills</div>
+
+            <!-- mobile: stacked list, no floating cards, no spatial canvas -->
+            <div class="octo-mobile">
+              <div class="octo-m-doc">
+                <div class="odt">AGREEMENT OF PURCHASE AND SALE</div>
+                <div class="ods">OREA FORM 100</div>
+              </div>
+              <div class="octo-m-row">
+                <div class="octo-m-field">→ Buyer(s) Legal Name</div>
+                <div class="octo-m-q">What are the full legal names of all buyers?</div>
+                <span class="octo-tag sage">High confidence</span>
+              </div>
+              <div class="octo-m-row">
+                <div class="octo-m-field">→ Purchase Price</div>
+                <div class="octo-m-q">What is the purchase price?</div>
+                <span class="octo-tag sage">Approved</span>
+              </div>
+              <div class="octo-m-row">
+                <div class="octo-m-field">→ Completion Date</div>
+                <div class="octo-m-q octo-m-italic">"end of March" stays vague, flagged, never guessed</div>
+                <span class="octo-tag amber">Pending review</span>
+              </div>
+              <div class="octo-m-row">
+                <div class="octo-m-field">→ Schedule A: Additional Terms</div>
+                <div class="octo-m-q">Is any portion of the down payment a gift?</div>
+                <div class="octo-m-note">New field. Confirm this should be asked.</div>
+                <span class="octo-tag amber">Confirm</span>
+              </div>
+            </div>
+
             <div class="octo-full">
               <div class="octo-full-canvas">
                 <svg viewBox="0 0 600 396" preserveAspectRatio="none">
