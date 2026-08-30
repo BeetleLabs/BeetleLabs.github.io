@@ -23,105 +23,15 @@
      palette. Per LegalEase's CLAUDE.md: the gradient is reserved
      for the wordmark and the active progress dot ONLY, never a
      button, never a background. That rule is honored below.
-     Type now follows the site-wide Inter system (see 2026-08-30
-     type refresh) rather than the product's original IBM Plex Mono.
      ============================================================ -->
 <style>
   .legalease-product{
-    --le-paper:#FBF9F6; --le-surface:#FFFFFF;
+    --le-paper:#FFFFFF; --le-surface:#FFFFFF;
     --le-ink:#262433; --le-ink-soft:#5C5868; --le-ink-faint:#948FA0;
     --le-line:#EAE5F0; --le-line-strong:#D9D2E6;
     --le-accent:#7C5CE0; --le-accent-hover:#6B4BD1; --le-accent-tint:#F1ECFC;
     --le-gradient:linear-gradient(135deg,#8A63F2 0%,#DA8FD6 100%);
-    --le-amber:#C1863E; --le-amber-tint:#FBF1E1;
-    --le-sage:#5B8F72; --le-sage-tint:#EBF3EE;
-    --le-radius-md:14px; --le-radius-pill:999px;
-    --le-font-ui:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
-    --le-font-mono:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
-  }
-
-  .lew-frame{
-    font-family:var(--le-font-ui);
-    background:var(--le-paper);
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 1px 2px rgba(38,36,51,.04), 0 24px 60px rgba(124,92,224,.18), 0 0 0 1px rgba(124,92,224,.08);
-    max-width:340px;
-    margin:0 0 22px;
-  }
-  .lew-bar{
-    display:flex; align-items:center; gap:6px;
-    padding:12px 15px;
-    background:var(--le-surface);
-    border-bottom:1px solid var(--le-line);
-  }
-  .lew-bar span{ width:8px; height:8px; border-radius:50%; background:var(--le-line-strong); }
-  .lew-wordmark{
-    margin-left:7px; font-weight:700; font-size:12.5px; letter-spacing:-.01em;
-    background:var(--le-gradient); -webkit-background-clip:text; background-clip:text; color:transparent;
-  }
-
-  .lew-stage{ position:relative; height:196px; padding:26px 22px; }
-  .lew-phase{
-    position:absolute; inset:0; padding:26px 22px;
-    opacity:0; transform:translateY(6px) scale(.98);
-    transition:opacity .4s ease, transform .4s ease; pointer-events:none;
-    display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
-  }
-  .lew-phase.active{ opacity:1; transform:translateY(0) scale(1); }
-
-  .lew-doc{ width:46px; height:58px; border:2px solid var(--le-accent); border-radius:6px; position:relative; margin-bottom:16px; }
-  .lew-doc::before,.lew-doc::after{ content:''; position:absolute; left:9px; right:9px; height:2px; background:var(--le-line-strong); }
-  .lew-doc::before{ top:18px; } .lew-doc::after{ top:27px; }
-  .lew-ring{ position:absolute; top:-9px; left:50%; transform:translateX(-50%); width:14px; height:14px; border-radius:50%; border:2px solid var(--le-accent); opacity:0; animation:lewPulse 2.2s ease-out infinite; }
-  @keyframes lewPulse{ 0%{opacity:.6;transform:translateX(-50%) scale(.4);} 70%{opacity:0;transform:translateX(-50%) scale(2.1);} 100%{opacity:0;} }
-
-  .lew-qcard{ background:var(--le-surface); border:1px solid var(--le-line); border-radius:var(--le-radius-md); padding:12px 14px; width:100%; max-width:230px; box-shadow:0 6px 18px rgba(124,92,224,.08); margin-bottom:14px; }
-  .lew-qlabel{ font-family:var(--le-font-mono); font-weight:500; font-size:9px; color:var(--le-ink-faint); text-transform:uppercase; letter-spacing:.04em; margin-bottom:5px; }
-  .lew-qtext{ font-size:12.5px; color:var(--le-ink); line-height:1.4; }
-  .lew-mic-row{ display:flex; align-items:center; gap:9px; }
-  .lew-mic{ width:26px; height:26px; border-radius:50%; background:var(--le-accent); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-  .lew-mic::before{ content:''; width:7px; height:7px; border-radius:2px; background:#fff; }
-  .lew-wave{ display:flex; align-items:center; gap:3px; height:18px; }
-  .lew-wave span{ width:2.5px; border-radius:2px; background:var(--le-accent); animation:lewWave 1s ease-in-out infinite; }
-  .lew-wave span:nth-child(1){height:7px;animation-delay:0s;} .lew-wave span:nth-child(2){height:14px;animation-delay:.12s;}
-  .lew-wave span:nth-child(3){height:9px;animation-delay:.24s;} .lew-wave span:nth-child(4){height:16px;animation-delay:.36s;}
-  .lew-wave span:nth-child(5){height:6px;animation-delay:.48s;}
-  @keyframes lewWave{ 0%,100%{transform:scaleY(.5);} 50%{transform:scaleY(1);} }
-
-  .lew-tstack{ width:100%; max-width:230px; text-align:left; }
-  .lew-raw{ font-size:11.5px; color:var(--le-ink-faint); font-style:italic; margin-bottom:9px; transition:opacity .35s ease; }
-  .lew-phase.active .lew-raw{ opacity:.45; text-decoration:line-through; }
-  .lew-down{ color:var(--le-accent); font-size:12px; margin:0 0 9px 3px; opacity:0; transition:opacity .3s ease .3s; }
-  .lew-phase.active .lew-down{ opacity:1; }
-  .lew-clean{ background:var(--le-sage-tint); color:var(--le-sage); border:1px solid #CFE3D6; border-radius:10px; padding:9px 13px; font-size:12.5px; font-weight:600; opacity:0; transform:translateY(5px); transition:all .35s ease .35s; }
-  .lew-phase.active .lew-clean{ opacity:1; transform:translateY(0); }
-
-  .lew-frow{ width:100%; max-width:230px; display:flex; align-items:center; justify-content:space-between; background:var(--le-amber-tint); border:1px solid #EEDCB8; border-radius:10px; padding:11px 15px; margin-bottom:13px; transition:background .3s ease .25s, border-color .3s ease .25s; }
-  .lew-phase.active .lew-frow{ background:var(--le-sage-tint); border-color:#CFE3D6; }
-  .lew-flabel{ font-size:10.5px; font-weight:700; color:var(--le-amber); text-transform:uppercase; letter-spacing:.03em; transition:color .3s ease .25s; }
-  .lew-phase.active .lew-flabel{ color:var(--le-sage); }
-  .lew-check{ width:20px; height:20px; border-radius:50%; background:var(--le-sage); flex-shrink:0; display:flex; align-items:center; justify-content:center; transform:scale(0); transition:transform .35s cubic-bezier(.34,1.56,.64,1) .45s; }
-  .lew-phase.active .lew-check{ transform:scale(1); }
-  .lew-check::after{ content:''; width:5px; height:8px; border-right:2px solid #fff; border-bottom:2px solid #fff; transform:rotate(45deg) translate(-1px,-1px); }
-  .lew-sub{ font-size:10.5px; color:var(--le-ink-faint); max-width:230px; }
-
-  .lew-caption{ text-align:center; font-size:12px; font-weight:600; color:var(--le-ink-soft); padding:0 18px 16px; }
-  .lew-dots{ display:flex; justify-content:center; gap:6px; padding-bottom:18px; }
-  .lew-dot{ width:6px; height:6px; border-radius:50%; background:var(--le-line-strong); transition:all .3s ease; }
-  .lew-dot.active{ width:18px; border-radius:5px; background:var(--le-gradient); } /* gradient: progress dot only, per token rule */
-
-  .le-badge-row{ display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
-  .le-status-badge{ display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-weight:500; font-size:11px; letter-spacing:.04em; color:var(--text-dim); border:1px solid var(--border); border-radius:100px; padding:5px 12px; }
-  .le-status-dot{ width:6px; height:6px; border-radius:50%; background:#7C5CE0; flex-shrink:0; }
-</style>
-<style>
-  .legalease-product{
-    --le-paper:#FBF9F6; --le-surface:#FFFFFF;
-    --le-ink:#262433; --le-ink-soft:#5C5868; --le-ink-faint:#948FA0;
-    --le-line:#EAE5F0; --le-line-strong:#D9D2E6;
-    --le-accent:#7C5CE0; --le-accent-hover:#6B4BD1; --le-accent-tint:#F1ECFC;
-    --le-gradient:linear-gradient(135deg,#8A63F2 0%,#DA8FD6 100%);
+    --le-gradient-amber:linear-gradient(135deg,#E8792A 0%,#F0B429 100%);
     --le-amber:#C1863E; --le-amber-tint:#FBF1E1;
     --le-sage:#5B8F72; --le-sage-tint:#EBF3EE;
     --le-radius-md:14px; --le-radius-pill:999px;
@@ -157,60 +67,18 @@
   .lem-dot{ width:7px; height:7px; border-radius:50%; background:var(--le-line-strong); cursor:pointer; transition:all .25s ease; }
   .lem-dot.active{ width:20px; border-radius:5px; background:var(--le-gradient); }
 
-  /* ============ SLIDE 1: flashcard phone ============ */
-  .le-phone{ width:250px; margin:0 auto; background:var(--le-ink); border-radius:34px; padding:11px; box-shadow:0 16px 34px rgba(38,36,51,.22); }
-  .le-phone-screen{ background:var(--le-paper); border-radius:22px; padding:18px 16px 20px; min-height:400px; }
-  .le-thread{ display:flex; justify-content:center; gap:5px; margin-bottom:16px; }
-  .le-thread-dot{ width:6px; height:6px; border-radius:50%; background:var(--le-line-strong); }
-  .le-thread-dot.on{ width:16px; border-radius:4px; background:var(--le-gradient); }
-  .le-qcard{ background:var(--le-surface); border:1px solid var(--le-line); border-radius:var(--le-radius-md); padding:15px 14px; min-height:118px; display:flex; flex-direction:column; justify-content:space-between; }
-  .le-qcard-label{ font-family:var(--le-font-mono); font-weight:500; font-size:10px; color:var(--le-ink-faint); margin-bottom:10px; letter-spacing:.03em; }
-  .le-qcard-text{ font-size:13.5px; line-height:1.38; color:var(--le-ink); }
-  .le-qcard-why{ font-size:10.5px; color:var(--le-ink-faint); margin-top:12px; }
-  .le-mic-btn{ width:44px; height:44px; border-radius:50%; background:var(--le-accent); margin:13px auto 7px; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 16px rgba(124,92,224,.35); }
-  .le-mic-btn::before{ content:''; width:13px; height:13px; border-radius:4px; background:#fff; }
-  .le-tap-caption{ text-align:center; font-size:10px; color:var(--le-ink-faint); margin-bottom:9px; }
-  .le-phone-input{ background:var(--le-surface); border:1px solid var(--le-line-strong); border-radius:var(--le-radius-pill); padding:11px 16px; font-size:12px; color:var(--le-ink-faint); }
-  .le-defer-link{ text-align:center; font-size:11px; color:var(--le-accent); font-weight:600; margin-top:9px; }
+  /* ============ carousel images (real product screenshots) ============ */
+  .lem-shot{ display:block; width:auto; height:auto; max-width:100%; max-height:440px; margin:0 auto; border-radius:10px; }
+  .lem-shot-tall{ max-height:440px; }
+  .lem-shot-compact{ max-height:325px; }
 
-  /* ============ SLIDE 2: octopus (real sizes, no transform tricks) ============ */
-  .octo-full{ position:relative; width:600px; margin:0 auto; }
-  .octo-full svg{ position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; }
-  .octo-full-canvas{ position:relative; height:396px; }
-  .octo-doc{ position:absolute; left:50%; top:9px; transform:translateX(-50%); width:264px; background:var(--le-surface); border:1px solid var(--le-line-strong); border-radius:12px; padding:15px 18px; box-shadow:0 4px 20px rgba(38,36,51,.06); }
-  .octo-doc .odt{ text-align:center; font-weight:700; font-size:10px; letter-spacing:.02em; color:var(--le-ink); }
-  .octo-doc .ods{ text-align:center; font-family:var(--le-font-mono); font-weight:500; font-size:8px; color:var(--le-ink-faint); margin:2px 0 12px; }
-  .octo-field{ border-radius:7px; margin-bottom:11px; }
-  .octo-field.hi{ background:var(--le-accent-tint); border:1px solid #DCD2F5; padding:5px 8px; }
-  .octo-field.flag{ background:var(--le-amber-tint); border:1px solid #EEDCB8; padding:5px 8px; }
-  .octo-field .ofl{ font-size:7.5px; font-weight:700; color:var(--le-ink-faint); text-transform:uppercase; letter-spacing:.03em; }
-  .octo-field .ofb{ border-bottom:1px solid var(--le-line-strong); margin-top:4px; width:60%; }
-  .octo-card{ position:absolute; width:158px; background:var(--le-surface); border:1px solid var(--le-line); border-radius:11px; padding:9px 11px; box-shadow:0 8px 20px rgba(124,92,224,.10); }
-  .octo-card .ocl{ font-family:var(--le-font-mono); font-weight:500; font-size:7.5px; color:var(--le-accent); margin-bottom:4px; }
-  .octo-card .ocq{ font-size:9.5px; line-height:1.32; color:var(--le-ink); margin-bottom:6px; }
-  .octo-card .ocv{ font-size:8.7px; line-height:1.32; color:var(--le-ink-soft); margin-bottom:6px; font-style:italic; }
-  .octo-card-foot{ display:flex; align-items:center; justify-content:space-between; }
-  .octo-tag{ display:inline-flex; align-items:center; gap:3px; font-size:7.5px; font-weight:700; padding:2px 7px; border-radius:100px; }
-  .octo-tag.sage{ background:var(--le-sage-tint); color:var(--le-sage); }
-  .octo-tag.amber{ background:var(--le-amber-tint); color:var(--le-amber); }
-  .octo-icons{ display:flex; gap:3px; }
-  .octo-icon{ width:15px; height:15px; border-radius:50%; border:1px solid var(--le-line-strong); display:flex; align-items:center; justify-content:center; color:var(--le-ink-faint); font-size:7.5px; }
-  .octo-icon.on{ background:var(--le-sage); border-color:var(--le-sage); color:#fff; }
-  .octo-note{ font-size:7.5px; color:var(--le-amber); margin-top:4px; }
-
-  /* ============ SLIDE 3: review console ============ */
-  .le-review{ width:560px; margin:0 auto; }
-  .le-review-head{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:3px; }
-  .le-review-title{ font-size:16px; font-weight:700; color:var(--le-ink); }
-  .le-review-sub{ font-size:10.5px; color:var(--le-ink-faint); margin-bottom:13px; }
-  .le-rf{ background:var(--le-surface); border:1px solid var(--le-line); border-radius:11px; padding:12px 15px; margin-bottom:9px; }
-  .le-rf-top{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-  .le-rf-label{ font-size:8.5px; font-weight:700; color:var(--le-ink-faint); letter-spacing:.03em; margin-bottom:4px; }
-  .le-rf-raw{ font-size:10.5px; color:var(--le-ink-soft); font-style:italic; line-height:1.35; }
-  .le-rf-final{ font-size:11px; color:var(--le-ink); line-height:1.35; }
-  .le-rf-foot{ display:flex; justify-content:space-between; align-items:center; margin-top:8px; }
-  .le-gen-btn{ width:100%; text-align:center; padding:11px; border-radius:var(--le-radius-pill); background:var(--le-line); color:var(--le-ink-faint); font-weight:600; font-size:12px; margin-top:13px; cursor:not-allowed; }
-  .le-gen-caption{ text-align:center; font-size:10px; color:var(--le-ink-faint); margin-top:7px; }
+  /* headline copy above/below each device shot: live text, not baked into the image,
+     so it stays editable. Sizing/position is tuned to match the old flattened screenshots. */
+  .lem-caption{ text-align:center; font-weight:500; font-size:27px; line-height:1.28; letter-spacing:-.01em; color:var(--le-ink); margin:0 auto 20px; max-width:480px; }
+  .lem-caption-bottom{ margin:22px auto 0; }
+  .lem-grad, .lem-grad-amber{ background-clip:text; -webkit-background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+  .lem-grad{ background-image:var(--le-gradient); }
+  .lem-grad-amber{ background-image:var(--le-gradient-amber); }
 
   .lem-outcomes{ padding:14px 30px 20px; border-top:1px solid var(--le-line); }
   .lem-outcomes-label{ font-family:var(--le-font-mono); font-weight:500; font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--le-ink-faint); margin-bottom:9px; }
@@ -222,17 +90,6 @@
   .lem-tags{ display:flex; gap:7px; flex-wrap:wrap; margin-top:10px; }
   .lem-tag-pill{ padding:3px 11px; border:1px solid var(--le-line-strong); border-radius:100px; font-family:var(--le-font-mono); font-weight:500; font-size:9.5px; color:var(--le-ink-soft); background:var(--le-surface); }
 
-  /* ============ octopus, mobile list version ============ */
-  .octo-mobile{ display:none; }
-  .octo-m-doc{ text-align:center; margin-bottom:16px; }
-  .octo-m-doc .odt{ font-weight:700; font-size:12px; letter-spacing:.02em; color:var(--le-ink); }
-  .octo-m-doc .ods{ font-family:var(--le-font-mono); font-weight:500; font-size:9px; color:var(--le-ink-faint); margin-top:3px; }
-  .octo-m-row{ background:var(--le-surface); border:1px solid var(--le-line); border-radius:12px; padding:13px 15px; margin-bottom:10px; }
-  .octo-m-field{ font-family:var(--le-font-mono); font-weight:500; font-size:10px; color:var(--le-accent); margin-bottom:5px; }
-  .octo-m-q{ font-size:13px; line-height:1.4; color:var(--le-ink); margin-bottom:9px; }
-  .octo-m-italic{ font-style:italic; color:var(--le-ink-soft); }
-  .octo-m-note{ font-size:10.5px; color:var(--le-amber); margin-bottom:9px; margin-top:-4px; }
-
   /* ============ responsive ============ */
   @media (max-width:680px){
     .lem-window-wrap{ width:94%; margin:16px auto 56px; }
@@ -241,18 +98,10 @@
     .lem-bar-tag{ font-size:9.5px; }
     .lem-stage{ padding:14px 16px 0; }
 
-    .le-phone{ width:220px; }
-    .le-phone-screen{ min-height:370px; padding:16px 14px 18px; }
-    .le-qcard{ min-height:104px; padding:13px 12px; }
-    .le-qcard-text{ font-size:12.5px; }
-
-    .octo-full{ display:none; }
-    .octo-mobile{ display:block; }
-
-    .le-review{ width:100%; max-width:100%; }
-    .le-rf{ padding:12px 14px; }
-    .le-rf-top{ grid-template-columns:1fr; gap:10px; }
-    .le-review-title{ font-size:15px; }
+    .lem-shot{ max-height:340px; border-radius:8px; }
+    .lem-shot-compact{ max-height:250px; }
+    .lem-caption{ font-size:19px; margin-bottom:14px; }
+    .lem-caption-bottom{ margin-top:16px; }
 
     .lem-outcomes{ padding:14px 18px 20px; }
     .lem-outcomes-list{ grid-template-columns:1fr; gap:8px; }
@@ -347,149 +196,24 @@
         <div class="lem-bar">
           <span class="dot"></span><span class="dot"></span><span class="dot"></span>
           <div class="lem-bar-word">LegalEase</div>
-          <div class="lem-bar-tag" id="lemTag">01 / 03 · Client intake</div>
+          <div class="lem-bar-tag" id="lemTag">01 / 03 · Field mapping</div>
         </div>
 
         <div class="lem-stage">
-          <!-- SLIDE 1: flashcard, client side -->
           <div class="lem-slide active" data-slide="0">
-            <div class="lem-slide-label">What the client sees, one question at a time</div>
-            <div class="le-phone">
-              <div class="le-phone-screen">
-                <div class="le-thread">
-                  <span class="le-thread-dot"></span><span class="le-thread-dot"></span><span class="le-thread-dot"></span>
-                  <span class="le-thread-dot on"></span>
-                  <span class="le-thread-dot"></span><span class="le-thread-dot"></span><span class="le-thread-dot"></span><span class="le-thread-dot"></span><span class="le-thread-dot"></span>
-                </div>
-                <div class="le-qcard">
-                  <div>
-                    <div class="le-qcard-label">QUESTION 4 OF 12</div>
-                    <div class="le-qcard-text">Is there anything unusual about this purchase we should know?</div>
-                  </div>
-                  <div class="le-qcard-why">Why we ask: helps your lawyer flag anything that affects financing or closing.</div>
-                </div>
-                <div class="le-mic-btn"></div>
-                <div class="le-tap-caption">Tap to answer by voice, or type below</div>
-                <div class="le-phone-input">Type your answer…</div>
-                <div class="le-defer-link">Not sure? Let my lawyer decide →</div>
-              </div>
-            </div>
+            <p class="lem-caption">Upload a pdf. Get a form, in <span class="lem-grad">seconds</span>.</p>
+            <img class="lem-shot" src="assets/img/legalease/legalease-laptop-trim.png" alt="LegalEase field mapping screen: a lawyer's uploaded form with client questions pinned to each field">
           </div>
 
-          <!-- SLIDE 2: octopus, field mapping -->
           <div class="lem-slide" data-slide="1">
-            <div class="lem-slide-label">Field mapping, every question pinned to the field it fills</div>
-
-            <!-- mobile: stacked list, no floating cards, no spatial canvas -->
-            <div class="octo-mobile">
-              <div class="octo-m-doc">
-                <div class="odt">AGREEMENT OF PURCHASE AND SALE</div>
-                <div class="ods">OREA FORM 100</div>
-              </div>
-              <div class="octo-m-row">
-                <div class="octo-m-field">→ Buyer(s) Legal Name</div>
-                <div class="octo-m-q">What are the full legal names of all buyers?</div>
-                <span class="octo-tag sage">High confidence</span>
-              </div>
-              <div class="octo-m-row">
-                <div class="octo-m-field">→ Purchase Price</div>
-                <div class="octo-m-q">What is the purchase price?</div>
-                <span class="octo-tag sage">Approved</span>
-              </div>
-              <div class="octo-m-row">
-                <div class="octo-m-field">→ Completion Date</div>
-                <div class="octo-m-q octo-m-italic">"end of March" stays vague, flagged, never guessed</div>
-                <span class="octo-tag amber">Pending review</span>
-              </div>
-              <div class="octo-m-row">
-                <div class="octo-m-field">→ Schedule A: Additional Terms</div>
-                <div class="octo-m-q">Is any portion of the down payment a gift?</div>
-                <div class="octo-m-note">New field. Confirm this should be asked.</div>
-                <span class="octo-tag amber">Confirm</span>
-              </div>
-            </div>
-
-            <div class="octo-full">
-              <div class="octo-full-canvas">
-                <svg viewBox="0 0 600 396" preserveAspectRatio="none">
-                  <path d="M 159 87 C 211 87, 211 96, 247 96" stroke="#7C5CE0" stroke-width="1.3" stroke-opacity="0.45" fill="none" stroke-dasharray="4 3"/>
-                  <path d="M 441 128 C 389 128, 389 131, 352 131" stroke="#7C5CE0" stroke-width="1.3" stroke-opacity="0.45" fill="none" stroke-dasharray="4 3"/>
-                  <path d="M 158 210 C 200 210, 200 168, 247 168" stroke="#7C5CE0" stroke-width="1.5" stroke-opacity="0.5" fill="none" stroke-dasharray="4 3"/>
-                  <path d="M 432 265 C 428 265, 428 267, 424 267" stroke="#C1863E" stroke-width="1.3" stroke-opacity="0.5" fill="none" stroke-dasharray="4 3"/>
-                </svg>
-
-                <div class="octo-doc">
-                  <div class="odt">AGREEMENT OF PURCHASE AND SALE</div>
-                  <div class="ods">OREA FORM 100</div>
-                  <div class="octo-field hi"><div class="ofl">Buyer(s) Legal Name</div><div class="ofb"></div></div>
-                  <div class="octo-field hi"><div class="ofl">Purchase Price</div><div class="ofb"></div></div>
-                  <div class="octo-field"><div class="ofl">Deposit Amount</div><div class="ofb"></div></div>
-                  <div class="octo-field hi"><div class="ofl">Completion Date</div><div class="ofb"></div></div>
-                  <div class="octo-field flag" style="margin-bottom:0;"><div class="ofl">Schedule A: Additional Terms</div><div class="ofb"></div></div>
-                </div>
-
-                <div class="octo-card" style="top:63px; left:0;">
-                  <div class="ocl">→ Buyer(s) Legal Name</div>
-                  <div class="ocq">What are the full legal names of all buyers?</div>
-                  <div class="octo-card-foot"><span class="octo-tag sage">High confidence</span><div class="octo-icons"><div class="octo-icon on">✓</div><div class="octo-icon">✎</div></div></div>
-                </div>
-
-                <div class="octo-card" style="top:104px; right:0;">
-                  <div class="ocl">→ Purchase Price</div>
-                  <div class="ocq">What is the purchase price?</div>
-                  <div class="octo-card-foot"><span class="octo-tag sage">Approved</span><div class="octo-icons"><div class="octo-icon on">✓</div><div class="octo-icon">✎</div></div></div>
-                </div>
-
-                <div class="octo-card" style="top:193px; left:0;">
-                  <div class="ocl">→ Completion Date</div>
-                  <div class="ocv">"end of March" stays vague, flagged, never guessed</div>
-                  <div class="octo-card-foot"><span class="octo-tag amber">Pending review</span><div class="octo-icons"><div class="octo-icon">✓</div><div class="octo-icon">✎</div></div></div>
-                </div>
-
-                <div class="octo-card" style="top:250px; right:0; width:175px;">
-                  <div class="ocl">→ Schedule A: Additional Terms</div>
-                  <div class="ocq">Is any portion of the down payment a gift?</div>
-                  <div class="octo-note">New field. Confirm this should be asked.</div>
-                  <div class="octo-card-foot" style="margin-top:5px;"><span class="octo-tag amber">Confirm</span><div class="octo-icons"><div class="octo-icon">✓</div><div class="octo-icon">✎</div></div></div>
-                </div>
-              </div>
-            </div>
+            <p class="lem-caption">Get your clients to fill their forms <span class="lem-grad">faster</span>.</p>
+            <img class="lem-shot lem-shot-tall" src="assets/img/legalease/legalease-phone-trim.png" alt="LegalEase client intake screen on a phone, showing a plain-language flashcard question with a voice answer option">
           </div>
 
-          <!-- SLIDE 3: review console -->
           <div class="lem-slide" data-slide="2">
-            <div class="lem-slide-label">Review console, nothing files until you approve it</div>
-            <div class="le-review">
-              <div class="le-review-head">
-                <div class="le-review-title">Review &amp; approve</div>
-                <span class="octo-tag amber">Sorted by risk</span>
-              </div>
-              <div class="le-review-sub">Daniel Rendon Londoño · Direction Re: Funds</div>
-
-              <div class="le-rf">
-                <div class="le-rf-top">
-                  <div><div class="le-rf-label">RAW (VOICE)</div><div class="le-rf-raw">"yeah my dad's helping with the down payment like fifty grand a gift I think, hoping to close end of March"</div></div>
-                  <div><div class="le-rf-label">SYSTEM VERSION</div><div class="le-rf-final">Gifted down payment, $50,000, from father.</div></div>
-                </div>
-                <div class="le-rf-foot"><span class="octo-tag amber">Needs confirmation</span><div class="octo-icons"><div class="octo-icon">✓</div><div class="octo-icon">✎</div></div></div>
-              </div>
-
-              <div class="le-rf">
-                <div class="le-rf-top">
-                  <div><div class="le-rf-label">RAW (VOICE)</div><div class="le-rf-raw">"hoping to close end of March"</div></div>
-                  <div><div class="le-rf-label">SYSTEM VERSION</div><div class="le-rf-final">End of March, to confirm. Not converted to a specific date.</div></div>
-                </div>
-                <div class="le-rf-foot"><span class="octo-tag amber">Needs confirmation</span><div class="octo-icons"><div class="octo-icon">✓</div><div class="octo-icon">✎</div></div></div>
-              </div>
-
-              <div class="le-rf" style="display:flex; justify-content:space-between; align-items:center;">
-                <div style="font-size:13px; color:var(--le-ink);">Legal name: Daniel Alejandro Rendon Londoño</div>
-                <span class="octo-tag sage">Approved</span>
-              </div>
-
-              <div class="le-gen-btn">Generate Documents</div>
-              <div class="le-gen-caption">Locked until both flagged answers above are approved.</div>
-            </div>
+            <p class="lem-caption"><span class="lem-grad-amber">Google Forms</span> is a thing of the <span class="lem-grad">past</span>.</p>
+            <img class="lem-shot lem-shot-compact" src="assets/img/legalease/legalease-laptop-phone-trim.png" alt="LegalEase lawyer dashboard showing client cases, answers awaiting review, and recent clients">
+            <p class="lem-caption lem-caption-bottom">Get <span class="lem-grad">LegalEase</span>, It just makes sense.</p>
           </div>
         </div>
 
@@ -574,10 +298,10 @@
           </ul>
         </div>
         <div style="display:flex; gap:8px; flex-wrap:wrap;">
-          <span style="padding:3px 10px; border:1px solid var(--border); border-radius:100px; font-family:var(--mono); font-weight:500; font-size:10px; color:var(--text-dim);">Dental</span>
-          <span style="padding:3px 10px; border:1px solid var(--border); border-radius:100px; font-family:var(--mono); font-weight:500; font-size:10px; color:var(--text-dim);">Walk-in Clinics</span>
-          <span style="padding:3px 10px; border:1px solid var(--border); border-radius:100px; font-family:var(--mono); font-weight:500; font-size:10px; color:var(--text-dim);">Physiotherapy</span>
-          <span style="padding:3px 10px; border:1px solid var(--border); border-radius:100px; font-family:var(--mono); font-weight:500; font-size:10px; color:var(--text-dim);">Chiropractic</span>
+          <span style="padding:3px 10px; border:1px solid var(--border); border-radius:100px; font-family:var(--mono); font-size:10px; color:var(--text-dim);">Dental</span>
+          <span style="padding:3px 10px; border:1px solid var(--border); border-radius:100px; font-family:var(--mono); font-size:10px; color:var(--text-dim);">Walk-in Clinics</span>
+          <span style="padding:3px 10px; border:1px solid var(--border); border-radius:100px; font-family:var(--mono); font-size:10px; color:var(--text-dim);">Physiotherapy</span>
+          <span style="padding:3px 10px; border:1px solid var(--border); border-radius:100px; font-family:var(--mono); font-size:10px; color:var(--text-dim);">Chiropractic</span>
         </div>
       </div>
     </div>
@@ -616,10 +340,10 @@
           </ul>
         </div>
         <div style="display:flex; gap:8px; flex-wrap:wrap;">
-          <span style="padding:3px 10px; border:1px solid var(--border); border-radius:100px; font-family:var(--mono); font-weight:500; font-size:10px; color:var(--text-dim);">Physiotherapy</span>
-          <span style="padding:3px 10px; border:1px solid var(--border); border-radius:100px; font-family:var(--mono); font-weight:500; font-size:10px; color:var(--text-dim);">Chiropractic</span>
-          <span style="padding:3px 10px; border:1px solid var(--border); border-radius:100px; font-family:var(--mono); font-weight:500; font-size:10px; color:var(--text-dim);">Optometry</span>
-          <span style="padding:3px 10px; border:1px solid var(--border); border-radius:100px; font-family:var(--mono); font-weight:500; font-size:10px; color:var(--text-dim);">Walk-in</span>
+          <span style="padding:3px 10px; border:1px solid var(--border); border-radius:100px; font-family:var(--mono); font-size:10px; color:var(--text-dim);">Physiotherapy</span>
+          <span style="padding:3px 10px; border:1px solid var(--border); border-radius:100px; font-family:var(--mono); font-size:10px; color:var(--text-dim);">Chiropractic</span>
+          <span style="padding:3px 10px; border:1px solid var(--border); border-radius:100px; font-family:var(--mono); font-size:10px; color:var(--text-dim);">Optometry</span>
+          <span style="padding:3px 10px; border:1px solid var(--border); border-radius:100px; font-family:var(--mono); font-size:10px; color:var(--text-dim);">Walk-in</span>
         </div>
       </div>
     </div>
@@ -675,9 +399,9 @@
           </ul>
         </div>
         <div style="display:flex; gap:8px; flex-wrap:wrap;">
-          <span style="padding:3px 10px; border:1px solid var(--border); border-radius:100px; font-family:var(--mono); font-weight:500; font-size:10px; color:var(--text-dim);">General Contractors</span>
-          <span style="padding:3px 10px; border:1px solid var(--border); border-radius:100px; font-family:var(--mono); font-weight:500; font-size:10px; color:var(--text-dim);">Specialty Subs</span>
-          <span style="padding:3px 10px; border:1px solid var(--border); border-radius:100px; font-family:var(--mono); font-weight:500; font-size:10px; color:var(--text-dim);">Residential Builders</span>
+          <span style="padding:3px 10px; border:1px solid var(--border); border-radius:100px; font-family:var(--mono); font-size:10px; color:var(--text-dim);">General Contractors</span>
+          <span style="padding:3px 10px; border:1px solid var(--border); border-radius:100px; font-family:var(--mono); font-size:10px; color:var(--text-dim);">Specialty Subs</span>
+          <span style="padding:3px 10px; border:1px solid var(--border); border-radius:100px; font-family:var(--mono); font-size:10px; color:var(--text-dim);">Residential Builders</span>
         </div>
       </div>
     </div>
@@ -711,34 +435,6 @@
 <!-- Shared components (header, footer, theme, cursor, canvas, scroll reveal) -->
 <script src="assets/js/components.js?v=2.2"></script>
 
-<!-- LegalEase showcase animation, scoped to its own wrapper -->
-<script>
-(function(){
-  var frame = document.querySelector('.legalease-product .lew-frame');
-  if(!frame) return;
-  var phases = frame.querySelectorAll('.lew-phase');
-  var dots = frame.querySelectorAll('.lew-dot');
-  var caption = frame.querySelector('#lewCaption');
-  var captions = [
-    'Upload a form. Get a client-ready deck.',
-    'Your client answers, by text or by voice.',
-    'Messy answers, cleaned up. Flagged, not fabricated.',
-    'You approve. Then, and only then, it fills.'
-  ];
-  var current = 0;
-  function show(i){
-    phases.forEach(function(p, idx){ p.classList.toggle('active', idx === i); });
-    dots.forEach(function(d, idx){ d.classList.toggle('active', idx === i); });
-    if (caption) caption.textContent = captions[i];
-  }
-  show(0);
-  setInterval(function(){
-    current = (current + 1) % phases.length;
-    show(current);
-  }, 2800);
-})();
-</script>
-
 <!-- LegalEase carousel -->
 <script>
 (function(){
@@ -747,7 +443,7 @@
   var slides = window_.querySelectorAll('.lem-slide');
   var dots = window_.querySelectorAll('.lem-dot');
   var tagEl = document.getElementById('lemTag');
-  var tags = ['01 / 03 · Client intake', '02 / 03 · Field mapping', '03 / 03 · Review & approve'];
+  var tags = ['01 / 03 · Field mapping', '02 / 03 · Client intake', '03 / 03 · Your dashboard'];
   var current = 0;
   var timer;
   var transitioning = false;
