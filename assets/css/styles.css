@@ -41,6 +41,17 @@
 
         html { scroll-behavior: smooth; }
 
+        /* ── GLOBAL SCALE ──
+           Renders the desktop layout as if the browser were zoomed to 85%:
+           every font size, gap, and padding shrinks uniformly, same as
+           manually zooming out. Scoped to desktop widths only, since the
+           mobile layout below (900px breakpoint) is already hand-tuned
+           for small screens and shouldn't be shrunk further. Adjust the
+           single value below to retune the overall density. */
+        @media (min-width: 901px) {
+            html { zoom: 0.85; }
+        }
+
         body {
             font-family: var(--sans);
             background: var(--bg);
