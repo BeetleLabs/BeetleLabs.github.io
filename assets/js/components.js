@@ -155,8 +155,19 @@
 
     let cx = 0, cy = 0, rx = 0, ry = 0;
 
+    // The desktop layout is scaled with CSS `zoom` (see styles.css). MouseEvent
+    // coordinates are reported in real viewport pixels, but position:fixed
+    // left/top values get scaled again by the zoom factor when rendered, so
+    // without correcting for it here the cursor drifts further off the real
+    // pointer the farther it is from the top-left corner. Dividing by the
+    // current zoom cancels that out.
+    function currentZoom() {
+      return parseFloat(getComputedStyle(document.documentElement).zoom) || 1;
+    }
+
     document.addEventListener('mousemove', e => {
-      cx = e.clientX; cy = e.clientY;
+      const z = currentZoom();
+      cx = e.clientX / z; cy = e.clientY / z;
       cursor.style.left = cx + 'px';
       cursor.style.top  = cy + 'px';
     });
