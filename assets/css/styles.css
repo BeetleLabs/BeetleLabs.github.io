@@ -49,7 +49,7 @@
            for small screens and shouldn't be shrunk further. Adjust the
            single value below to retune the overall density. */
         @media (min-width: 901px) {
-            html { zoom: 0.80; }
+            html { zoom: 0.85; }
         }
 
         body {
