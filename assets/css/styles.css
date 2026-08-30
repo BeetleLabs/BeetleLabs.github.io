@@ -13,9 +13,9 @@
             --accent2: #7ab8a0;
             --accent3: #a8b87a;
             --gold: #c8b88a;
-            --serif: 'Cormorant Garamond', Georgia, serif;
+            --serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             --sans: 'DM Sans', sans-serif;
-            --mono: 'DM Mono', monospace;
+            --mono: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             --radius: 2px;
             --radius-lg: 6px;
             --easing: cubic-bezier(0.16, 1, 0.3, 1);
@@ -122,7 +122,7 @@
 
         .nav-links a:hover { color: var(--text); }
 
-        /* Active section — highlights the nav item for the page you're on */
+        /* Active section: highlights the nav item for the page you're on */
         .nav-links a.active { color: var(--accent); }
 
         .nav-right {
@@ -222,6 +222,7 @@
 
         .hero-eyebrow {
             font-family: var(--mono);
+            font-weight: 500;
             font-size: 11px;
             letter-spacing: 0.2em;
             text-transform: uppercase;
@@ -291,6 +292,7 @@
             letter-spacing: 0.15em;
             text-transform: uppercase;
             font-family: var(--mono);
+            font-weight: 500;
             animation: fadeIn 1s var(--easing) 1.5s both, pulse 3s ease-in-out 2s infinite;
         }
 
@@ -326,6 +328,7 @@
             gap: 1.5rem;
             padding: 0 3rem;
             font-family: var(--mono);
+            font-weight: 500;
             font-size: 11px;
             letter-spacing: 0.15em;
             text-transform: uppercase;
@@ -380,6 +383,7 @@
 
         .section-label {
             font-family: var(--mono);
+            font-weight: 500;
             font-size: 11px;
             letter-spacing: 0.2em;
             text-transform: uppercase;
@@ -429,6 +433,7 @@
 
         .service-num {
             font-family: var(--mono);
+            font-weight: 500;
             font-size: 10px;
             letter-spacing: 0.2em;
             color: var(--text-dim);
@@ -468,78 +473,11 @@
             border: 1px solid var(--border);
             border-radius: 100px;
             font-family: var(--mono);
+            font-weight: 500;
             font-size: 10px;
             letter-spacing: 0.08em;
             color: var(--text-dim);
         }
-
-        /* ── HOW WE WORK ── */
-        .process {
-            padding: 10rem 0;
-            border-top: 1px solid var(--border);
-        }
-
-        .process-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 3rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6rem;
-            align-items: start;
-        }
-
-        .process-left { position: sticky; top: 8rem; }
-
-        .process-steps {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .process-step {
-            padding: 2rem 0;
-            border-bottom: 1px solid var(--border);
-            display: grid;
-            grid-template-columns: 80px 1fr;
-            gap: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s var(--easing);
-        }
-
-        .process-step:first-child { border-top: 1px solid var(--border); }
-
-        .step-num {
-            font-family: var(--serif);
-            font-size: 48px;
-            font-weight: 300;
-            color: var(--text-dim);
-            line-height: 1;
-            transition: color 0.3s;
-        }
-
-        .step-content { padding-top: 6px; }
-
-        .step-title {
-            font-family: var(--serif);
-            font-size: 22px;
-            font-weight: 400;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.01em;
-        }
-
-        .step-desc {
-            font-size: 13px;
-            color: var(--text-muted);
-            line-height: 1.65;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s var(--easing), opacity 0.4s;
-            opacity: 0;
-        }
-
-        .process-step.active .step-num { color: var(--accent); }
-        .process-step.active .step-desc { max-height: 200px; opacity: 1; }
 
         /* ── INDUSTRIES ── */
         .industries {
@@ -574,6 +512,7 @@
 
         .industry-num {
             font-family: var(--mono);
+            font-weight: 500;
             font-size: 10px;
             letter-spacing: 0.2em;
             color: var(--text-dim);
@@ -601,6 +540,7 @@
             align-items: center;
             gap: 6px;
             font-family: var(--mono);
+            font-weight: 500;
             font-size: 10px;
             letter-spacing: 0.12em;
             text-transform: uppercase;
@@ -821,6 +761,7 @@
 
         .footer-copy {
             font-family: var(--mono);
+            font-weight: 500;
             font-size: 11px;
             letter-spacing: 0.1em;
             color: var(--text-dim);
@@ -990,7 +931,7 @@
             .nav-right .btn-primary { display: none; }
             .menu-toggle { display: flex; }
 
-            /* Mobile dropdown — transparent, blurred, gracefully animated */
+            /* Mobile dropdown: transparent, blurred, gracefully animated */
             .nav-links {
                 position: fixed;
                 top: 64px;
@@ -1035,14 +976,12 @@
                 font-size: 14px;
             }
             .hero { padding: 6rem 1.5rem 4rem; }
-            .container, .statement, .services-header, .service-grid, .process-inner,
+            .container, .statement, .services-header, .service-grid,
             .industries-inner, .metrics-inner, .partners-label, footer {
                 padding-left: 1.5rem;
                 padding-right: 1.5rem;
             }
             .service-grid { grid-template-columns: 1fr; }
-            .process-inner { grid-template-columns: 1fr; gap: 2rem; }
-            .process-left { position: static; }
             .industry-list { grid-template-columns: 1fr; }
             .industry-item { border-right: none !important; border-bottom: 1px solid var(--border) !important; }
             .industry-item:last-child { border-bottom: none !important; }
@@ -1112,6 +1051,7 @@
 
         .strip-num {
             font-family: var(--mono);
+            font-weight: 500;
             font-size: 9px;
             letter-spacing: 0.2em;
             color: var(--text-dim);
@@ -1128,6 +1068,7 @@
 
         .strip-tag {
             font-family: var(--mono);
+            font-weight: 500;
             font-size: 9px;
             letter-spacing: 0.08em;
             color: var(--accent);
@@ -1153,6 +1094,7 @@
 
         .chapter-eyebrow {
             font-family: var(--mono);
+            font-weight: 500;
             font-size: 10px;
             letter-spacing: 0.2em;
             text-transform: uppercase;
@@ -1229,6 +1171,7 @@
 
         .product-num {
             font-family: var(--mono);
+            font-weight: 500;
             font-size: 10px;
             letter-spacing: 0.2em;
             color: var(--text-dim);
@@ -1263,6 +1206,7 @@
             align-items: center;
             gap: 6px;
             font-family: var(--mono);
+            font-weight: 500;
             font-size: 10px;
             letter-spacing: 0.12em;
             text-transform: uppercase;
@@ -1285,6 +1229,7 @@
         /* ── OUTCOMES LIST ── */
         .outcomes-label {
             font-family: var(--mono);
+            font-weight: 500;
             font-size: 9px;
             letter-spacing: 0.18em;
             text-transform: uppercase;
@@ -1315,6 +1260,7 @@
 
         .outcome-bullet {
             font-family: var(--mono);
+            font-weight: 500;
             font-size: 9px;
             color: var(--accent);
             flex-shrink: 0;
@@ -1339,6 +1285,7 @@
             border: 1px solid var(--border);
             border-radius: 100px;
             font-family: var(--mono);
+            font-weight: 500;
             font-size: 10px;
             letter-spacing: 0.1em;
             color: var(--text-dim);
@@ -1368,6 +1315,7 @@
 
         .divider-label {
             font-family: var(--mono);
+            font-weight: 500;
             font-size: 9px;
             letter-spacing: 0.15em;
             text-transform: uppercase;
@@ -1396,7 +1344,7 @@
             50% { opacity: 1; }
         }
 
-        /* ── SOLUTIONS — MOBILE ── */
+        /* ── SOLUTIONS · MOBILE ── */
         @media (max-width: 900px) {
             .page-solutions .hero { padding: 7rem 1.5rem 3.5rem; }
             .suite-strip-inner { grid-template-columns: repeat(2, 1fr); }

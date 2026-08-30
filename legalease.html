@@ -6,7 +6,7 @@
 <title>LegalEase · Build Playbook v2 · Beetle Labs</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root{
     --paper:#F9F9F6; --paper-2:#FFFFFF;
@@ -32,41 +32,41 @@
   .brand{display:flex;align-items:center;gap:11px;margin-bottom:6px;}
   .brand-mark{width:26px;height:26px;border-radius:6px;background:var(--accent);flex:none;
     display:flex;align-items:center;justify-content:center;color:#fff;
-    font-family:"Fraunces",serif;font-weight:600;font-size:16px;}
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:600;font-size:16px;}
   .brand-name{font-weight:600;font-size:15px;color:#fff;letter-spacing:.2px;}
-  .brand-sub{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;
+  .brand-sub{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:500;font-size:11px;letter-spacing:.14em;
     text-transform:uppercase;color:var(--sidebar-faint);margin:16px 0 24px;}
   .nav-group{margin-bottom:20px;}
-  .nav-group-label{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.16em;
+  .nav-group-label{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:500;font-size:10.5px;letter-spacing:.16em;
     text-transform:uppercase;color:var(--sidebar-faint);margin-bottom:9px;padding-left:2px;}
   .nav a,.drawer a{display:flex;gap:10px;align-items:baseline;text-decoration:none;color:var(--sidebar-soft);
     font-size:13.3px;line-height:1.4;padding:6px 8px;border-radius:6px;transition:background .15s,color .15s;}
-  .nav a .n,.drawer a .n{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--sidebar-faint);flex:none;min-width:22px;}
+  .nav a .n,.drawer a .n{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:500;font-size:11px;color:var(--sidebar-faint);flex:none;min-width:22px;}
   .nav a:hover,.drawer a:hover{background:rgba(255,255,255,.05);color:#fff;}
   .nav a.active,.drawer a.active{background:rgba(143,201,172,.13);color:#fff;}
   .nav a.active .n,.drawer a.active .n{color:var(--sidebar-active);}
   .topbar{display:none;}
   .cover{border-bottom:1px solid var(--line);padding-bottom:44px;margin-bottom:8px;}
-  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.18em;
+  .eyebrow{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:500;font-size:12px;letter-spacing:.18em;
     text-transform:uppercase;color:var(--accent);margin-bottom:22px;}
-  h1.cover-title{font-family:"Fraunces",serif;font-weight:500;font-size:58px;line-height:1.02;
+  h1.cover-title{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:500;font-size:58px;line-height:1.02;
     letter-spacing:-.015em;margin:0 0 20px;color:var(--ink);}
   .cover-lede{font-size:20px;line-height:1.55;color:var(--ink-soft);max-width:640px;margin:0 0 30px;}
-  .cover-meta{display:flex;flex-wrap:wrap;gap:8px 26px;font-family:"IBM Plex Mono",monospace;
+  .cover-meta{display:flex;flex-wrap:wrap;gap:8px 26px;font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:500;
     font-size:12px;color:var(--ink-faint);letter-spacing:.03em;padding-top:6px;}
   .cover-meta b{color:var(--ink);font-weight:500;}
   .chapter{padding-top:64px;scroll-margin-top:20px;}
   .part-head{padding-top:74px;margin-bottom:-24px;}
-  .part-head .part-k{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.2em;
+  .part-head .part-k{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:500;font-size:11px;letter-spacing:.2em;
     text-transform:uppercase;color:var(--accent);}
-  .part-head .part-t{font-family:"Fraunces",serif;font-style:italic;font-weight:400;font-size:26px;color:var(--ink-soft);margin-top:4px;}
+  .part-head .part-t{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-style:italic;font-weight:400;font-size:26px;color:var(--ink-soft);margin-top:4px;}
   .part-head .part-rule{height:2px;background:var(--accent);width:44px;margin-top:14px;}
-  .ch-num{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.16em;color:var(--accent);
+  .ch-num{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:500;font-size:12px;letter-spacing:.16em;color:var(--accent);
     text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:12px;}
   .ch-num::after{content:"";height:1px;flex:1;background:var(--line-strong);}
-  h2{font-family:"Fraunces",serif;font-weight:500;font-size:34px;line-height:1.12;letter-spacing:-.01em;margin:0 0 22px;}
+  h2{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:500;font-size:34px;line-height:1.12;letter-spacing:-.01em;margin:0 0 22px;}
   h3{font-weight:600;font-size:18.5px;line-height:1.35;margin:38px 0 12px;}
-  h4{font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:12.5px;letter-spacing:.08em;
+  h4{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:500;font-size:12.5px;letter-spacing:.08em;
     text-transform:uppercase;color:var(--ink-faint);margin:30px 0 10px;}
   p{margin:0 0 16px;}
   a.inline{color:var(--accent);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;}
@@ -77,7 +77,7 @@
   .lede{font-size:19px;line-height:1.6;color:var(--ink-soft);margin-bottom:20px;}
   .box{border-radius:10px;padding:20px 22px;margin:24px 0;font-size:15.5px;line-height:1.6;}
   .box p:last-child{margin-bottom:0;}
-  .box .box-label{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.13em;
+  .box .box-label{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:11px;letter-spacing:.13em;
     text-transform:uppercase;font-weight:500;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
   .box-edge{background:var(--accent-tint);border:1px solid #cfe0d5;}
   .box-edge .box-label{color:var(--accent);}
@@ -89,7 +89,7 @@
   .box-note .box-label{color:var(--ink-faint);}
   .sq{width:8px;height:8px;background:currentColor;display:inline-block;border-radius:1px;}
   .script{background:#16211c;color:#e9ede7;border-radius:10px;padding:20px 22px;margin:22px 0;font-size:16px;line-height:1.55;}
-  .script .script-label{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.13em;
+  .script .script-label{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:500;font-size:11px;letter-spacing:.13em;
     text-transform:uppercase;color:var(--sidebar-active);margin-bottom:10px;}
   .script p{margin:0 0 12px;color:#dfe4dd;}
   .script p:last-child{margin-bottom:0;}
@@ -97,10 +97,10 @@
   .table-wrap{overflow-x:auto;margin:24px 0;border:1px solid var(--line-strong);border-radius:10px;}
   table{border-collapse:collapse;width:100%;font-size:13.5px;background:var(--paper-2);}
   th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.45;}
-  th{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+  th{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
     color:var(--ink-faint);font-weight:500;background:#f3f3ef;}
   tr:last-child td{border-bottom:none;}
-  .tag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.05em;
+  .tag{display:inline-block;font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:500;font-size:10px;letter-spacing:.05em;
     padding:2px 7px;border-radius:20px;white-space:nowrap;}
   .tag-avoid{background:#f6e4e0;color:#8a3222;}
   .tag-watch{background:#f7efe2;color:var(--warn);}
@@ -108,24 +108,24 @@
   .tag-std{background:#e9e6f4;color:#5a4a86;}
   .phase{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);}
   .phase:last-child{border-bottom:none;}
-  .phase-n{font-family:"Fraunces",serif;font-size:22px;color:var(--accent);font-weight:500;flex:none;min-width:74px;line-height:1.2;}
-  .phase-n small{display:block;font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.1em;
+  .phase-n{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:22px;color:var(--accent);font-weight:500;flex:none;min-width:74px;line-height:1.2;}
+  .phase-n small{display:block;font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:500;font-size:9.5px;letter-spacing:.1em;
     color:var(--ink-faint);text-transform:uppercase;margin-top:2px;}
   .phase-body{flex:1;}
   .phase-body b{display:block;margin-bottom:3px;}
   .phase-body span{font-size:14.5px;color:var(--ink-soft);}
-  .pull{font-family:"Fraunces",serif;font-weight:400;font-style:italic;font-size:24px;line-height:1.4;
+  .pull{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:400;font-style:italic;font-size:24px;line-height:1.4;
     color:var(--ink);border-left:2px solid var(--accent);padding:4px 0 4px 22px;margin:28px 0;}
   .footer{border-top:1px solid var(--line);margin-top:80px;padding-top:26px;font-size:13px;color:var(--ink-faint);line-height:1.6;}
   .footer b{color:var(--ink-soft);}
-  .backtop{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);text-decoration:none;}
+  .backtop{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:500;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);text-decoration:none;}
   @media (max-width:920px){
     .sidebar{display:none;}
     .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:0;
       z-index:40;background:var(--sidebar);color:#fff;padding:13px 18px;border-bottom:1px solid #0d1410;}
     .topbar .brand-name{font-size:14px;}
     .menu-btn{background:rgba(255,255,255,.1);border:none;color:#fff;border-radius:6px;padding:7px 12px;
-      font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;}
+      font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:500;font-size:11px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;}
     .drawer{display:none;position:sticky;top:49px;z-index:39;background:var(--sidebar);padding:16px 18px 24px;
       max-height:70vh;overflow-y:auto;border-bottom:1px solid #0d1410;}
     .drawer.open{display:block;}

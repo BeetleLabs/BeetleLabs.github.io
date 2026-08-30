@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────
-   Beetle Labs — components.js
+   Beetle Labs · components.js
    Loads shared header + footer, then boots all
    shared UI (theme, cursor, canvas, nav, scroll reveal).
    Each page's own script handles page-specific logic.
