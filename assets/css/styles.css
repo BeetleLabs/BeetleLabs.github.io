@@ -504,7 +504,7 @@
 
         .industry-list {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             margin-top: 4rem;
             border: 1px solid var(--border);
         }
@@ -517,8 +517,8 @@
             cursor: default;
         }
 
-        .industry-item:nth-child(3n) { border-right: none; }
-        .industry-item:nth-last-child(-n+3) { border-bottom: none; }
+        .industry-item:nth-child(2n) { border-right: none; }
+        .industry-item:nth-last-child(-n+2) { border-bottom: none; }
         .industry-item:hover { background: var(--bg2); }
 
         .industry-num {
