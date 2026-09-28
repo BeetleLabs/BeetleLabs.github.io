@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Founding Partner Program — Beetle Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="The Beetle Labs Founding Partner Program — join us in building the next generation of software. Free during the build, founding rate locked for life after launch.">
+    <meta name="keywords" content="Beetle Labs founding partner program, LegalEase founding partner, law firm software Canada, software founding partner, Beetle Labs partner program">
+    <link rel="canonical" href="https://beetlelabs.tech/founding-partner.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Founding Partner Program — Beetle Labs">
+    <meta property="og:description" content="Help us build it. Use it forever. Join the Beetle Labs Founding Partner Program.">
+    <meta property="og:url" content="https://beetlelabs.tech/founding-partner.html">
+    <meta property="og:image" content="https://beetlelabs.tech/assets/img/main-logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Founding Partner Program — Beetle Labs">
+    <meta name="twitter:description" content="Help us build it. Use it forever. Join the Beetle Labs Founding Partner Program.">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script defer src="/_vercel/insights/script.js"></script>
+
+    <style>
+
+        /* HERO */
+        .fpp-hero {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 10rem 3rem 5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .fpp-hero-eyebrow {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.75rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            opacity: 0;
+            animation: fadeUp 1s var(--easing) 0.2s forwards;
+        }
+        .fpp-hero-eyebrow::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .fpp-hero-headline {
+            font-family: var(--serif);
+            font-size: clamp(44px, 6vw, 82px);
+            font-weight: 300;
+            line-height: 1.04;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeUp 1.2s var(--easing) 0.35s forwards;
+        }
+
+        .fpp-hero-sub {
+            max-width: 580px;
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-muted);
+            font-weight: 300;
+            opacity: 0;
+            animation: fadeUp 1s var(--easing) 0.5s forwards;
+        }
+
+        /* CONTENT WRAPPER */
+        .fpp-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* SECTIONS */
+        .fpp-section {
+            padding: 6rem 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .fpp-section-label {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .fpp-section-label::after {
+            content: '';
+            width: 32px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .fpp-section-title {
+            font-family: var(--serif);
+            font-size: clamp(30px, 3.5vw, 46px);
+            font-weight: 300;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .fpp-section-sub {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-muted);
+            font-weight: 300;
+            max-width: 580px;
+            margin-bottom: 3rem;
+        }
+
+        /* HOW IT WORKS TIMELINE */
+        .fpp-timeline {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border);
+        }
+
+        .fpp-timeline-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.25s;
+        }
+        .fpp-timeline-item:last-child { border-bottom: none; }
+        .fpp-timeline-item:hover { background: var(--bg2); }
+
+        .fpp-timeline-left {
+            padding: 2rem;
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .fpp-timeline-phase {
+            font-family: var(--mono);
+            font-size: 9px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+        }
+        .fpp-timeline-num {
+            font-family: var(--serif);
+            font-size: 36px;
+            font-weight: 300;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .fpp-timeline-right { padding: 2rem 2.5rem; }
+        .fpp-timeline-title {
+            font-family: var(--serif);
+            font-size: 22px;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.75rem;
+        }
+        .fpp-timeline-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* EXPECTATIONS ACCORDION */
+        .fpp-expectations {
+            border: 1px solid var(--border);
+            margin-top: 2.5rem;
+        }
+
+        .fpp-exp-item {
+            border-bottom: 1px solid var(--border);
+        }
+        .fpp-exp-item:last-child { border-bottom: none; }
+
+        .fpp-exp-trigger {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 1.75rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            transition: background 0.2s;
+            gap: 1rem;
+        }
+        .fpp-exp-trigger:hover { background: var(--bg2); }
+
+        .fpp-exp-trigger-left {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+        .fpp-exp-num {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+        .fpp-exp-title {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text);
+            font-family: var(--sans);
+        }
+        .fpp-exp-arrow {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text-dim);
+            flex-shrink: 0;
+            transition: transform 0.3s var(--easing);
+        }
+        .fpp-exp-item.open .fpp-exp-arrow { transform: rotate(90deg); }
+
+        .fpp-exp-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s var(--easing);
+        }
+        .fpp-exp-item.open .fpp-exp-body { max-height: 200px; }
+
+        .fpp-exp-body-inner {
+            padding: 0 1.75rem 1.5rem 3.5rem;
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* PROGRAMS LIST */
+        .fpp-programs {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            margin-top: 3rem;
+        }
+
+        .fpp-program-card {
+            background: var(--bg);
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 3rem;
+            align-items: center;
+            padding: 2.5rem 3rem;
+            transition: background 0.25s;
+        }
+        .fpp-program-card:hover { background: var(--bg2); }
+
+        .fpp-program-left { display: flex; flex-direction: column; gap: 1rem; }
+
+        .fpp-program-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            width: fit-content;
+        }
+        .fpp-program-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #8A63F2;
+            animation: pulse-dot 2.5s ease-in-out infinite;
+        }
+        .fpp-program-tag-text {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #8A63F2;
+        }
+
+        .fpp-program-name {
+            font-family: var(--serif);
+            font-size: clamp(24px, 2.5vw, 34px);
+            font-weight: 300;
+            letter-spacing: -0.01em;
+            line-height: 1.1;
+        }
+
+        .fpp-program-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.65;
+            font-weight: 300;
+            max-width: 520px;
+        }
+
+        .fpp-program-spots {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 0.5rem;
+        }
+        .fpp-spots-crossed {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-dim);
+            text-decoration: line-through;
+            text-decoration-color: rgba(240,237,232,0.3);
+        }
+        .fpp-spots-current {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 400;
+        }
+        .fpp-spots-label {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+        }
+
+        .fpp-program-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 1rem;
+            flex-shrink: 0;
+        }
+
+        .fpp-pips {
+            display: flex;
+            gap: 5px;
+        }
+        .fpp-pip {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+        .fpp-pip.taken {
+            background: transparent;
+            border: 1px solid var(--border-hover);
+        }
+
+        /* CTA */
+        .fpp-cta {
+            border-top: 1px solid var(--border);
+            position: relative;
+            z-index: 1;
+        }
+        .fpp-cta-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8rem 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        .fpp-cta-headline {
+            font-family: var(--serif);
+            font-size: clamp(36px, 4vw, 56px);
+            font-weight: 300;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        .fpp-cta-right {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+        .fpp-cta-text {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+        .fpp-cta-note {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border);
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+
+        @media (max-width: 900px) {
+            .fpp-hero { padding: 7rem 1.5rem 3.5rem; }
+            .fpp-content { padding: 0 1.5rem; }
+            .fpp-program-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem 1.5rem; }
+            .fpp-program-right { align-items: flex-start; flex-direction: row; align-items: center; }
+            .fpp-timeline-item { grid-template-columns: 70px 1fr; }
+            .fpp-cta-inner { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="cosmos-canvas"></canvas>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<div id="header-mount"></div>
+
+<!-- HERO -->
+<section style="overflow:hidden;">
+    <div class="fpp-hero">
+        <div class="fpp-hero-eyebrow">Beetle Labs</div>
+        <h1 class="fpp-hero-headline">
+            Help us build it.<br>
+            Use it forever.
+        </h1>
+        <p class="fpp-hero-sub">
+            The Founding Partner Program is a beautiful way to build software. We partner with leaders who know their industry from the inside — they point us to the real problems, help us test on real work, and in return, they get the finished product at a founding rate locked flat for life.
+        </p>
+    </div>
+</section>
+
+<div class="fpp-content">
+
+    <!-- WHAT IS THIS -->
+    <div class="fpp-section fade-in-up">
+        <div class="fpp-section-label">What this is</div>
+        <h2 class="fpp-section-title">Plain and simple</h2>
+        <p class="fpp-section-sub">We build software. Before we launch it publicly, we bring in a small number of people who do the work every day — not to test a finished product, but to shape it while it is being built. Their knowledge makes the software better. Their time in return costs them nothing.</p>
+
+        <div class="fpp-timeline">
+            <div class="fpp-timeline-item">
+                <div class="fpp-timeline-left">
+                    <span class="fpp-timeline-phase">Phase</span>
+                    <span class="fpp-timeline-num">01</span>
+                </div>
+                <div class="fpp-timeline-right">
+                    <div class="fpp-timeline-title">Discovery — your world, your pain</div>
+                    <p class="fpp-timeline-desc">We spend real time understanding how your operation works. Where things break, what takes too long, what software should handle but doesn't. This is a working conversation, not a survey. Free.</p>
+                </div>
+            </div>
+            <div class="fpp-timeline-item">
+                <div class="fpp-timeline-left">
+                    <span class="fpp-timeline-phase">Phase</span>
+                    <span class="fpp-timeline-num">02</span>
+                </div>
+                <div class="fpp-timeline-right">
+                    <div class="fpp-timeline-title">Build — you use it, we improve it</div>
+                    <p class="fpp-timeline-desc">As we build, you get access to working versions of the product. You run it on real files, real clients, real work. When something is wrong, you tell us. We fix it. This is what makes the software actually good. Free.</p>
+                </div>
+            </div>
+            <div class="fpp-timeline-item">
+                <div class="fpp-timeline-left">
+                    <span class="fpp-timeline-phase">Phase</span>
+                    <span class="fpp-timeline-num">03</span>
+                </div>
+                <div class="fpp-timeline-right">
+                    <div class="fpp-timeline-title">Launch — your rate, locked forever</div>
+                    <p class="fpp-timeline-desc">When the product launches publicly, you move to a founding rate. Set once, never changes. Every feature we add, every update we ship — same flat rate. Other clients pay market price. You pay founding price. That is your return for helping build something worth using.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EXPECTATIONS -->
+    <div class="fpp-section fade-in-up">
+        <div class="fpp-section-label">What we expect</div>
+        <h2 class="fpp-section-title">A real commitment, not a formality</h2>
+        <p class="fpp-section-sub">We are selective because we need partners who will actually show up. Here is exactly what that looks like.</p>
+
+        <div class="fpp-expectations">
+            <div class="fpp-exp-item">
+                <button class="fpp-exp-trigger">
+                    <div class="fpp-exp-trigger-left">
+                        <span class="fpp-exp-num">01</span>
+                        <span class="fpp-exp-title">One 30-minute call per week</span>
+                    </div>
+                    <span class="fpp-exp-arrow">→</span>
+                </button>
+                <div class="fpp-exp-body">
+                    <div class="fpp-exp-body-inner">A working call, not a status update. We review what shipped, what broke, and what to prioritize next. Your feedback lives here — no written reports required.</div>
+                </div>
+            </div>
+            <div class="fpp-exp-item">
+                <button class="fpp-exp-trigger">
+                    <div class="fpp-exp-trigger-left">
+                        <span class="fpp-exp-num">02</span>
+                        <span class="fpp-exp-title">Real usage on real files</span>
+                    </div>
+                    <span class="fpp-exp-arrow">→</span>
+                </button>
+                <div class="fpp-exp-body">
+                    <div class="fpp-exp-body-inner">Not test data. Not demos. Actual clients, actual work, a minimum of a few times per week. Usage on real files is what surfaces real problems. That is the whole point.</div>
+                </div>
+            </div>
+            <div class="fpp-exp-item">
+                <button class="fpp-exp-trigger">
+                    <div class="fpp-exp-trigger-left">
+                        <span class="fpp-exp-num">03</span>
+                        <span class="fpp-exp-title">Same-day problem reporting</span>
+                    </div>
+                    <span class="fpp-exp-arrow">→</span>
+                </button>
+                <div class="fpp-exp-body">
+                    <div class="fpp-exp-body-inner">If something breaks or produces a wrong result on a real file, we need to know that day — not at the next weekly call. A quick message is enough. Speed of feedback is what keeps the build moving.</div>
+                </div>
+            </div>
+            <div class="fpp-exp-item">
+                <button class="fpp-exp-trigger">
+                    <div class="fpp-exp-trigger-left">
+                        <span class="fpp-exp-num">04</span>
+                        <span class="fpp-exp-title">One designated point of contact</span>
+                    </div>
+                    <span class="fpp-exp-arrow">→</span>
+                </button>
+                <div class="fpp-exp-body">
+                    <div class="fpp-exp-body-inner">A senior person on your side who owns the relationship — attends the weekly calls, runs the real tests, and gives the direct feedback. Not a rotating door of people. One person who knows the product and stays involved.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OPEN PROGRAMS -->
+    <div class="fpp-section fade-in-up">
+        <div class="fpp-section-label">Open programs</div>
+        <h2 class="fpp-section-title">Currently available</h2>
+        <p class="fpp-section-sub">The following products are actively looking for founding partners. Each has a limited number of spots.</p>
+
+        <div class="fpp-programs">
+            <div class="fpp-program-card">
+                <div class="fpp-program-left">
+                    <div class="fpp-program-tag">
+                        <span class="fpp-program-dot"></span>
+                        <span class="fpp-program-tag-text">Legal · Canada</span>
+                    </div>
+                    <div class="fpp-program-name">LegalEase</div>
+                    <p class="fpp-program-desc">AI-powered client intake and document automation for Canadian general-practice law firms. Responds to new leads in 90 seconds, qualifies matters, and fills your documents — without your team touching any of it.</p>
+                    <div class="fpp-program-spots">
+                        <span class="fpp-spots-crossed">4</span>
+                        <span class="fpp-spots-current">3</span>
+                        <span class="fpp-spots-label">spots remaining</span>
+                    </div>
+                    <div style="display:flex; gap: 1rem; align-items:center; margin-top: 0.5rem; flex-wrap:wrap;">
+                        <a href="/solutions.html#law" class="industry-link" style="font-size:11px;">Learn more <span class="industry-arrow">→</span></a>
+                        <a href="mailto:projects@beetlelabs.tech?subject=LegalEase Founding Partner Application&body=Hi Beetle Labs,%0D%0A%0D%0AOur firm is interested in applying to the LegalEase Founding Partner Program.%0D%0A%0D%0AFirm name:%0D%0ALocation:%0D%0APractice areas:%0D%0AApproximate number of lawyers:%0D%0AWhat part of your intake process costs you the most time:%0D%0A%0D%0ALooking forward to hearing from you." class="btn-primary" style="font-size:11px; padding: 8px 18px;">Apply for LegalEase →</a>
+                    </div>
+                </div>
+                <div class="fpp-program-right">
+                    <div class="fpp-pips">
+                        <div class="fpp-pip"></div>
+                        <div class="fpp-pip"></div>
+                        <div class="fpp-pip"></div>
+                        <div class="fpp-pip taken"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- CTA -->
+<section class="fpp-cta">
+    <div class="fpp-cta-inner fade-in-up">
+        <div>
+            <h2 class="fpp-cta-headline">
+                Not sure if<br>
+                this is for you?
+            </h2>
+        </div>
+        <div class="fpp-cta-right">
+            <p class="fpp-cta-text">
+                Send us a note. Tell us what you do, what software you use, and where you feel the most friction. We will tell you honestly whether there is a fit — and if there is not, we will tell you that too.
+            </p>
+            <div>
+                <a href="mailto:projects@beetlelabs.tech?subject=Founding Partner Program Inquiry" class="btn-primary" style="display:inline-flex;">Get in touch →</a>
+            </div>
+            <p class="fpp-cta-note">No forms. No calls until you want one. Just an email.</p>
+        </div>
+    </div>
+</section>
+
+<div id="footer-mount"></div>
+
+<script src="assets/js/components.js"></script>
+
+<script>
+    // Expectations accordion
+    document.querySelectorAll('.fpp-exp-trigger').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const item = trigger.closest('.fpp-exp-item');
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.fpp-exp-item').forEach(i => i.classList.remove('open'));
+            if (!isOpen) item.classList.add('open');
+        });
+    });
+</script>
+
+</body>
+</html>
