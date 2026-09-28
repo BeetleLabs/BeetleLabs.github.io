@@ -696,6 +696,11 @@
             transition: opacity 0.35s var(--easing);
         }
 
+        .partner-logo[src*="bcms.png"] {
+            max-width: 370px;
+            max-height: 66px;
+        }
+
         [data-theme="light"] .partner-logo {
             filter: invert(1);
         }
