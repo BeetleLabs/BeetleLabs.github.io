@@ -13,9 +13,9 @@
             --accent2: #7ab8a0;
             --accent3: #a8b87a;
             --gold: #c8b88a;
-            --serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            --sans: 'DM Sans', sans-serif;
-            --mono: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --mono: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             --radius: 2px;
             --radius-lg: 6px;
             --easing: cubic-bezier(0.16, 1, 0.3, 1);
@@ -56,7 +56,7 @@
             font-family: var(--sans);
             background: var(--bg);
             color: var(--text);
-            font-size: 15px;
+            font-size: 16.5px;
             line-height: 1.6;
             font-weight: 300;
             overflow-x: hidden;
@@ -124,7 +124,7 @@
         .nav-links a {
             text-decoration: none;
             color: var(--text-muted);
-            font-size: 13px;
+            font-size: 14.3px;
             letter-spacing: 0.08em;
             text-transform: uppercase;
             font-weight: 400;
@@ -151,7 +151,7 @@
             border-radius: var(--radius);
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 12px;
+            font-size: 13.2px;
             letter-spacing: 0.08em;
             text-transform: uppercase;
             font-weight: 400;
@@ -177,7 +177,7 @@
             border-radius: var(--radius);
             color: #0a0a0a;
             text-decoration: none;
-            font-size: 12px;
+            font-size: 13.2px;
             letter-spacing: 0.08em;
             text-transform: uppercase;
             font-weight: 500;
@@ -234,7 +234,7 @@
         .hero-eyebrow {
             font-family: var(--mono);
             font-weight: 500;
-            font-size: 11px;
+            font-size: 12.1px;
             letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--accent);
@@ -257,7 +257,7 @@
         .hero-headline {
             font-family: var(--serif);
             font-size: clamp(52px, 7vw, 96px);
-            font-weight: 300;
+            font-weight: 200;
             line-height: 1.02;
             letter-spacing: -0.02em;
             margin-bottom: 2.5rem;
@@ -272,7 +272,7 @@
 
         .hero-sub {
             max-width: 520px;
-            font-size: 16px;
+            font-size: 17.6px;
             line-height: 1.75;
             color: var(--text-muted);
             margin-bottom: 3rem;
@@ -299,7 +299,7 @@
             align-items: center;
             gap: 8px;
             color: var(--text-dim);
-            font-size: 11px;
+            font-size: 12.1px;
             letter-spacing: 0.15em;
             text-transform: uppercase;
             font-family: var(--mono);
@@ -329,7 +329,7 @@
             display: flex;
             gap: 0;
             white-space: nowrap;
-            animation: marqueeScroll 30s linear infinite;
+            animation: marqueeScroll 45s linear infinite;
             width: max-content;
         }
 
@@ -340,7 +340,7 @@
             padding: 0 3rem;
             font-family: var(--mono);
             font-weight: 500;
-            font-size: 11px;
+            font-size: 12.1px;
             letter-spacing: 0.15em;
             text-transform: uppercase;
             color: var(--text-dim);
@@ -395,7 +395,7 @@
         .section-label {
             font-family: var(--mono);
             font-weight: 500;
-            font-size: 11px;
+            font-size: 12.1px;
             letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--accent);
@@ -445,7 +445,7 @@
         .service-num {
             font-family: var(--mono);
             font-weight: 500;
-            font-size: 10px;
+            font-size: 11px;
             letter-spacing: 0.2em;
             color: var(--text-dim);
             margin-bottom: 2rem;
@@ -466,7 +466,7 @@
         }
 
         .service-desc {
-            font-size: 13px;
+            font-size: 14.3px;
             color: var(--text-muted);
             line-height: 1.65;
             font-weight: 300;
@@ -485,7 +485,7 @@
             border-radius: 100px;
             font-family: var(--mono);
             font-weight: 500;
-            font-size: 10px;
+            font-size: 11px;
             letter-spacing: 0.08em;
             color: var(--text-dim);
         }
@@ -524,7 +524,7 @@
         .industry-num {
             font-family: var(--mono);
             font-weight: 500;
-            font-size: 10px;
+            font-size: 11px;
             letter-spacing: 0.2em;
             color: var(--text-dim);
             margin-bottom: 1.5rem;
@@ -540,7 +540,7 @@
         }
 
         .industry-desc {
-            font-size: 13px;
+            font-size: 14.3px;
             color: var(--text-muted);
             line-height: 1.65;
             margin-bottom: 1.5rem;
@@ -552,7 +552,7 @@
             gap: 6px;
             font-family: var(--mono);
             font-weight: 500;
-            font-size: 10px;
+            font-size: 11px;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             /* color: var(--text-dim);  */
@@ -609,7 +609,7 @@
         }
 
         .metric-label {
-            font-size: 13px;
+            font-size: 14.3px;
             color: var(--text-muted);
             font-weight: 300;
             line-height: 1.5;
@@ -658,8 +658,8 @@
         }
 
         .partner-logo[src*="bcms.png"] {
-            max-width: 406px;
-            max-height: 89px;
+            max-width: 345px;
+            max-height: 76px;
         }
 
         .partner-logo[src*="uoft.png"] {
@@ -709,7 +709,7 @@
         .cta-right { display: flex; flex-direction: column; gap: 2rem; }
 
         .cta-text {
-            font-size: 15px;
+            font-size: 16.5px;
             color: var(--text-muted);
             line-height: 1.75;
             font-weight: 300;
@@ -751,7 +751,7 @@
         .footer-copy {
             font-family: var(--mono);
             font-weight: 500;
-            font-size: 11px;
+            font-size: 12.1px;
             letter-spacing: 0.1em;
             color: var(--text-dim);
         }
@@ -763,7 +763,7 @@
         }
 
         .footer-links a {
-            font-size: 12px;
+            font-size: 13.2px;
             color: var(--text-dim);
             text-decoration: none;
             letter-spacing: 0.06em;
@@ -962,7 +962,7 @@
             .nav-links a {
                 display: block;
                 padding: 0.9rem 1.5rem;
-                font-size: 14px;
+                font-size: 15.4px;
             }
             .hero { padding: 6rem 1.5rem 4rem; }
             .container, .statement, .services-header, .service-grid,
@@ -1042,7 +1042,7 @@
         .strip-num {
             font-family: var(--mono);
             font-weight: 500;
-            font-size: 9px;
+            font-size: 9.9px;
             letter-spacing: 0.2em;
             color: var(--text-dim);
             text-transform: uppercase;
@@ -1050,7 +1050,7 @@
 
         .strip-name {
             font-family: var(--serif);
-            font-size: 15px;
+            font-size: 16.5px;
             font-weight: 400;
             color: var(--text-muted);
             letter-spacing: -0.01em;
@@ -1059,7 +1059,7 @@
         .strip-tag {
             font-family: var(--mono);
             font-weight: 500;
-            font-size: 9px;
+            font-size: 9.9px;
             letter-spacing: 0.08em;
             color: var(--accent);
         }
@@ -1085,7 +1085,7 @@
         .chapter-eyebrow {
             font-family: var(--mono);
             font-weight: 500;
-            font-size: 10px;
+            font-size: 11px;
             letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--accent);
@@ -1114,7 +1114,7 @@
         .chapter-title em { font-style: italic; color: var(--text-muted); }
 
         .chapter-lead {
-            font-size: 15px;
+            font-size: 16.5px;
             line-height: 1.8;
             color: var(--text-muted);
             font-weight: 300;
@@ -1162,7 +1162,7 @@
         .product-num {
             font-family: var(--mono);
             font-weight: 500;
-            font-size: 10px;
+            font-size: 11px;
             letter-spacing: 0.2em;
             color: var(--text-dim);
             margin-bottom: 1.25rem;
@@ -1178,7 +1178,7 @@
         }
 
         .product-pitch {
-            font-size: 15px;
+            font-size: 16.5px;
             line-height: 1.8;
             color: var(--text-muted);
             font-weight: 300;
@@ -1197,7 +1197,7 @@
             gap: 6px;
             font-family: var(--mono);
             font-weight: 500;
-            font-size: 10px;
+            font-size: 11px;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             color: var(--text-dim);
@@ -1220,7 +1220,7 @@
         .outcomes-label {
             font-family: var(--mono);
             font-weight: 500;
-            font-size: 9px;
+            font-size: 9.9px;
             letter-spacing: 0.18em;
             text-transform: uppercase;
             color: var(--text-dim);
@@ -1276,7 +1276,7 @@
             border-radius: 100px;
             font-family: var(--mono);
             font-weight: 500;
-            font-size: 10px;
+            font-size: 11px;
             letter-spacing: 0.1em;
             color: var(--text-dim);
             align-self: flex-start;
@@ -1306,7 +1306,7 @@
         .divider-label {
             font-family: var(--mono);
             font-weight: 500;
-            font-size: 9px;
+            font-size: 9.9px;
             letter-spacing: 0.15em;
             text-transform: uppercase;
             color: var(--text-dim);
