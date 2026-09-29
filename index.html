@@ -209,21 +209,13 @@
     <div class="partners-label fade-in-up">
         <div class="section-label">Trusted Partners</div>
     </div>
-    <div class="partners-scroll">
-        <div class="partners-track" id="partners-track">
-            <div class="partner-item"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/img/partner-logos/web/agile-infoways.png" alt="Agile Infoways" loading="lazy"></div></div>
-            <div class="partner-item"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/img/partner-logos/web/uoft.png" alt="University of Toronto's SICIEIL" loading="lazy"></div></div>
-            <div class="partner-item"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/img/partner-logos/web/parquesoft.png" alt="ParqueSoft" loading="lazy"></div></div>
-            <div class="partner-item"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/img/partner-logos/web/bcms.png" alt="BCMS USA Consulting" loading="lazy"></div></div>
-            <div class="partner-item"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/img/partner-logos/web/2m.png" alt="2M Comunicaciones" loading="lazy"></div></div>
-            <div class="partner-item"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/img/partner-logos/web/go-innovation.png" alt="GoInnovation" loading="lazy"></div></div>
-            <div class="partner-item"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/img/partner-logos/web/agile-infoways.png" alt="Agile Infoways" loading="lazy"></div></div>
-            <div class="partner-item"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/img/partner-logos/web/uoft.png" alt="University of Toronto's SICIEIL" loading="lazy"></div></div>
-            <div class="partner-item"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/img/partner-logos/web/parquesoft.png" alt="ParqueSoft" loading="lazy"></div></div>
-            <div class="partner-item"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/img/partner-logos/web/bcms.png" alt="BCMS USA Consulting" loading="lazy"></div></div>
-            <div class="partner-item"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/img/partner-logos/web/2m.png" alt="2M Comunicaciones" loading="lazy"></div></div>
-            <div class="partner-item"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/img/partner-logos/web/go-innovation.png" alt="GoInnovation" loading="lazy"></div></div>
-        </div>
+    <div class="partners-grid">
+        <div class="partner-item fade-in-up"><img class="partner-logo" src="assets/img/partner-logos/web/agile-infoways.png" alt="Agile Infoways" loading="lazy"></div>
+        <div class="partner-item fade-in-up"><img class="partner-logo" src="assets/img/partner-logos/web/uoft.png" alt="University of Toronto's SICIEIL" loading="lazy"></div>
+        <div class="partner-item fade-in-up"><img class="partner-logo" src="assets/img/partner-logos/web/parquesoft.png" alt="ParqueSoft" loading="lazy"></div>
+        <div class="partner-item fade-in-up"><img class="partner-logo" src="assets/img/partner-logos/web/bcms.png" alt="BCMS USA Consulting" loading="lazy"></div>
+        <div class="partner-item fade-in-up"><img class="partner-logo" src="assets/img/partner-logos/web/2m.png" alt="2M Comunicaciones" loading="lazy"></div>
+        <div class="partner-item fade-in-up"><img class="partner-logo" src="assets/img/partner-logos/web/go-innovation.png" alt="GoInnovation" loading="lazy"></div>
     </div>
 </section>
 
@@ -263,75 +255,6 @@
     document.getElementById('tech-marquee').addEventListener('mouseleave', function() {
         this.style.animationPlayState = 'running';
     });
-    // Partners marquee: auto-scrolls, pauses on hover, draggable/swipeable
-    (function() {
-        const scrollWrap = document.querySelector('.partners-scroll');
-        const track = document.getElementById('partners-track');
-        const speed = 0.828; // px per frame
-        let posX = 0;
-        let halfWidth = 0;
-        let hovering = false;
-        let dragging = false;
-        let dragMoved = false;
-        let startX = 0;
-        let startPosX = 0;
-
-        function computeHalfWidth() {
-            halfWidth = track.scrollWidth / 2;
-        }
-        computeHalfWidth();
-        window.addEventListener('resize', computeHalfWidth);
-
-        function wrap() {
-            if (halfWidth <= 0) return;
-            while (posX <= -halfWidth) posX += halfWidth;
-            while (posX > 0) posX -= halfWidth;
-        }
-
-        function render() {
-            track.style.transform = 'translateX(' + posX + 'px)';
-        }
-
-        function tick() {
-            if (!dragging && !hovering) {
-                posX -= speed;
-                wrap();
-                render();
-            }
-            requestAnimationFrame(tick);
-        }
-        requestAnimationFrame(tick);
-
-        scrollWrap.addEventListener('mouseenter', function() { hovering = true; });
-        scrollWrap.addEventListener('mouseleave', function() { hovering = false; });
-
-        scrollWrap.addEventListener('pointerdown', function(e) {
-            dragging = true;
-            dragMoved = false;
-            startX = e.clientX;
-            startPosX = posX;
-            scrollWrap.classList.add('dragging');
-            scrollWrap.setPointerCapture(e.pointerId);
-        });
-        scrollWrap.addEventListener('pointermove', function(e) {
-            if (!dragging) return;
-            const dx = e.clientX - startX;
-            if (Math.abs(dx) > 3) dragMoved = true;
-            posX = startPosX + dx;
-            wrap();
-            render();
-        });
-        function endDrag(e) {
-            if (!dragging) return;
-            dragging = false;
-            scrollWrap.classList.remove('dragging');
-        }
-        scrollWrap.addEventListener('pointerup', endDrag);
-        scrollWrap.addEventListener('pointercancel', endDrag);
-        scrollWrap.addEventListener('click', function(e) {
-            if (dragMoved) { e.preventDefault(); e.stopPropagation(); }
-        }, true);
-    })();
 </script>
 
 </body>
