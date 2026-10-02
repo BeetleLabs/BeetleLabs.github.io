@@ -972,6 +972,16 @@
             }
             .service-grid { grid-template-columns: 1fr; }
             .partners-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 1.5rem; }
+            .partner-item { height: 70px; }
+            .partner-logo {
+                max-width: 150px;
+                max-height: 34px;
+            }
+            .partner-logo[src*="bcms.png"],
+            .partner-logo[src*="uoft.png"] {
+                max-width: 175px;
+                max-height: 38px;
+            }
             .industry-list { grid-template-columns: 1fr; }
             .industry-item { border-right: none !important; border-bottom: 1px solid var(--border) !important; }
             .industry-item:last-child { border-bottom: none !important; }
