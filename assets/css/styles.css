@@ -681,6 +681,35 @@
             filter: invert(1) drop-shadow(0 0 14px rgba(0,0,0,0.25));
         }
 
+        /* ── MEMBERSHIPS (sub-block inside Partners) ── */
+        .memberships {
+            max-width: 1200px;
+            margin: 3.5rem auto 0;
+            padding: 0 3rem;
+        }
+
+        .memberships-label {
+            border-top: 1px solid var(--border);
+            padding-top: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .memberships-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem 4rem;
+        }
+
+        .member-item { height: auto; }
+
+        .partner-logo.member-logo {
+            max-width: none;
+            max-height: none;
+            height: 64px;
+            opacity: 0.8;
+        }
+
         /* ── CTA ── */
         .cta {
             padding: 12rem 3rem;
@@ -982,6 +1011,9 @@
                 max-width: 175px;
                 max-height: 38px;
             }
+            .memberships { margin-top: 2.25rem; padding-left: 1.5rem; padding-right: 1.5rem; }
+            .memberships-label { padding-top: 2.25rem; margin-bottom: 1.6rem; }
+            .partner-logo.member-logo { height: 54px; }
             .industry-list { grid-template-columns: 1fr; }
             .industry-item { border-right: none !important; border-bottom: 1px solid var(--border) !important; }
             .industry-item:last-child { border-bottom: none !important; }
