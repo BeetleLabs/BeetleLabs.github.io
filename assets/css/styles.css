@@ -1356,3 +1356,21 @@
             .product-left { border-right: none; border-bottom: 1px solid var(--border); }
             .bottom-cta-inner { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
         }
+        /* ── REDUCED MOTION ── */
+        @media (prefers-reduced-motion: reduce) {
+            /* Kill all CSS transitions and keyframe animations */
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            /* Scroll reveals: show immediately, no movement */
+            .fade-in-up {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+            /* Starfield canvas: hide it */
+            #cosmos-canvas { display: none; }
+            /* Grain overlay: hide it */
+            body::after { display: none; }
+        }

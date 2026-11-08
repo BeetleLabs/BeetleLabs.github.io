@@ -147,13 +147,17 @@
 
   // ── 5. CUSTOM CURSOR ───────────────────────────────────────
   function initCursor() {
-    // Only on pointer devices
+    // Only on pointer devices; skip entirely when motion is reduced
     if (!window.matchMedia('(pointer: fine)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     const cursor = document.getElementById('cursor');
     const ring   = document.getElementById('cursor-ring');
     if (!cursor || !ring) return;
 
     let cx = 0, cy = 0, rx = 0, ry = 0;
+    let rafId = null;
+    let running = true;
 
     // The desktop layout is scaled with CSS `zoom` (see styles.css). MouseEvent
     // coordinates are reported in real viewport pixels, but position:fixed
@@ -173,13 +177,25 @@
     });
 
     function animateRing() {
+      if (!running) return;
       rx += (cx - rx) * 0.12;
       ry += (cy - ry) * 0.12;
       ring.style.left = rx + 'px';
       ring.style.top  = ry + 'px';
-      requestAnimationFrame(animateRing);
+      rafId = requestAnimationFrame(animateRing);
     }
     animateRing();
+
+    // Pause the ring loop when the tab is hidden; resume when it comes back
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        running = false;
+        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+      } else {
+        running = true;
+        animateRing();
+      }
+    });
 
     function grow() {
       cursor.style.width  = '12px'; cursor.style.height = '12px';
@@ -211,8 +227,14 @@
   function initCanvas() {
     const canvas = document.getElementById('cosmos-canvas');
     if (!canvas) return;
+
+    // Skip entirely when motion is reduced — canvas stays hidden via CSS opacity:0 on light theme
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     const ctx = canvas.getContext('2d');
     let W, H, stars = [], nebula = [];
+    let rafId = null;
+    let running = true;
 
     function resize() {
       W = canvas.width  = window.innerWidth;
@@ -243,6 +265,7 @@
 
     let frame = 0;
     function draw() {
+      if (!running) return;
       ctx.clearRect(0, 0, W, H);
       frame++;
       nebula.forEach(n => {
@@ -261,8 +284,19 @@
         ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(200, 220, 210, ${s.a})`; ctx.fill();
       });
-      requestAnimationFrame(draw);
+      rafId = requestAnimationFrame(draw);
     }
+
+    // Pause when tab is hidden; resume when it comes back
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        running = false;
+        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+      } else {
+        running = true;
+        draw();
+      }
+    });
 
     resize(); initStars(); draw();
     window.addEventListener('resize', () => { resize(); initStars(); }, { passive: true });

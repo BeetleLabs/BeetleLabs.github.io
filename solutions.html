@@ -464,6 +464,8 @@
   var timer;
   var transitioning = false;
   var FADE_MS = 500;
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hovered = false;
 
   function updateChrome(idx){
     dots.forEach(function(d, i){ d.classList.toggle('active', i === idx); });
@@ -493,8 +495,21 @@
 
   function resetTimer(){
     clearInterval(timer);
+    // Skip autoplay when motion is reduced, the tab is hidden, or the user is hovering
+    if (reducedMotion || document.hidden || hovered) return;
     timer = setInterval(function(){ show(current + 1); }, 5600);
   }
+
+  // Pause when the tab is hidden; resume when it comes back
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden) { clearInterval(timer); } else { resetTimer(); }
+  });
+
+  // Pause on hover or focus; resume when the pointer leaves / focus moves away
+  window_.addEventListener('mouseenter', function(){ hovered = true; clearInterval(timer); });
+  window_.addEventListener('mouseleave', function(){ hovered = false; resetTimer(); });
+  window_.addEventListener('focusin',    function(){ hovered = true; clearInterval(timer); });
+  window_.addEventListener('focusout',   function(){ hovered = false; resetTimer(); });
 
   dots.forEach(function(d){
     d.addEventListener('click', function(){ show(parseInt(d.getAttribute('data-goto'), 10)); resetTimer(); });
