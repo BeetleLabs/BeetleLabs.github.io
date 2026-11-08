@@ -491,50 +491,50 @@
 
         <div class="fpp-expectations">
             <div class="fpp-exp-item">
-                <button class="fpp-exp-trigger">
+                <button class="fpp-exp-trigger" aria-expanded="false" aria-controls="fpp-body-1">
                     <div class="fpp-exp-trigger-left">
                         <span class="fpp-exp-num">01</span>
                         <span class="fpp-exp-title">One 30-minute call per week</span>
                     </div>
                     <span class="fpp-exp-arrow">→</span>
                 </button>
-                <div class="fpp-exp-body">
+                <div class="fpp-exp-body" id="fpp-body-1">
                     <div class="fpp-exp-body-inner">A working call, not a status update. We review what shipped, what broke, and what to prioritize next. Your feedback lives here — no written reports required.</div>
                 </div>
             </div>
             <div class="fpp-exp-item">
-                <button class="fpp-exp-trigger">
+                <button class="fpp-exp-trigger" aria-expanded="false" aria-controls="fpp-body-2">
                     <div class="fpp-exp-trigger-left">
                         <span class="fpp-exp-num">02</span>
                         <span class="fpp-exp-title">Real usage on real files</span>
                     </div>
                     <span class="fpp-exp-arrow">→</span>
                 </button>
-                <div class="fpp-exp-body">
+                <div class="fpp-exp-body" id="fpp-body-2">
                     <div class="fpp-exp-body-inner">Not test data. Not demos. Actual clients, actual work, a minimum of a few times per week. Usage on real files is what surfaces real problems. That is the whole point.</div>
                 </div>
             </div>
             <div class="fpp-exp-item">
-                <button class="fpp-exp-trigger">
+                <button class="fpp-exp-trigger" aria-expanded="false" aria-controls="fpp-body-3">
                     <div class="fpp-exp-trigger-left">
                         <span class="fpp-exp-num">03</span>
                         <span class="fpp-exp-title">Same-day problem reporting</span>
                     </div>
                     <span class="fpp-exp-arrow">→</span>
                 </button>
-                <div class="fpp-exp-body">
+                <div class="fpp-exp-body" id="fpp-body-3">
                     <div class="fpp-exp-body-inner">If something breaks or produces a wrong result on a real file, we need to know that day — not at the next weekly call. A quick message is enough. Speed of feedback is what keeps the build moving.</div>
                 </div>
             </div>
             <div class="fpp-exp-item">
-                <button class="fpp-exp-trigger">
+                <button class="fpp-exp-trigger" aria-expanded="false" aria-controls="fpp-body-4">
                     <div class="fpp-exp-trigger-left">
                         <span class="fpp-exp-num">04</span>
                         <span class="fpp-exp-title">One designated point of contact</span>
                     </div>
                     <span class="fpp-exp-arrow">→</span>
                 </button>
-                <div class="fpp-exp-body">
+                <div class="fpp-exp-body" id="fpp-body-4">
                     <div class="fpp-exp-body-inner">A senior person on your side who owns the relationship — attends the weekly calls, runs the real tests, and gives the direct feedback. Not a rotating door of people. One person who knows the product and stays involved.</div>
                 </div>
             </div>
@@ -611,8 +611,14 @@
         trigger.addEventListener('click', () => {
             const item = trigger.closest('.fpp-exp-item');
             const isOpen = item.classList.contains('open');
-            document.querySelectorAll('.fpp-exp-item').forEach(i => i.classList.remove('open'));
-            if (!isOpen) item.classList.add('open');
+            document.querySelectorAll('.fpp-exp-item').forEach(i => {
+                i.classList.remove('open');
+                i.querySelector('.fpp-exp-trigger').setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+                item.classList.add('open');
+                trigger.setAttribute('aria-expanded', 'true');
+            }
         });
     });
 </script>
