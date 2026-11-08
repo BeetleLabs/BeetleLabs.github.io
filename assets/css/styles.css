@@ -61,7 +61,12 @@
             font-weight: 300;
             overflow-x: hidden;
             transition: background 0.4s var(--easing), color 0.4s var(--easing);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
+
+        h1, h2, h3, h4 { text-wrap: balance; }
+        p { text-wrap: pretty; }
 
         /* ── CANVAS ── */
         #cosmos-canvas {
@@ -87,7 +92,7 @@
             background: rgba(10,10,10,0.6);
             backdrop-filter: blur(24px);
             border-bottom: 1px solid var(--border);
-            transition: all 0.4s var(--easing);
+            transition: background 0.4s var(--easing), border-color 0.4s var(--easing), backdrop-filter 0.4s var(--easing);
         }
 
         [data-theme="light"] nav {
@@ -222,7 +227,7 @@
 
         /* ── HERO ── */
         .hero {
-            min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -602,6 +607,7 @@
             letter-spacing: -0.03em;
             color: var(--text);
             margin-bottom: 0.5rem;
+            font-variant-numeric: tabular-nums;
         }
 
         .metric-num span {
@@ -1356,6 +1362,17 @@
             .product-left { border-right: none; border-bottom: 1px solid var(--border); }
             .bottom-cta-inner { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
         }
+        /* ── HOVER GATING: only apply hover motion on devices that have hover ──
+           Prevents touch devices from getting "stuck" hover states after a tap */
+        @media (hover: hover) and (pointer: fine) {
+            .service-card:hover,
+            .process-step:hover,
+            .suite-strip-item:hover,
+            .partner-item:hover,
+            .outcome-item:hover { background: var(--bg3); }
+            .btn-ghost:hover { border-color: var(--border-hover); color: var(--text); }
+        }
+
         /* ── REDUCED MOTION ── */
         @media (prefers-reduced-motion: reduce) {
             /* Kill all CSS transitions and keyframe animations */
