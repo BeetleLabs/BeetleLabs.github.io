@@ -1400,7 +1400,6 @@
             .service-card:hover,
             .process-step:hover,
             .suite-strip-item:hover,
-            .partner-item:hover,
             .outcome-item:hover { background: var(--bg3); }
             .btn-ghost:hover { border-color: var(--border-hover); color: var(--text); }
         }
